@@ -23,7 +23,7 @@ class WidgetUtil {
           Get.context,
           MaterialPageRoute(
               builder: (c) => DetailIndex(
-                product: product,
+                    product: product,
                   )));
     }
   }
