@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 
 double get w => (Get.width - (kDefaultPadded * 3)) / 3;
 
+/// 商品横向列表
 class ProductHorizontalList extends StatelessWidget {
   final List<Product> products;
   final ValueChanged<Product> itemOnTap;
