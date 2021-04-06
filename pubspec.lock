@@ -91,7 +91,7 @@ packages:
       name: dd_taoke_sdk
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.2.3"
+    version: "0.2.4"
   decimal:
     dependency: transitive
     description:

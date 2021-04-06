@@ -16,11 +16,8 @@ class LoadingWidget extends StatelessWidget {
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
       ),
-      body: Container(
-        height: Get.height-kToolbarHeight,
-        child: Center(
-          child: CupertinoActivityIndicator(),
-        ),
+      body: Center(
+        child: CupertinoActivityIndicator(),
       ),
     );
   }
