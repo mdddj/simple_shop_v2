@@ -3,13 +3,14 @@ import 'package:dd_tk_shop/screen/index/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'screen/intelligence/view.dart';
 import 'widget/loading/simple_loadings.dart';
 
 const kTabData = [
   {'layout': '首页', 'icon': Icons.home},
   {'layout': '分类', 'icon': Icons.category},
   {'layout': '搜索', 'icon': Icons.search},
-  {'layout': '消息', 'icon': Icons.message},
+  {'layout': '消息', 'icon': Icons.schedule},
   {'layout': '瞎逛', 'icon': Icons.whatshot},
 ];
 
@@ -78,6 +79,8 @@ class _MainTabbarsState extends State<MainTabbars>
     switch (data['layout']) {
       case '首页':
         return AppIndex();
+        case '消息':
+          return IntelligencePage();
       default:
         return Container(
           child: Text(data['layout']),
