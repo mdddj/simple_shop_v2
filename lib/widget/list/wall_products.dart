@@ -1,6 +1,5 @@
 import 'package:dd_taoke_sdk/model/product.dart';
 import 'package:dd_tk_shop/constant/app_constant.dart';
-import 'package:dd_tk_shop/screen/detail/index.dart';
 import 'package:dd_tk_shop/util/extended_util.dart';
 import 'package:dd_tk_shop/util/widget_util.dart';
 import 'package:extended_image/extended_image.dart';

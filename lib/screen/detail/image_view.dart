@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dd_taoke_sdk/model/product.dart';
 import 'package:dd_tk_shop/constant/app_constant.dart';
 import 'package:dd_tk_shop/model/product_detail_model.dart';
@@ -49,7 +47,7 @@ class ImageView extends StatelessWidget {
             ),
           if (list.isNotEmpty)
             ListView.builder(
-              itemBuilder: (c,i){
+              itemBuilder: (c, i) {
                 return renderItem(list[i]);
               },
               itemCount: list.length,
@@ -60,7 +58,6 @@ class ImageView extends StatelessWidget {
       ),
     );
   }
-
 
   Widget renderItem(DetailImage img) {
     final w = Get.width;

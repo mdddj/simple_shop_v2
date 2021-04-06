@@ -11,7 +11,6 @@ import 'package:expandable_text/expandable_text.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flustars/flustars.dart' hide WidgetUtil;
 import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:get/get.dart';
 import 'package:dd_tk_shop/util/extended_util.dart';

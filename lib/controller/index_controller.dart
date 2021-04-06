@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
 import 'package:dd_taoke_sdk/model/carousel_model.dart';
