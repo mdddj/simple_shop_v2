@@ -15,7 +15,6 @@ class IndexController extends GetxController {
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   final service = ApiService.instance;
 
-
   // 显示商品列表
   var indexProducts = RxList<Product>([]);
 
@@ -25,7 +24,7 @@ class IndexController extends GetxController {
   var loading = true.obs;
 
   @override
- void onInit()async{
+  void onInit() async {
     await getTimeBuyProducts();
     await getIndexShowProducts();
     await getCarousels();
@@ -38,18 +37,17 @@ class IndexController extends GetxController {
     Get.log('下标;$index , ${category.cname}');
   }
 
-
   // 加载限时抢购数据
-  Future<void> getTimeBuyProducts() async {
-  }
+  Future<void> getTimeBuyProducts() async {}
 
   // 获取首页的商品列表
   Future<void> getIndexShowProducts() async {
-    DdTaokeSdk.instance.getProducts(param: ProductListParam(pageId: '1')).then((value) {
+    DdTaokeSdk.instance
+        .getProducts(param: ProductListParam(pageId: '1'))
+        .then((value) {
       indexProducts.addAll(value.list);
       update();
     });
-
   }
 
   /// 获取轮播图数据

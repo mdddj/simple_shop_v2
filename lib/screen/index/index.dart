@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dd_tk_shop/controller/app_controller.dart';
 import 'package:dd_tk_shop/controller/index_controller.dart';
 import 'package:dd_tk_shop/service/impl/render_widget_service.dart';
@@ -58,17 +60,21 @@ class _AppIndexState extends State<AppIndex>
   }
 
   Widget carousel() {
+    final list = IndexController.find.carousels;
     return Container(
       width: Get.width - 24,
       height: 200,
       child: Swiper(
-        autoplay: IndexController.find.carousels.isNotEmpty,
-        itemCount: IndexController.find.carousels.length,
+        autoplay: list.isNotEmpty,
+        itemCount: list.length,
         itemBuilder: (_, index) {
           return ExtendedImage.network(
-            IndexController.find.carousels[index].topicImage,
+            list[index].topicImage,
             loadStateChanged: WidgetUtil.instance.s,
           );
+        },
+        onTap: (int index){
+          print('${jsonEncode(list[index])}');
         },
       ),
     );
