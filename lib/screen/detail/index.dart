@@ -88,7 +88,11 @@ class _DetailIndexState extends State<DetailIndex>
       ),
       body: Stack(
         children: [
-          ListView.builder(itemBuilder: _builder),
+          ListView.builder(
+            itemBuilder: _builder,
+            itemCount: 5,
+            controller: scrollController,
+          ),
           renderBottomAction(),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:after_layout/after_layout.dart';
+import 'package:dd_tk_shop/screen/category/view.dart';
 import 'package:dd_tk_shop/screen/index/index.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -79,8 +80,10 @@ class _MainTabbarsState extends State<MainTabbars>
     switch (data['layout']) {
       case '首页':
         return AppIndex();
-        case '消息':
-          return IntelligencePage();
+      case '消息':
+        return IntelligencePage();
+      case '分类':
+        return CategoryPage();
       default:
         return Container(
           child: Text(data['layout']),
