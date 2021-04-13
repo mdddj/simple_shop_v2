@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 class CategoryProductListLogic extends GetxController {
+  static CategoryProductListLogic get instance => Get.find<CategoryProductListLogic>();
   var panentId = ''.obs; // 父分类id
   var childId = ''.obs; // 子分类id
 
@@ -50,5 +51,12 @@ class CategoryProductListLogic extends GetxController {
       products.addAll(result.list);
       update();
     }
+  }
+
+  /// 加载下一页
+  Future<void> nextPage() async {
+    pageId.value +=1;
+    await loadData();
+    update();
   }
 }
