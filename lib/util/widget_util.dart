@@ -1,9 +1,14 @@
+import 'dart:convert';
+
+import 'package:dd_taoke_sdk/model/category.dart';
 import 'package:dd_taoke_sdk/model/product.dart';
 import 'package:dd_tk_shop/screen/detail/index.dart';
+import 'package:dd_tk_shop/screen/list/category_product_list/view.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class WidgetUtil {
   WidgetUtil._();
@@ -49,7 +54,7 @@ class WidgetUtil {
     );
   }
 
-  // 图片加载loading
+  /// 图片加载loading
   Widget s(ExtendedImageState state) {
     final w = state.imageWidget;
     final wd = w.width;
@@ -87,5 +92,17 @@ class WidgetUtil {
         return Container();
         break;
     }
+  }
+
+  /// 跳转到分类页面
+  void toCategoryPage(Category category, {String childId = ''}) {
+    final box = GetStorage();
+    box.write('category-load', jsonEncode(category));
+    if (childId.isNotEmpty) {
+      box.write('category-child', childId);
+    } else {
+      box.remove('category-child');
+    }
+    Get.to(() => CategoryProductListPage());
   }
 }

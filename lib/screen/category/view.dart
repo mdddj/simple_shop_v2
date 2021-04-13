@@ -1,3 +1,4 @@
+import 'package:dd_tk_shop/util/widget_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waterfall_flow/waterfall_flow.dart';
@@ -40,9 +41,14 @@ class CategoryPage extends StatelessWidget {
                   crossAxisCount: 3, mainAxisSpacing: 12, crossAxisSpacing: 12),
               itemBuilder: (_, index) {
                 final item = logic.currCategory.value.subcategories[index];
-                return Container(
-                  child: Column(
-                    children: [Image.network(item.scpic), Text(item.subcname)],
+                return GestureDetector(
+                  onTap: (){
+                    WidgetUtil.instance.toCategoryPage(logic.currCategory.value,childId: item.subcid.toString());
+                  },
+                  child: Container(
+                    child: Column(
+                      children: [Image.network(item.scpic), Text(item.subcname)],
+                    ),
                   ),
                 );
               },
