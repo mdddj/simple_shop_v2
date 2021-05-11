@@ -1,0 +1,49 @@
+name: dd_tk_shop
+description: 典典的小卖部v2版本
+
+publish_to: 'none'
+
+version: 1.1.1
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.3
+  get: ^4.1.4
+  provider: ^5.0.0
+  after_layout: ^1.1.0
+  dio: ^4.0.0
+  crypto: ^3.0.1
+  encrypt: ^5.0.0
+  url_launcher: ^6.0.3
+  flustars: ^2.0.1
+  extended_image: ^4.1.0
+  flutter_easyrefresh: ^2.2.1
+  expandable_text: ^2.0.0
+  shimmer: ^2.0.0
+  get_storage: ^2.0.2
+  dd_taoke_sdk: ^1.0.3
+  waterfall_flow: ^3.0.1
+  flutter_spinkit: ^5.0.0
+  extended_nested_scroll_view: ^3.0.0
+  loading_more_list: ^4.0.0 # 加载更多
+  get_it: ^7.1.3  # 状态管理框架
+  extended_list: ^3.0.0 # Listview扩展
+  carousel_pro_nullsafety: ^1.0.2 # 轮播图
+  flutter_native_splash: ^1.1.8+4 # 开屏图片制作
+  auto_animated: ^3.0.0 # 列表和网格动画
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  assets:
+    - assets/image/
+    - assets/help/
+  uses-material-design: true
