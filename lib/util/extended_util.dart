@@ -72,7 +72,16 @@ extension StringUtil on String {
 
   /// 在字符串前面添加人民币符号
   String get coverRmbPrice => '$rmb $this';
+
+  /// 跳转到浏览器
+  Future<void> launchUrl() async {
+    if(await canLaunch(this)){
+    await launch(this);
+    }
+  }
 }
+
+
 
 extension DoubleUtil on double? {
   String toRMB() {

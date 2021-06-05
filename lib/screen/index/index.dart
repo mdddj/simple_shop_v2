@@ -11,6 +11,8 @@ import '../../widget/index/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'waimai.dart';
+
 class AppIndex extends StatefulWidget {
   @override
   _AppIndexState createState() => _AppIndexState();
@@ -31,7 +33,7 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
       body: NestedScrollView(
         body: _renderBody(),
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return [_renderAppbar(), _renderCategory(), _renderCarousel()];
+          return [_renderAppbar(),_renderCategory(), SliverToBoxAdapter(child: Waimai()), _renderCarousel()];
         },
       ),
     );

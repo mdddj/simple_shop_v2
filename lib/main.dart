@@ -16,7 +16,7 @@ import 'main_tabbars.dart';
 
 ///
 void main() async {
-  DdTaokeUtil.instance.init('http://192.168.199.85', '8088', proxy: '');
+  DdTaokeUtil.instance.init('http://itbug.shop', '8088', proxy: '');
   Get.put(AppService());
   Get.put(ApiService());
   Get.put(AppController());
