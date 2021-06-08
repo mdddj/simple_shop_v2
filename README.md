@@ -19,7 +19,7 @@ flutter run // 运行在安卓设备
 
 ```dart
 /// 替换成这句,有数据就不要替换了
-DdTaokeUtil.instance.init('http://itbug.shop', '8088', proxy: '');
+DdTaokeUtil.instance.init('http://itbug.shop', '80', proxy: '');
 ```
 
 **运行后数据啥的都有,没有报错,没有警告提示,此项目仅供学习**
