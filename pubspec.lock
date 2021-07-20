@@ -119,7 +119,7 @@ packages:
       name: dd_taoke_sdk
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.3"
+    version: "1.3.2"
   decimal:
     dependency: transitive
     description:
@@ -190,6 +190,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
+  fcontrol_nullsafety:
+    dependency: transitive
+    description:
+      name: fcontrol_nullsafety
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.0"
   ffi:
     dependency: transitive
     description:
@@ -216,6 +223,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_blurhash:
+    dependency: "direct main"
+    description:
+      name: flutter_blurhash
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.6.0"
   flutter_easyrefresh:
     dependency: "direct main"
     description:
@@ -247,6 +261,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "9.1.0"
+  fsuper_nullsafety:
+    dependency: "direct main"
+    description:
+      name: fsuper_nullsafety
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.1"
   get:
     dependency: "direct main"
     description:
@@ -317,6 +345,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.1"
+  logger:
+    dependency: transitive
+    description:
+      name: logger
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   matcher:
     dependency: transitive
     description:

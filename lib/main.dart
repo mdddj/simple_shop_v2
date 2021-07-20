@@ -16,7 +16,7 @@ import 'main_tabbars.dart';
 
 ///
 void main() async {
-  DdTaokeUtil.instance.init('http://itbug.shop', '8088', proxy: '');
+  DdTaokeUtil.instance.init('https://itbug.shop', '443', proxy: '');
   Get.put(AppService());
   Get.put(ApiService());
   Get.put(AppController());
@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         defaultTransition: Transition.native,
         theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          primaryColor: Colors.white
         ),
         home: MainTabbars(),
       ),

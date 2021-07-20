@@ -1,5 +1,5 @@
 import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/activity_link_result.dart';
+import 'package:dd_taoke_sdk/model/activity-link_result.dart';
 import 'package:dd_taoke_sdk/params/activity_link_param.dart';
 import 'package:get/get.dart';
 import '../../util/extended_util.dart';
