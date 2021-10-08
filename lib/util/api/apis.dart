@@ -23,10 +23,8 @@ class Api extends ApiService {
   /// 函数返回bool类型,true表示成功
   @override
   Future<bool> login(String username, String password, {ValueChanged<String>? tokenHandle, ValueChanged<String>? loginFail}) async {
-    final result = await request.post('/api/user/login', data: {'loginNumber': username, 'password': password}, error: (int? code, String? msg) {
-      if (msg != null) {
-        loginFail?.call(msg);
-      }
+    final result = await request.post('/api/user/login', data: {'loginNumber': username, 'password': password}, error: (int code, String msg,dynamic data) {
+      loginFail?.call(msg);
     }, isTaokeApi: false);
     if (result.isNotEmpty) {
       Get.log('登录成功:$result');

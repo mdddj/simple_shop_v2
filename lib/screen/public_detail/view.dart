@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:dd_tk_shop/components/utils.dart';
-import 'package:dd_tk_shop/service/api_service.dart';
-import 'package:dd_tk_shop/widget/image/simple_image.dart';
-import 'package:dd_tk_shop/widget/loading/simple_loadings.dart';
+import '../../components/utils.dart';
+import '../../service/api_service.dart';
+import '../../widget/image/simple_image.dart';
+import '../../widget/loading/simple_loadings.dart';
 
 import '../../components/no_shadow_croll_ehavior.dart';
 import 'package:extended_image/extended_image.dart';

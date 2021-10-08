@@ -25,7 +25,9 @@ class RequestParamsUtils{
         if (bl.length <= i) return 1;
         if (al[i] > bl[i]) {
           return 1;
-        } else if (al[i] < bl[i]) return -1;
+        } else if (al[i] < bl[i]) {
+          return -1;
+        }
       }
       return 0;
     });

@@ -66,7 +66,7 @@ class Utils {
 
   // 打开淘宝
   Future<void> openTaobao(String url) async {
-    urlToApp(url, 'taobao://');
+    await urlToApp(url, 'taobao://');
   }
 
   String urlHandle(String url) {
