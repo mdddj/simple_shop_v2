@@ -16,12 +16,12 @@ dependencies:
   get: ^4.3.8
   provider: ^6.0.1
   after_layout: ^1.1.0
-  dio: ^4.0.0
+  dio: ^4.0.1
   crypto: ^3.0.1
   encrypt: ^5.0.1
   url_launcher: ^6.0.12
   flustars: ^2.0.1
-  extended_image: ^5.1.2
+  extended_image: ^5.1.3
   flutter_easyrefresh: ^2.2.1
   expandable_text: ^2.2.0
   shimmer: ^2.0.0
@@ -34,10 +34,18 @@ dependencies:
   get_it: ^7.2.0  # 状态管理框架
   extended_list: ^3.0.0 # Listview扩展
   carousel_pro_nullsafety: ^1.0.2 # 轮播图
-  flutter_native_splash: ^1.2.4 # 开屏图片制作
-  auto_animated: ^3.0.0 # 列表和网格动画
-  flutter_blurhash: ^0.6.0 # 模糊背景
-  font_awesome_flutter: ^9.1.0 # icon图标扩展
+
+  # 开屏图片制作
+  flutter_native_splash: ^1.3.1
+
+  # 列表和网格动画
+  auto_animated: ^3.0.1
+
+  # 模糊背景
+  flutter_blurhash: ^0.6.0
+
+  # icon图标扩展
+  font_awesome_flutter: ^9.2.0
   fsuper_nullsafety: ^3.0.1
 
 dev_dependencies:
