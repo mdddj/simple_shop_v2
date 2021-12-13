@@ -1,12 +1,11 @@
 import 'dart:convert';
 
-import 'package:dd_taoke_sdk/model/category.dart';
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/product.dart';
 import '../widget/loading/skeleton.dart';
 import '../screen/detail/index.dart';
 import '../screen/list/category_product_list/view.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

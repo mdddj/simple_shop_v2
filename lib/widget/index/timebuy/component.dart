@@ -1,12 +1,11 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+
 import '../../../constant/app_constant.dart';
 import '../../product/product.dart';
 import 'package:flutter/material.dart';
 
 /// 限时抢购首页组件
 class TimebuyComponent extends StatelessWidget {
-
-
   final List<Product>? products;
 
   const TimebuyComponent({Key? key, this.products}) : super(key: key);
@@ -19,7 +18,7 @@ class TimebuyComponent extends StatelessWidget {
   Container renderBody() {
     return Container(
       child: Column(
-        children: [ renderProducts()],
+        children: [renderProducts()],
       ),
     );
   }

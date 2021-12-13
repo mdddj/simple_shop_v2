@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+
 import '../../util/widget_util.dart';
 import '../../constant/color_constant.dart';
 import 'package:extended_image/extended_image.dart';
@@ -14,7 +15,8 @@ class SearchListComponent extends StatefulWidget {
   final SearchRepostory searchRepostory;
   final ScrollController? controller;
 
-  const SearchListComponent({Key? key, required this.searchRepostory, this.controller})
+  const SearchListComponent(
+      {Key? key, required this.searchRepostory, this.controller})
       : super(key: key);
 
   @override
@@ -54,8 +56,10 @@ class _SearchListComponentState extends State<SearchListComponent> {
           elevation: 3,
           borderRadius: _radius,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: kDefaultPadded, vertical: kDefaultPadded),
-            decoration: BoxDecoration(color: Colors.white, borderRadius: _radius),
+            padding: EdgeInsets.symmetric(
+                horizontal: kDefaultPadded, vertical: kDefaultPadded),
+            decoration:
+                BoxDecoration(color: Colors.white, borderRadius: _radius),
             child: Row(
               children: [
                 SizedBox(
@@ -81,7 +85,8 @@ class _SearchListComponentState extends State<SearchListComponent> {
                         ),
                         Text(
                           '券后 ' + '${item.actualPrice}'.coverRmbPrice,
-                          style: TextStyle(color: kPriceValueColor, fontSize: 15),
+                          style:
+                              TextStyle(color: kPriceValueColor, fontSize: 15),
                         )
                       ],
                     ),

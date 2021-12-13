@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+
 import '../../constant/color_constant.dart';
 import '../../util/extended_util.dart';
 import '../../widget/image/simple_image.dart';
@@ -31,8 +32,10 @@ class _IntelligencePageState extends State<IntelligencePage>
       builder: (logic) {
         return Scaffold(
           appBar: _appbar as PreferredSizeWidget?,
-          body:logic.initLoading.value ? kLoadingWidget : ListView.builder(
-              itemBuilder: _builder, itemCount: logic.list.length),
+          body: logic.initLoading.value
+              ? kLoadingWidget
+              : ListView.builder(
+                  itemBuilder: _builder, itemCount: logic.list.length),
         );
       },
       init: IntelligenceLogic(),
@@ -91,16 +94,20 @@ class _IntelligencePageState extends State<IntelligencePage>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TextButton(onPressed: (){
-                Utils().copy(item.title);
-
-              }, child: Text('复制文案')),
-              TextButton(onPressed: () async {
-              final result =  await DdTaokeSdk.instance.getCouponsDetail(taobaoGoodsId: item.itemId!);
-              if(result!=null){
-                await Utils().openTaobao(result.couponClickUrl!);
-              }
-              }, child: Text('去购买')),
+              TextButton(
+                  onPressed: () {
+                    Utils().copy(item.title);
+                  },
+                  child: Text('复制文案')),
+              TextButton(
+                  onPressed: () async {
+                    final result = await DdTaokeSdk.instance
+                        .getCouponsDetail(taobaoGoodsId: item.itemId!);
+                    if (result != null) {
+                      await Utils().openTaobao(result.couponClickUrl!);
+                    }
+                  },
+                  child: Text('去购买')),
             ],
           )
         ],
@@ -114,5 +121,4 @@ class _IntelligencePageState extends State<IntelligencePage>
         controller: tabController,
         changeIndex: IntelligenceLogic.instance.onChange,
       ));
-
 }

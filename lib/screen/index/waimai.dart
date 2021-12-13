@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/params/activity_link_param.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/params/activity_link_param.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,8 +19,7 @@ class _WaimaiState extends State<Waimai> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 12),
       child: ElevatedButton(
-        onPressed: () async{
-
+        onPressed: () async {
           // await Get.dialog(AlertDialog(
           //   title: Text('领取饿了么外卖券'),
           //   content: SingleChildScrollView(
@@ -32,14 +31,15 @@ class _WaimaiState extends State<Waimai> {
           //   ),
           // ));
 
-         final result  = await DdTaokeSdk.instance.getActivityLink(ActivityLinkParam(promotionSceneId: '20150318019998877'));
-         print('${jsonEncode(result)}');
-         if(result!=null){
-           final url = result.clickUrl;
-           if(await canLaunch(url)){
-             await launch(url);
-           }
-         }
+          final result = await DdTaokeSdk.instance.getActivityLink(
+              ActivityLinkParam(promotionSceneId: '20150318019998877'));
+          print('${jsonEncode(result)}');
+          if (result != null) {
+            final url = result.clickUrl;
+            if (await canLaunch(url)) {
+              await launch(url);
+            }
+          }
         },
         child: Text('领取外卖优惠券(每天只能领一次)'),
       ),

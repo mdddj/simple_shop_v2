@@ -1,7 +1,7 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/coupon_link_result.dart';
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/model/coupon_link_result.dart';
+import 'package:dataoke_sdk/model/product.dart';
 import '../other/help.dart';
 import '../../constant/app_constant.dart';
 import '../../mixin/detail_mixin.dart';
@@ -29,7 +29,8 @@ class DetailIndex extends StatefulWidget {
   _DetailIndexState createState() => _DetailIndexState();
 }
 
-class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailIndex>, DetailMixin {
+class _DetailIndexState extends State<DetailIndex>
+    with AfterLayoutMixin<DetailIndex>, DetailMixin {
   final scrollController = ScrollController();
   var showToTopButton = false;
 
@@ -84,9 +85,7 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
         ),
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
-        actions: [IconButton(icon: Icon(Icons.share), onPressed: () {
-
-        })],
+        actions: [IconButton(icon: Icon(Icons.share), onPressed: () {})],
       ),
       body: Stack(
         children: [
@@ -110,8 +109,8 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
               ),
             )
           : null,
-      floatingActionButtonLocation:
-          CustomFloatingActionButtonLocation(FloatingActionButtonLocation.endFloat, 0, -65),
+      floatingActionButtonLocation: CustomFloatingActionButtonLocation(
+          FloatingActionButtonLocation.endFloat, 0, -65),
     );
   }
 
@@ -153,7 +152,9 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
           ),
           child: Row(
             children: [
-              IconButton(icon: Icon(Icons.help), onPressed: () => Get.to(() => HelpPage())),
+              IconButton(
+                  icon: Icon(Icons.help),
+                  onPressed: () => Get.to(() => HelpPage())),
               Expanded(
                   child: Flex(
                 direction: Axis.horizontal,
@@ -208,8 +209,9 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
     return Container(
       decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius:
-              BorderRadius.only(bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15))),
       child: Column(
         children: [
           renderImages(),
@@ -239,7 +241,10 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
                 borderRadius: BorderRadius.all(Radius.circular(8))),
             child: Text(
               '${NumUtil.getNumByValueDouble(detail!.couponPrice, 0)}元隐藏券',
-              style: TextStyle(fontSize: 14, color: Colors.pink, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.pink,
+                  fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -278,11 +283,13 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
         children: [
           Container(
             decoration: BoxDecoration(
-                color: Colors.white, border: Border.all(color: Colors.orange.withOpacity(.23))),
+                color: Colors.white,
+                border: Border.all(color: Colors.orange.withOpacity(.23))),
             padding: EdgeInsets.symmetric(horizontal: kDefaultPadded / 2),
             child: Text(
               '${detail!.subdivisionName}喜爱榜No.${detail!.subdivisionRank}',
-              style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
             ),
           )
         ],
@@ -307,7 +314,8 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
                     Container(
                       child: Text(
                         '${detail!.title}',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -372,8 +380,10 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
           ),
           Text(
             '淘宝价${detail!.originalPrice.toRMB()}',
-            style:
-                TextStyle(color: Colors.grey, fontSize: 12, decoration: TextDecoration.lineThrough),
+            style: TextStyle(
+                color: Colors.grey,
+                fontSize: 12,
+                decoration: TextDecoration.lineThrough),
           )
         ],
       ),
@@ -414,7 +424,8 @@ class _DetailIndexState extends State<DetailIndex> with AfterLayoutMixin<DetailI
 
   @override
   void afterFirstLayout(BuildContext context) async {
-    final result = await DdTaokeSdk.instance.getDetailBaseData(productId: '${widget.product!.id}');
+    final result = await DdTaokeSdk.instance
+        .getDetailBaseData(productId: '${widget.product!.id}');
 
     if (result != null) {
       var similarList = result.similarProducts ?? [];

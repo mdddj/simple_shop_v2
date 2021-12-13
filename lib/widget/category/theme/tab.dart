@@ -1,10 +1,10 @@
-import 'package:dd_taoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/category.dart';
+import 'package:get/get_utils/src/extensions/internacionalization.dart';
+
 import '../../../functions/fun_type.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class CategoryTabTheme extends StatelessWidget{
-
+class CategoryTabTheme extends StatelessWidget {
   final CategorySelectd? onSelect;
   final List<Category>? categorys;
 
@@ -31,5 +31,4 @@ class CategoryTabTheme extends StatelessWidget{
       child: Text('${item.cname!.tr}'),
     );
   }
-
 }

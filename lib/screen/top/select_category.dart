@@ -1,4 +1,4 @@
-import 'package:dd_taoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/category.dart';
 import '../../widget/category/category_select_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

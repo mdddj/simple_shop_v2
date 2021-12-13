@@ -1,4 +1,4 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
 import '../product/simple_card.dart';
 import 'package:flutter/material.dart';
 

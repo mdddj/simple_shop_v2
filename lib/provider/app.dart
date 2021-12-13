@@ -1,15 +1,12 @@
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/model/category.dart';
 import 'package:flutter/material.dart';
 
 /// app 全局的数据仓库
 class AppProvider extends ChangeNotifier {
-
-
-
   /// 构造函数,app启动的时候加载数据
   /// [getCategoryList] 加载分类数据
-  AppProvider(){
+  AppProvider() {
     getCategoryList();
   }
 
@@ -45,7 +42,7 @@ class AppProvider extends ChangeNotifier {
   }
 
   /// 改变当前选中的分类数据
-  void changeCurrentCategory(Category category){
+  void changeCurrentCategory(Category category) {
     currentCategory = category;
     notifyListeners();
   }

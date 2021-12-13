@@ -1,5 +1,5 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
 import 'repository.dart';
 import '../../widget/loading/loading_more_custom_indicator.dart';
 import '../../widget/product/wall_product_card.dart';

@@ -2,7 +2,6 @@ import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import '../loading/skeleton.dart';
 
 import '../image/simple_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// 轮播图组件
@@ -11,7 +10,8 @@ class CarouselComponent extends StatelessWidget {
   final List<String> images;
   final ValueChanged<int>? onTap;
 
-  const CarouselComponent({Key? key, required this.images, this.onTap}) : super(key: key);
+  const CarouselComponent({Key? key, required this.images, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

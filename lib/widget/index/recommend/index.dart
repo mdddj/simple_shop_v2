@@ -1,4 +1,4 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
 import '../../../constant/app_constant.dart';
 import '../../../util/widget_util.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +47,7 @@ class RecommendIndex extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                LayoutBuilderImage(url: item.mainPic,constraints: constraints),
+                LayoutBuilderImage(url: item.mainPic, constraints: constraints),
                 SizedBox(
                   height: 6,
                 ),

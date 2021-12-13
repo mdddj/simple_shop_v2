@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/network/util.dart';
+import 'package:dataoke_sdk/network/util.dart';
+
 import '../../components/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +11,6 @@ abstract class ApiService {
 
   // 接口访问失败返回
   void errorHandle(int? code, String? msg);
-
 }
 
 /// 接口
@@ -22,8 +22,12 @@ class Api extends ApiService {
   /// 可以通过token获取用户相关信息
   /// 函数返回bool类型,true表示成功
   @override
-  Future<bool> login(String username, String password, {ValueChanged<String>? tokenHandle, ValueChanged<String>? loginFail}) async {
-    final result = await request.post('/api/user/login', data: {'loginNumber': username, 'password': password}, error: (int code, String msg,dynamic data) {
+  Future<bool> login(String username, String password,
+      {ValueChanged<String>? tokenHandle,
+      ValueChanged<String>? loginFail}) async {
+    final result = await request.post('/api/user/login',
+        data: {'loginNumber': username, 'password': password},
+        error: (int code, String msg, dynamic data) {
       loginFail?.call(msg);
     }, isTaokeApi: false);
     if (result.isNotEmpty) {
@@ -46,7 +50,16 @@ class Api extends ApiService {
     return request.post(url, data: data, isTaokeApi: false);
   }
 
-  Future<String> get(String url,{Map<String,dynamic>? data,ResultDataMapHandle? mapHandle,ApiError? error,ValueChanged<dynamic>? otherDataHandle}) async {
-    return request.get(url,data: data,mapData: mapHandle,error: error,isTaokeApi: false,otherDataHandle: otherDataHandle);
+  Future<String> get(String url,
+      {Map<String, dynamic>? data,
+      ResultDataMapHandle? mapHandle,
+      ApiError? error,
+      ValueChanged<dynamic>? otherDataHandle}) async {
+    return request.get(url,
+        data: data,
+        mapData: mapHandle,
+        error: error,
+        isTaokeApi: false,
+        otherDataHandle: otherDataHandle);
   }
 }

@@ -1,9 +1,10 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+import '../../util/extended_util.dart';
+
 import '../../util/widget_util.dart';
 import '../../constant/app_constant.dart';
 import '../image/simple_image.dart';
 import 'package:flutter/material.dart';
-import '../../util/extended_util.dart';
 import 'package:get/get.dart';
 
 import 'product_widgets.dart';
@@ -16,11 +17,12 @@ class SimpleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=> WidgetUtil.instance.detailPage(product: product),
+      onTap: () => WidgetUtil.instance.detailPage(product: product),
       child: Container(
           margin: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8)),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(8)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -43,7 +45,7 @@ class SimpleCard extends StatelessWidget {
                   children: [
                     Text('${product.dtitle}'),
                     Text(
-                      '${product.actualPrice.toRMB()}',
+                      '${product.actualPrice?.toRMB()}',
                       style: TextStyle(color: Get.theme.primaryColor),
                     ),
                     ProductWidgets(

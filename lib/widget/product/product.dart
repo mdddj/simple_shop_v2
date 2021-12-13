@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+
 import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
 import 'package:extended_image/extended_image.dart';
@@ -31,7 +32,9 @@ class ProductLayout extends StatelessWidget {
       child: Text(
         '¥ ${product.originalPrice}',
         style: Get.textTheme.bodyText1!.copyWith(
-            color: Colors.grey, decoration: TextDecoration.lineThrough,fontSize: 12),
+            color: Colors.grey,
+            decoration: TextDecoration.lineThrough,
+            fontSize: 12),
       ),
     );
   }
@@ -42,7 +45,8 @@ class ProductLayout extends StatelessWidget {
       margin: EdgeInsets.only(top: 4),
       child: Text(
         '¥ ${product.actualPrice}',
-        style: Get.textTheme.headline6!.copyWith(color: Colors.red,fontSize: 14),
+        style:
+            Get.textTheme.headline6!.copyWith(color: Colors.red, fontSize: 14),
       ),
     );
   }
@@ -56,9 +60,8 @@ class ProductLayout extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            border: Border.all(width: .5,color: Colors.grey[100]!),
-            color: Colors.grey[200]
-          ),
+              border: Border.all(width: .5, color: Colors.grey[100]!),
+              color: Colors.grey[200]),
           child: ExtendedImage.network(
             url,
             width: imageWidth,
@@ -89,7 +92,7 @@ class ProductLayout extends StatelessWidget {
           ),
           Text(
             '-${NumUtil.getNumByValueDouble(product.discounts! * 100, 0)}%',
-            style: TextStyle(fontSize: 8,fontWeight: FontWeight.w400),
+            style: TextStyle(fontSize: 8, fontWeight: FontWeight.w400),
           )
         ],
       ),

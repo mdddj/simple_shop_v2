@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+
 import '../product/wall_product_card.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';

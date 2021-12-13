@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+
 import '../constant/app_constant.dart';
 import '../constant/color_constant.dart';
 import '../model/product_detail_model.dart';

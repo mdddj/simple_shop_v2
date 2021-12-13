@@ -1,7 +1,8 @@
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/category.dart';
-import 'package:dd_taoke_sdk/model/product.dart';
-import 'package:dd_taoke_sdk/params/top_param.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/params/top_param.dart';
+
 import '../../service/impl/api_service_impl.dart';
 import 'package:get/get.dart';
 

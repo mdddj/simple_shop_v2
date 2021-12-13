@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/constant/sort.dart';
+import 'package:dataoke_sdk/constant/sort.dart';
+
 import '../../../widget/product/wall_product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';

@@ -1,8 +1,9 @@
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/carousel_model.dart';
-import 'package:dd_taoke_sdk/model/category.dart';
-import 'package:dd_taoke_sdk/model/product.dart';
-import 'package:dd_taoke_sdk/params/product_list_param.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/model/carousel_model.dart';
+import 'package:dataoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/params/product_list_param.dart';
+
 import '../service/impl/api_service_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -53,7 +54,10 @@ class IndexController extends GetxController {
   /// 获取轮播图数据
   Future<void> getCarousels() async {
     await DdTaokeSdk.instance.getCarousel().then((value) {
-      value.removeWhere((element) => element.sourceType==3 || element.sourceType==4 || element.sourceType==1);// 移除京东和淘宝的活动
+      value.removeWhere((element) =>
+          element.sourceType == 3 ||
+          element.sourceType == 4 ||
+          element.sourceType == 1); // 移除京东和淘宝的活动
       carousels.addAllIf(value.isNotEmpty, value);
       update();
     });

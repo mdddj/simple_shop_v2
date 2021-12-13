@@ -1,6 +1,6 @@
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/product.dart';
-import 'package:dd_taoke_sdk/params/nine_nine_param.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/params/nine_nine_param.dart';
 import 'package:get/get.dart';
 
 class NineNineLogic extends GetxController {
@@ -13,7 +13,10 @@ class NineNineLogic extends GetxController {
   /// 加载商品
   Future<void> getProducts() async {
     final result = await DdTaokeSdk.instance.getNineNineProducts(
-        param: NineNineParam(pageSize: '$pageSize', pageId: '${page.value}', nineCid: '$nineCid'));
+        param: NineNineParam(
+            pageSize: '$pageSize',
+            pageId: '${page.value}',
+            nineCid: '$nineCid'));
     if (result != null && result.list != null) {
       products.addAll(result.list!);
       print('获取到商品:${result.list!.length}');

@@ -1,5 +1,5 @@
 import 'package:auto_animated/auto_animated.dart';
-import 'package:dd_taoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/category.dart';
 import '../../provider/app.dart';
 import '../../widget/loading/simple_loadings.dart';
 import '../../util/widget_util.dart';
@@ -40,7 +40,8 @@ class _CategoryPageState extends State<CategoryPage> {
             width: 120,
             height: Get.height - kToolbarHeight - Get.mediaQuery.padding.top,
             decoration: BoxDecoration(color: Colors.white),
-            child: LiveList(itemBuilder: _leftBuilder, itemCount: categorys.length),
+            child: LiveList(
+                itemBuilder: _leftBuilder, itemCount: categorys.length),
           ),
           Expanded(
               child: Container(
@@ -53,12 +54,15 @@ class _CategoryPageState extends State<CategoryPage> {
                 final item = currentCategory!.subcategories![index];
                 return GestureDetector(
                   onTap: () {
-                    WidgetUtil.instance
-                        .toCategoryPage(currentCategory, childId: item.subcid.toString());
+                    WidgetUtil.instance.toCategoryPage(currentCategory,
+                        childId: item.subcid.toString());
                   },
                   child: Container(
                     child: Column(
-                      children: [Image.network(item.scpic!), Text(item.subcname!)],
+                      children: [
+                        Image.network(item.scpic!),
+                        Text(item.subcname!)
+                      ],
                     ),
                   ),
                 );
@@ -85,7 +89,8 @@ class _CategoryPageState extends State<CategoryPage> {
       child: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(color: isCurrent ? Colors.grey[200] : Colors.white),
+        decoration:
+            BoxDecoration(color: isCurrent ? Colors.grey[200] : Colors.white),
         child: Text('${item.cname}'),
       ),
     );

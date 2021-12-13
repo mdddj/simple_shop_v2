@@ -1,9 +1,8 @@
-import 'package:dd_taoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/category.dart';
 import '../../../constant/app_constant.dart';
 import '../../../functions/fun_type.dart';
 import '../../../util/widget_util.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../util/extended_util.dart';
 import 'package:flutter/material.dart';
@@ -46,9 +45,10 @@ class CategoryIconTheme extends StatelessWidget {
           children: [
             ClipOval(
                 child: Container(
-              width: (kCategoryComponentHeight-30) * .8,
+              width: (kCategoryComponentHeight - 30) * .8,
               color: Colors.grey[200],
-              child: buildExtendedImage(category, (kCategoryComponentHeight-30) * .8),
+              child: buildExtendedImage(
+                  category, (kCategoryComponentHeight - 30) * .8),
             )),
             Text('${category.cname}'.tr)
           ],

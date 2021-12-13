@@ -1,4 +1,4 @@
-import 'package:dd_taoke_sdk/network/util.dart';
+import 'package:dataoke_sdk/network/util.dart';
 import 'package:provider/provider.dart';
 import 'controller/app_controller.dart';
 import 'provider/factory.dart';
@@ -7,7 +7,6 @@ import 'service/impl/api_service_impl.dart';
 import 'translation/i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'dart:ui' as ui;
 
 import 'package:get_storage/get_storage.dart';
@@ -37,9 +36,8 @@ class MyApp extends StatelessWidget {
         locale: ui.window.locale,
         defaultTransition: Transition.native,
         theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          primaryColor: Colors.greenAccent
-        ),
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            primaryColor: Colors.greenAccent),
         home: MainTabbars(),
       ),
     );

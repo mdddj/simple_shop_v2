@@ -1,4 +1,4 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
 import 'package:extended_list/extended_list.dart';
 import '../../constant/app_constant.dart';
 import '../../model/product_detail_model.dart';
@@ -26,8 +26,9 @@ class ImageView extends StatelessWidget {
       width: Get.width,
       margin: EdgeInsets.only(top: kDefaultPadded),
       padding: EdgeInsets.symmetric(vertical: kDefaultPadded),
-      decoration:
-          BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(15))),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

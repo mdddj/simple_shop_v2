@@ -1,6 +1,6 @@
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/product.dart';
-import 'package:dd_taoke_sdk/params/super_search_param.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/params/super_search_param.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
 class SearchRepostory extends LoadingMoreBase<Product> {

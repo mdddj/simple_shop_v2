@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
 import '../../constant/api_constant.dart';
 import '../../model/product_detail_model.dart';
 import '../../model/taobao_detail_info.dart';
@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 /// 接口服务实现
-class ApiService extends GetxService{
+class ApiService extends GetxService {
   final box = GetStorage();
   static ApiService get instance => Get.find<ApiService>();
 
@@ -65,9 +65,7 @@ class ApiService extends GetxService{
     map['userId'] = userId;
     map['logo'] = logo;
     final response = await HttpRequest.req('$DTK_API/create-tkl', data: map);
-    return response.isNotEmpty
-        ? tklModelFromJson(response)
-        : null;
+    return response.isNotEmpty ? tklModelFromJson(response) : null;
   }
 
   Future createTklWithTaobao(String text, String url,
@@ -95,6 +93,4 @@ class ApiService extends GetxService{
     }
     return null;
   }
-
-
 }

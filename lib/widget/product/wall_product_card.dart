@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+
 import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
 import '../price/simple_price_layout.dart';
@@ -25,7 +26,8 @@ class WallProductCard extends StatelessWidget {
         elevation: 3,
         borderRadius: BorderRadius.all(Radius.circular(8)),
         child: Container(
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8)),
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(8)),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
               return Column(
@@ -69,8 +71,8 @@ class WallProductCard extends StatelessWidget {
           height: constraints.maxWidth,
           loadStateChanged: WidgetUtil.instance.s,
           cache: true,
-          borderRadius:
-              BorderRadius.only(topLeft: Radius.circular(8), topRight: Radius.circular(8)),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(8), topRight: Radius.circular(8)),
           shape: BoxShape.rectangle,
         ),
       ],

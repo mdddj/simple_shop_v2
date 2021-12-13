@@ -1,14 +1,14 @@
-import 'package:dd_taoke_sdk/model/category.dart';
+import 'package:dataoke_sdk/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../util/extended_util.dart';
 
 // 弹窗选择分类页面
 class CategorySelectDialog extends StatelessWidget {
-
   final List<Category>? categorys;
 
-  const CategorySelectDialog({Key? key,required this.categorys}) : super(key: key);
+  const CategorySelectDialog({Key? key, required this.categorys})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

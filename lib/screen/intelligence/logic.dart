@@ -1,6 +1,6 @@
-import 'package:dd_taoke_sdk/dd_taoke_sdk.dart';
-import 'package:dd_taoke_sdk/model/speider_resullt.dart';
-import 'package:dd_taoke_sdk/params/speider_param.dart';
+import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/model/speider_resullt.dart';
+import 'package:dataoke_sdk/params/speider_param.dart';
 import 'package:get/get.dart';
 
 class IntelligenceLogic extends GetxController {
@@ -27,7 +27,10 @@ class IntelligenceLogic extends GetxController {
   void loadData() {
     initLoading.value = true;
     update();
-    DdTaokeSdk.instance.getSpeiderList(param: SpeiderParam(pageId: '$pageId', topic: type.value)).then((value) {
+    DdTaokeSdk.instance
+        .getSpeiderList(
+            param: SpeiderParam(pageId: '$pageId', topic: type.value))
+        .then((value) {
       if (value != null) {
         final result = SpeiderResult.fromJson(value);
         result.list!.removeWhere((element) => element.img!.isEmpty);

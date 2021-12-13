@@ -1,4 +1,5 @@
-import 'package:dd_taoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/model/product.dart';
+
 import '../../provider/app.dart';
 import '../../components/search/repository.dart';
 import '../../interface/api.dart';
@@ -21,7 +22,7 @@ class SearchLogic extends GetxController implements ApiInterface {
       Get.context!.read<AppProvider>().changeSearchInitState(false);
     };
     searchKeyWorlds.value = value;
-    if(value.isEmpty){
+    if (value.isEmpty) {
       Get.context!.read<AppProvider>().changeSearchInitState(true);
     }
     update();
