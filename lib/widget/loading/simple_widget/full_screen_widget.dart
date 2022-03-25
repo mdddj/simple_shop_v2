@@ -1,6 +1,5 @@
 import '../../../constant/color_constant.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 /// 初始化的时候加载状态指示器
 class FullScreenWidget extends StatelessWidget {

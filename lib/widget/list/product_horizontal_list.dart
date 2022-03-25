@@ -1,5 +1,5 @@
 import 'package:dataoke_sdk/model/product.dart';
-import 'package:dd_tk_shop/util/extended_util.dart';
+import '../../util/extended_util.dart';
 import 'package:extended_list/extended_list.dart';
 import '../../constant/app_constant.dart';
 import '../../util/widget_util.dart';

@@ -1,7 +1,7 @@
 # 典典的小卖部v2版本
 
 ![](https://badgen.net/badge/QQ群/667186542)
-![](https://badgen.net/badge/Flutter/v2.10.1)
+![](https://badgen.net/badge/Flutter/v2.10.3)
 
 下载下来,安装好flutter环境,用控制台打开项目目录,执行下面的运行命令
 
