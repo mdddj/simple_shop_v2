@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         defaultTransition: Transition.native,
         theme: ThemeData(
             visualDensity: VisualDensity.adaptivePlatformDensity,
+            appBarTheme: AppBarTheme(backgroundColor: Colors.white,titleTextStyle: TextStyle(color: Colors.black,fontSize: 12),iconTheme: IconThemeData(color: Colors.grey,size: 25) ),
             primaryColor: Colors.greenAccent),
         home: MainTabbars(),
       ),
