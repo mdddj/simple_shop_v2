@@ -119,7 +119,7 @@ packages:
       name: dataoke_sdk
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.3"
   decimal:
     dependency: transitive
     description:
@@ -229,7 +229,7 @@ packages:
       name: flutter_blurhash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0"
+    version: "0.6.4"
   flutter_easyrefresh:
     dependency: "direct main"
     description:
@@ -243,7 +243,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "2.1.1"
   flutter_spinkit:
     dependency: "direct main"
     description:
@@ -267,7 +267,7 @@ packages:
       name: font_awesome_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "9.2.0"
+    version: "10.1.0"
   fsuper_nullsafety:
     dependency: "direct main"
     description:
@@ -337,7 +337,7 @@ packages:
       name: loading_more_list
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.1.2"
   loading_more_list_library:
     dependency: transitive
     description:
@@ -422,13 +422,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
-  pedantic:
-    dependency: transitive
-    description:
-      name: pedantic
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.11.1"
   petitparser:
     dependency: transitive
     description:
