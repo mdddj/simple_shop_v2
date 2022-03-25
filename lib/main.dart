@@ -15,6 +15,7 @@ import 'main_tabbars.dart';
 
 ///
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   DdTaokeUtil.instance.init('https://itbug.shop', '443', proxy: '');
   Get.put(AppService());
   Get.put(ApiService());

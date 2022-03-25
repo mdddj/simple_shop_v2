@@ -84,7 +84,7 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
   /// 轮播图
   Widget carousel() {
     return Obx(() {
-      final list = IndexController.find.carousels;
+      final list = IndexController.find.carousels.value;
       final images = List<String>.from(list.map((element) => element.topicImage)).toList();
       return Container(
           height: 200,
