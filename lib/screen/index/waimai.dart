@@ -14,35 +14,26 @@ class Waimai extends StatefulWidget {
 }
 
 class _WaimaiState extends State<Waimai> {
+//饿了吗外卖券
+  Future<void> handleWithElm() async {
+    final result = await DdTaokeSdk.instance.getActivityLink(
+        ActivityLinkParam(promotionSceneId: '20150318019998877'));
+    print('${jsonEncode(result)}');
+    if (result != null) {
+      final url = result.clickUrl;
+      if (await canLaunch(url)) {
+        await launch(url);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 12),
-      child: ElevatedButton(
-        onPressed: () async {
-          // await Get.dialog(AlertDialog(
-          //   title: Text('领取饿了么外卖券'),
-          //   content: SingleChildScrollView(
-          //     child: Column(
-          //       children: [
-          //         TextButton(onPressed: (){}, child: Text('使用微信领取'))
-          //       ],
-          //     ),
-          //   ),
-          // ));
-
-          final result = await DdTaokeSdk.instance.getActivityLink(
-              ActivityLinkParam(promotionSceneId: '20150318019998877'));
-          print('${jsonEncode(result)}');
-          if (result != null) {
-            final url = result.clickUrl;
-            if (await canLaunch(url)) {
-              await launch(url);
-            }
-          }
-        },
-        child: Text('领取外卖优惠券(每天只能领一次)'),
-      ),
+    return AspectRatio(
+      aspectRatio: 1,
+      child: Row(children: [Container(
+        
+      ), Container()]),
     );
   }
 }
