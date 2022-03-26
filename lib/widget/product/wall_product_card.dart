@@ -21,42 +21,37 @@ class WallProductCard extends StatelessWidget {
       onTap: () {
         WidgetUtil.instance.detailPage(product: product);
       },
-      child: PhysicalModel(
-        color: Colors.grey[200]!,
-        elevation: 3,
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        child: Container(
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(8)),
-          child: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _image(constraints),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '${product.dtitle}',
-                          style: Get.textTheme.bodyText1,
-                        ),
-                        SizedBox(height: 4),
-                        SimplePrice(
-                          product: product,
-                        ),
-                        ProductWidgets(
-                          product: product,
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              );
-            },
-          ),
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(8)),
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _image(constraints),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${product.dtitle}',
+                        style: Get.textTheme.bodyText1,
+                      ),
+                      SizedBox(height: 4),
+                      SimplePrice(
+                        product: product,
+                      ),
+                      ProductWidgets(
+                        product: product,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            );
+          },
         ),
       ),
     );
