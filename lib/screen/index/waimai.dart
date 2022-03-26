@@ -29,6 +29,11 @@ class _WaimaiState extends State<Waimai> {
     }
   }
 
+  //美团外卖券
+  Future<void> _meituan() async {
+
+  }
+
   Widget _renderItem(String svg,String title,String subTitle,VoidCallback onTap) {
     return Container(
       child: Row(
