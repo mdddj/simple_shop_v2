@@ -33,7 +33,7 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
       body: NestedScrollView(
         body: _renderBody(),
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return [_renderAppbar(),_renderCategory(), SliverToBoxAdapter(child: Waimai()), _renderCarousel()];
+          return [_renderAppbar(),_renderCategory(), Waimai(), _renderCarousel()];
         },
       ),
     );
@@ -54,10 +54,13 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
   /// 首页 - 主分类
   Widget _renderCategory() {
     return SliverToBoxAdapter(
-      child: Container(
-        child: RenderWidgetService().renderCategoryWidget(AppController.instance.categorys,
-            onSelectd: IndexController.find.onSelected),
-      ),
+      child: Obx((){
+        final categorys = AppController.instance.categorys.value;
+        return Container(
+          child: RenderWidgetService().renderCategoryWidget(categorys,
+              onSelectd: IndexController.find.onSelected),
+        );
+      }),
     );
   }
 
