@@ -63,7 +63,6 @@ class ImageView extends StatelessWidget {
     if(img.img!=null){
       return ExtendedImage.network(
         img.img!.imageUrl(),
-        loadStateChanged: WidgetUtil.instance.s,
         cache: false,
         fit: BoxFit.cover,
       );

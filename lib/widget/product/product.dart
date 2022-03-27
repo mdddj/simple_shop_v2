@@ -15,12 +15,15 @@ class ProductLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 4, left: 4),
-      decoration: const BoxDecoration(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [renderMainImage(), renderPrice(), renderDiscountPrice()],
+    return GestureDetector(
+      onTap: ()=>WidgetUtil.instance.detailPage(product: product),
+      child: Container(
+        margin: const EdgeInsets.only(right: 4, left: 4),
+        decoration: const BoxDecoration(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [renderMainImage(), renderPrice(), renderDiscountPrice()],
+        ),
       ),
     );
   }

@@ -44,12 +44,13 @@ class _AppIndexState extends State<AppIndex>
         ));
   }
 
-
   /// 限时抢购
-  Widget _renderTimeBuy(){
-    return Obx((){
+  Widget _renderTimeBuy() {
+    return Obx(() {
       final products = logic.timeBuyProducts;
-      return   TimebuyComponent(products: products,).sliverBox;
+      return TimebuyComponent(
+        products: products,
+      ).sliverBox;
     });
   }
 

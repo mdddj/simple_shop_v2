@@ -2,7 +2,6 @@ import 'dart:ui' as ui;
 
 import 'package:dataoke_sdk/network/util.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
