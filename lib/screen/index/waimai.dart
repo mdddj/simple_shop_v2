@@ -12,6 +12,8 @@ import '../../ext/string.dart';
 
 /// 领取外卖优惠券
 class Waimai extends StatefulWidget {
+
+  ///构造
   const Waimai({Key? key}) : super(key: key);
 
   @override
@@ -19,7 +21,8 @@ class Waimai extends StatefulWidget {
 }
 
 class _WaimaiState extends State<Waimai> {
-  //饿了吗外卖券
+
+  ///饿了吗外卖券
   Future<void> handleWithElm() async {
     final result = await DdTaokeSdk.instance.getActivityLink(
         ActivityLinkParam(promotionSceneId: '20150318019998877'));
@@ -47,6 +50,7 @@ class _WaimaiState extends State<Waimai> {
   Widget _renderItem(
       String svg, String title, String subTitle, VoidCallback onTap) {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
           Row(
@@ -57,9 +61,11 @@ class _WaimaiState extends State<Waimai> {
                 width: 30,
                 height: 30,
               ),
+              SizedBox(width: 6,),
               Text('$title')
             ],
           ),
+          Spacer(),
           TextButton(onPressed: onTap, child: Text('领券'))
         ],
       ),
@@ -68,12 +74,15 @@ class _WaimaiState extends State<Waimai> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverWaterfallFlow.count(
-      crossAxisCount: 2,
-      children: [
-        _renderItem('elm', '饿了吗外卖', '每天都能领一次哦', handleWithElm),
-        _renderItem('meituan', '美团外卖', '吃饭前领一次哦', _meituan)
-      ],
+    return SliverPadding(
+      padding: EdgeInsets.symmetric(horizontal: 12),
+      sliver: SliverWaterfallFlow.count(
+        crossAxisCount: 2,
+        children: [
+          _renderItem('elm', '饿了吗外卖', '每天都能领一次哦', handleWithElm),
+          _renderItem('meituan', '美团外卖', '吃饭前领一次哦', _meituan)
+        ],
+      ),
     );
   }
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
+import 'mixin/theme.dart';
+import 'provider/app.dart';
 import 'screen/category/view.dart';
 import 'screen/index/index.dart';
 import 'screen/intelligence/view.dart';
@@ -27,6 +30,29 @@ class _MainTabbarsState extends State<MainTabbars>
   int _currentIndex = 0;
 
 
+  late final ThemeObs _themeObs = ThemeObs(themeChange);
+
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addObserver(_themeObs);
+    Future.microtask(() => context.read<AppProvider>().changeThemeModel(MediaQuery.of(context).platformBrightness));
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance?.removeObserver(_themeObs);
+    super.dispose();
+  }
+
+  ///主题切换回调
+  void themeChange(){
+    final mode = MediaQuery.of(context).platformBrightness;
+    context.read<AppProvider>().changeThemeModel(mode==Brightness.dark ? Brightness.light : Brightness.dark);
+  }
+
+
   void _onTap(int index){
     setState(() {
       _currentIndex = index;
@@ -49,7 +75,6 @@ class _MainTabbarsState extends State<MainTabbars>
 
   @override
   Widget build(BuildContext context) {
-
 
     /// 主页面结构
     return CupertinoTabScaffold(

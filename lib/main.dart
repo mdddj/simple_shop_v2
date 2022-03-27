@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import 'controller/app_controller.dart';
 import 'main_tabbars.dart';
+import 'provider/app.dart';
 import 'provider/factory.dart';
 import 'service/app_service.dart';
 import 'service/impl/api_service_impl.dart';
@@ -15,7 +16,8 @@ import 'service/impl/api_service_impl.dart';
 ///入口函数
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DdTaokeUtil.instance.init('https://itbug.shop', '443', proxy: '',debug: false);
+  DdTaokeUtil.instance
+      .init('https://itbug.shop', '443', proxy: '', debug: false);
   Get.put(AppService());
   Get.put(ApiService());
   Get.put(AppController());
@@ -30,11 +32,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: providers,
-      child: GetCupertinoApp(
-        title: '梁典典',
-        debugShowCheckedModeBanner: false,
-        locale: ui.window.locale,
-        home: MainTabbars(),
+      child: ChangeNotifierProvider<AppProvider>(
+        create: (BuildContext context) => AppProvider(),
+        child: Consumer<AppProvider>(builder: (BuildContext context, value, Widget? child) {
+          return GetCupertinoApp(
+            title: '梁典典',
+            debugShowCheckedModeBanner: false,
+            locale: ui.window.locale,
+            theme: CupertinoThemeData(
+                brightness:value.themModel),
+            home: MainTabbars(),
+          );
+        },),
       ),
     );
   }

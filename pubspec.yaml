@@ -35,8 +35,9 @@ dependencies:
   loading_more_list: ^4.1.2 # 加载更多
   get_it: ^7.2.0 # 状态管理框架
   extended_list: ^3.0.0 # Listview扩展
-  
-  
+
+
+  #轮播图
   carousel_pro_nullsafety: ^1.0.2 
 
   # 开屏图片制作

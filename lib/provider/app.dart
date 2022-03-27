@@ -10,6 +10,9 @@ class AppProvider extends ChangeNotifier {
     getCategoryList();
   }
 
+  ///主题
+  Brightness themModel = Brightness.light;
+
   /// 搜索初始化搜索
   bool searchInit = true;
 
@@ -21,6 +24,12 @@ class AppProvider extends ChangeNotifier {
 
   /// 当前选中的分类
   Category? currentCategory;
+
+  ///改变主题
+  void changeThemeModel(Brightness mode){
+    themModel = mode;
+    notifyListeners();
+  }
 
   /// 改变搜索结果状态
   void changeSearchInitState(bool value) {

@@ -7,6 +7,7 @@ import '../../constant/app_constant.dart';
 import '../../controller/app_controller.dart';
 import '../../controller/index_controller.dart';
 import '../../service/impl/render_widget_service.dart';
+import '../../util/net/network/dio_errors.dart';
 import '../../widget/index/carousel.dart';
 import '../../widget/product/wall_product_card.dart';
 import '../taobao_activity/view.dart';
@@ -49,15 +50,18 @@ class _AppIndexState extends State<AppIndex>
   Widget _renderBody() {
     return Obx(() {
       final products = AppController.instance.products;
-      return SliverWaterfallFlow.count(
-          crossAxisCount: 2,
-          mainAxisSpacing: kDefaultPadded,
-          crossAxisSpacing: kDefaultPadded,
-          children: [
-            ...products
-                .map((element) => WallProductCard(product: element))
-                .toList()
-          ]);
+      return SliverPadding(
+        padding: EdgeInsets.all(kDefaultPadded),
+        sliver: SliverWaterfallFlow.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: kDefaultPadded,
+            crossAxisSpacing: kDefaultPadded,
+            children: [
+              ...products
+                  .map((element) => WallProductCard(product: element))
+                  .toList()
+            ]),
+      );
     });
   }
 

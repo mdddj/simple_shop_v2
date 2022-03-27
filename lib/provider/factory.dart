@@ -1,9 +1,11 @@
 
-import 'package:provider/provider.dart';
 
-import 'app.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
+
+import 'user.dart';
 
 ///状态管理
-final providers = [
-  ChangeNotifierProvider(create: (_)=>AppProvider())
+final providers = <SingleChildWidget>[
+  ChangeNotifierProvider<UserProvider>(create: (_)=>UserProvider())
 ];

@@ -7,10 +7,16 @@ import 'package:get/get.dart';
 import '../../../util/extended_util.dart';
 import 'package:flutter/material.dart';
 
+/// 超级分类图标选择类型组件
 class CategoryIconTheme extends StatelessWidget {
+
+  /// 选中某个项目回调
   final CategorySelectd? onSelect;
+
+  /// 超级大分类列表
   final List<Category>? categorys;
 
+  ///构造
   CategoryIconTheme(this.onSelect, this.categorys);
 
   @override
@@ -26,11 +32,13 @@ class CategoryIconTheme extends StatelessWidget {
     );
   }
 
+  /// 子项目布局
   Widget itemBuild(context, index) {
     final item = categorys![index];
     return buildItem(item, index);
   }
 
+  ///子项目布局
   Widget buildItem(Category category, int index) {
     return GestureDetector(
       onTap: () {
@@ -57,6 +65,7 @@ class CategoryIconTheme extends StatelessWidget {
     );
   }
 
+  /// 图片加载
   Widget buildExtendedImage(Category category, double size) =>
       ExtendedImage.network(
         '${category.cpic!.imageUrl()}',
