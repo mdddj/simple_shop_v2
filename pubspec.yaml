@@ -27,7 +27,8 @@ dependencies:
   shimmer: ^2.0.0
   get_storage: ^2.0.3
   flutter_svg: ^1.0.3
-  dataoke_sdk: ^0.0.3
+  dataoke_sdk:
+    path: ../plugins/dataoke_sdk
   waterfall_flow: ^3.0.2
   flutter_spinkit: ^5.1.0
   extended_nested_scroll_view: ^5.0.0

@@ -1,12 +1,10 @@
 import 'package:dataoke_sdk/network/util.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'constant/color_constant.dart';
 import 'controller/app_controller.dart';
 import 'provider/factory.dart';
 import 'service/app_service.dart';
 import 'service/impl/api_service_impl.dart';
-import 'translation/i18n.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:ui' as ui;
 
@@ -31,18 +29,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: providers,
-      child: GetMaterialApp(
+      child: CupertinoApp(
         title: '梁典典',
-        translations: I18n(),
         debugShowCheckedModeBanner: false,
         locale: ui.window.locale,
-        defaultTransition: Transition.native,
-        theme: ThemeData(
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-            appBarTheme: AppBarTheme(backgroundColor: Colors.white,titleTextStyle: TextStyle(color: Colors.black,fontSize: 12),iconTheme: IconThemeData(color: Colors.grey,size: 20),elevation: 0 ),
-            primaryColor: kPrimaryColor,cardTheme: CardTheme(
-              elevation: 0
-            )),
+        // theme: ThemeData(
+        //     visualDensity: VisualDensity.adaptivePlatformDensity,
+        //     appBarTheme: AppBarTheme(backgroundColor: Colors.white,titleTextStyle: TextStyle(color: Colors.black,fontSize: 12),iconTheme: IconThemeData(color: Colors.grey,size: 20),elevation: 0 ),
+        //     primaryColor: kPrimaryColor,cardTheme: CardTheme(
+        //       elevation: 0
+        //     )),
+        theme: CupertinoThemeData(
+        ),
         home: MainTabbars(),
       ),
     );

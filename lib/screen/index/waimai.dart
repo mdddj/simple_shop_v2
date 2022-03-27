@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dataoke_sdk/apis/apis.dart';
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/params/activity_link_param.dart';
 import 'package:flutter/material.dart';
@@ -31,17 +32,29 @@ class _WaimaiState extends State<Waimai> {
 
   //美团外卖券
   Future<void> _meituan() async {
+   final api = MeiTuanQuanApi()
+      ..actId = '2'
+      ..linkType = '1'
+      ..miniCode = '1';
 
+   api.request(dataHandle: (map){
+      final url =  map['data'];
+   });
   }
 
-  Widget _renderItem(String svg,String title,String subTitle,VoidCallback onTap) {
+  Widget _renderItem(
+      String svg, String title, String subTitle, VoidCallback onTap) {
     return Container(
       child: Row(
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SvgPicture.asset('assets/$svg'+'.svg',width: 30,height: 30,),
+              SvgPicture.asset(
+                'assets/svg/$svg''.svg',
+                width: 30,
+                height: 30,
+              ),
               Text('$title')
             ],
           ),
@@ -53,9 +66,12 @@ class _WaimaiState extends State<Waimai> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverWaterfallFlow.count(crossAxisCount: 2,children: [
-      _renderItem('elm','饿了吗外卖','每天都能领一次哦',handleWithElm),
-      _renderItem('meituan','美团外卖','吃饭前领一次哦',handleWithElm)
-    ],);
+    return SliverWaterfallFlow.count(
+      crossAxisCount: 2,
+      children: [
+        _renderItem('elm', '饿了吗外卖', '每天都能领一次哦', handleWithElm),
+        _renderItem('meituan', '美团外卖', '吃饭前领一次哦', _meituan)
+      ],
+    );
   }
 }

@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
+
 import '../taobao_activity/view.dart';
 
 import '../../constant/app_constant.dart';
@@ -24,18 +27,16 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return Scaffold(
+    return CupertinoPageScaffold(
       key: logic.scaffoldKey,
-      backgroundColor: Get.theme.scaffoldBackgroundColor,
-      drawer: Drawer(
-        child: IndexDarwer(),
-      ),
-      body: NestedScrollView(
-        body: _renderBody(),
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return [_renderAppbar(),_renderCategory(), Waimai(), _renderCarousel()];
-        },
-      ),
+      navigationBar:CupertinoNavigationBar(
+        middle: Text('典典的小卖部'),
+      ), child: SafeArea(
+        child: EasyRefresh.custom(slivers: [
+        _renderCategory(), Waimai(), _renderCarousel(),
+
+    ]),
+      )
     );
   }
 

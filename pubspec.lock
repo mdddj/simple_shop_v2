@@ -116,9 +116,9 @@ packages:
   dataoke_sdk:
     dependency: "direct main"
     description:
-      name: dataoke_sdk
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../plugins/dataoke_sdk"
+      relative: true
+    source: path
     version: "0.0.3"
   decimal:
     dependency: transitive

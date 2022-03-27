@@ -1,20 +1,19 @@
-import 'package:after_layout/after_layout.dart';
+import 'package:flutter/cupertino.dart';
 import 'screen/nine_nine/view.dart';
 import 'screen/category/view.dart';
 import 'screen/index/index.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'screen/intelligence/view.dart';
 import 'screen/search/view.dart';
 import 'widget/loading/simple_loadings.dart';
 
 const kTabData = [
-  {'layout': '首页', 'icon': Icons.home},
-  {'layout': '分类', 'icon': Icons.category},
-  {'layout': '搜索', 'icon': Icons.search},
-  {'layout': '消息', 'icon': Icons.schedule},
-  {'layout': '九块九', 'icon': Icons.whatshot},
+  {'layout': '首页', 'icon': CupertinoIcons.home},
+  {'layout': '分类', 'icon': CupertinoIcons.archivebox_fill},
+  {'layout': '搜索', 'icon': CupertinoIcons.search},
+  {'layout': '消息', 'icon': CupertinoIcons.chart_bar_alt_fill},
+  {'layout': '九块九', 'icon': CupertinoIcons.volume_down},
 ];
 
 /// 主页面结构
@@ -24,84 +23,46 @@ class MainTabbars extends StatefulWidget {
 }
 
 class _MainTabbarsState extends State<MainTabbars>
-    with SingleTickerProviderStateMixin, AfterLayoutMixin<MainTabbars> {
-  TabController? _tabController;
-  final _tabView = <Widget>[];
+    with SingleTickerProviderStateMixin{
+
+  int _currentIndex = 0;
+
+
+  void _onTap(int index){
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  Widget _renderPage(context,int index){
+    switch(index){
+      case 0:
+        return AppIndex();
+      case 1:
+        return CategoryPage();
+      case 2:
+        return SearchPage();
+      case 3:
+        return NineNinePage();
+    }
+    return IntelligencePage();
+  }
 
   @override
   Widget build(BuildContext context) {
-    /// 加载中
-    if (_tabView.isEmpty) {
-      return kLoadingWidget;
-    }
+
 
     /// 主页面结构
-    return Scaffold(
-      body: TabBarView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _tabController,
-        children: _tabView,
-      ),
-      bottomNavigationBar: SafeArea(
-        top: false,
-        child: Container(
-          width: Get.width,
-          child: FittedBox(
-            child: Container(
-              width: Get.width / (2 / (Get.height / Get.width)),
-              child: TabBar(
-                controller: _tabController,
-                tabs: _renderTabs(),
-                isScrollable: false,
-                labelColor: Get.theme.primaryColor,
-                indicatorColor: Get.theme.primaryColor,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicatorPadding: EdgeInsets.all(4.0),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+    return CupertinoTabScaffold(
+      tabBuilder:_renderPage, tabBar: CupertinoTabBar(items: _renderTabs(),onTap: _onTap,currentIndex: _currentIndex,),);
   }
 
-  /// 循环页面
-  void _loadTabView() {
-    setState(() {
-      _tabController = TabController(length: kTabData.length, vsync: this);
-    });
-    kTabData.forEach((element) {
-      setState(() {
-        _tabView.add(_renderView(element));
-      });
-    });
-  }
-
-  /// 页面显示组件渲染
-  Widget _renderView(Map<String, dynamic> data) {
-    switch (data['layout']) {
-      case '首页':
-        return AppIndex();
-      case '消息':
-        return IntelligencePage();
-      case '分类':
-        return CategoryPage();
-      case '搜索':
-        return SearchPage();
-      case '九块九':
-        return NineNinePage();
-      default:
-        return Container(
-          child: Text(data['layout']),
-        );
-    }
-  }
 
   /// 底部导航
-  List<Widget> _renderTabs() {
-    var list = <Widget>[];
+  List<BottomNavigationBarItem> _renderTabs() {
+    var list = <BottomNavigationBarItem>[];
     kTabData.forEach((element) {
-      list.add(Tab(
+      list.add(BottomNavigationBarItem(
         icon: Icon(
           element['icon'] as IconData?,
           size: 20,
@@ -111,8 +72,4 @@ class _MainTabbarsState extends State<MainTabbars>
     return list;
   }
 
-  @override
-  void afterFirstLayout(BuildContext context) {
-    _loadTabView();
-  }
 }
