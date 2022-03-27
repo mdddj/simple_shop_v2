@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../widget/product/simple_card.dart';
 import '../../widget/loading/simple_loadings.dart';
 import 'package:flutter/material.dart';
@@ -24,39 +26,44 @@ class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('九块九包邮专区'),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(48),
-          child: Container(
-            alignment: Alignment.centerLeft,
-            child: TabBar(
-              tabs: [
-                Tab(text: '精选'),
-                Tab(text: '5.9包邮'),
-                Tab(text: '9.9包邮'),
-                Tab(text: '19.9包邮'),
-              ],
-              controller: _tabController,
-              isScrollable: true,
-              onTap: logic.onTabChanged,
-            ),
-          ),
-        ),
+    return CupertinoPageScaffold(
+      // appBar: AppBar(
+      //   title: Text('九块九包邮专区'),
+      //   bottom: PreferredSize(
+      //     preferredSize: Size.fromHeight(48),
+      //     child: Container(
+      //       alignment: Alignment.centerLeft,
+      //       child: TabBar(
+      //         tabs: [
+      //           Tab(text: '精选'),
+      //           Tab(text: '5.9包邮'),
+      //           Tab(text: '9.9包邮'),
+      //           Tab(text: '19.9包邮'),
+      //         ],
+      //         controller: _tabController,
+      //         isScrollable: true,
+      //         onTap: logic.onTabChanged,
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      navigationBar: CupertinoNavigationBar(
+        middle: Text('9快9包邮'),
       ),
-      body: Obx(() {
+      child: SafeArea(
+        child: Obx(() {
 
-        if(logic.loading.value){
-          return kLoadingWidget;
-        }
+          if(logic.loading.value){
+            return kLoadingWidget;
+          }
 
-        return ListView.builder(
-          itemBuilder: _itemBuilder,
-          itemCount: logic.products.length,
-        );
+          return ListView.builder(
+            itemBuilder: _itemBuilder,
+            itemCount: logic.products.length,
+          );
 
-      }),
+        }),
+      ),
     );
   }
 

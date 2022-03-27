@@ -1,6 +1,8 @@
 // 工具类
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
+
 import '../constant/app_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,23 +35,27 @@ class Utils {
   }
 
   // 打开淘宝
-  Future<void> openTaobao(String url) async {
+  Future<void> openTaobao(String url,{BuildContext? context}) async {
     var _url = url;
     if (_url.indexOf('http://') == 0) {
       _url = _url.replaceAll('http://', '');
     } else if (_url.indexOf('https://') == 0) {
       _url = _url.replaceAll('https://', '');
     }
-    _url = 'taobao://' + _url;
+    _url = 'taobao://$_url';
     log('打开url:$_url');
     if (await canLaunch(_url)) {
       // 判断当前手机是否安装某app. 能否正常跳转
       await launch(_url);
     } else {
-      await Get.dialog(AlertDialog(
-        title: Text('打开淘宝APP失败'),
-        content: Text('请检查是否安装淘宝APP'),
-      ));
+      if(context!=null){
+        showCupertinoDialog(context: context, builder: (c){
+          return CupertinoAlertDialog(
+            title: Text('失败'),
+            content: Text('无法唤醒淘宝APP,请复制口令手动打开淘宝领取') ,
+          );
+        },barrierDismissible: true);
+      }
     }
   }
 

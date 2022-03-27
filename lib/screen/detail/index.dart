@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:after_layout/after_layout.dart';
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/model/coupon_link_result.dart';
@@ -9,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constant/app_constant.dart';
+import '../../ext/string.dart';
 import '../../mixin/detail_mixin.dart';
 import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
@@ -42,7 +45,7 @@ class _DetailIndexState extends State<DetailIndex>
   CouponLinkResult? tkl;
   Map<String, int> imgs = {};
   List<Product> likeProducts = [];
-  int currImageIndex = 1;
+
 
 
   @override
@@ -53,6 +56,7 @@ class _DetailIndexState extends State<DetailIndex>
 
   @override
   Widget build(BuildContext context) {
+    print(jsonEncode(widget.product?.toJson()));
     if (loading) return LoadingWidget(appBar: _renderAppbar(),);
     return buildScaffold();
   }
@@ -123,6 +127,7 @@ class _DetailIndexState extends State<DetailIndex>
               GestureDetector(
                   child: Icon(CupertinoIcons.info),
                   onTap: () => Get.to(() => HelpPage())),
+              SizedBox(width: 12,),
               Expanded(
                   child: Flex(
                 direction: Axis.horizontal,
@@ -130,46 +135,41 @@ class _DetailIndexState extends State<DetailIndex>
                   Flexible(
                     child: Container(
                       width: double.infinity,
+                      padding: EdgeInsets.symmetric(vertical: 12),
                       child: btn1(),
                     ),
                   ),
+                  SizedBox(width: 12,),
                   Flexible(
                     child: Container(
                       width: double.infinity,
+                      padding: EdgeInsets.symmetric(vertical: 12),
                       child: btn2(),
                     ),
                   )
                 ],
-              ))
+              )),
+              SizedBox(width: 12,)
             ],
           ),
         ));
   }
 
   Widget btn1() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kDefaultPadded),
-      child: MaterialButton(
-        onPressed: tkl == null ? null : () => copyTkl(tkl!.tpwd),
-        color: Colors.black,
-        disabledColor: Colors.grey,
-        child: Text(
-          '复制口令',
-          style: TextStyle(color: Colors.white),
-        ),
+    return CupertinoButton(
+      padding: EdgeInsets.zero,
+      onPressed: tkl == null ? null : () => copyTkl(tkl!.tpwd,context: context),
+      child: Text(
+        '复制口令',
       ),
     );
   }
 
   Widget btn2() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kDefaultPadded),
-      child: MaterialButton(
-        onPressed: tkl == null ? null : () => openTb(tkl!.couponClickUrl!),
-        color: Colors.black,
-        disabledColor: Colors.grey,
-        child: Text('领券', style: TextStyle(color: Colors.white)),
-      ),
+    return CupertinoButton.filled(
+      padding: EdgeInsets.zero,
+      onPressed: tkl == null ? null : () => tkl!.couponClickUrl!.tryLaunch(),
+      child: Text('领券'),
     );
   }
 
@@ -225,7 +225,7 @@ class _DetailIndexState extends State<DetailIndex>
           ),
           Spacer(),
           CupertinoButton(child:Text(
-            '领券',
+            '去领取',
           ) , onPressed: ()=>openTb(tkl!.couponClickUrl!))
         ],
       ),
@@ -307,10 +307,10 @@ class _DetailIndexState extends State<DetailIndex>
             ),
             Column(
               children: [
-                Icon(Icons.supervisor_account),
+                Icon(CupertinoIcons.person_2_fill,color: CupertinoColors.inactiveGray,),
                 Text(
                   '${detail!.monthSales}人已领',
-                  style: TextStyle(fontSize: 10, color: Colors.grey),
+                  style: TextStyle(fontSize: 10, color: CupertinoColors.inactiveGray),
                 )
               ],
             ),
@@ -369,32 +369,9 @@ class _DetailIndexState extends State<DetailIndex>
     if (detail == null) {
       return Container();
     }
-    final imgs = getImages(detail!.imgs!);
-    return Stack(
-      children: [
-        Container(
-          width: Get.width,
-          height: Get.width,
-          child: CarouselComponent(images: detail!.imgs!.split(',')),
-        ),
-        Positioned(
-          bottom: kDefaultPadded,
-          right: kDefaultPadded,
-          child: Container(
-            height: 30,
-            alignment: Alignment.centerRight,
-            padding: EdgeInsets.symmetric(horizontal: kDefaultPadded),
-            decoration: BoxDecoration(
-                color: Colors.black.withOpacity(.5),
-                borderRadius: BorderRadius.all(Radius.circular(50))),
-            child: Text(
-              '$currImageIndex / ${imgs.keys.length}',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        )
-      ],
-    );
+    return AspectRatio(
+        aspectRatio: 1,
+        child: CarouselComponent(images: detail!.imgs!.split(',')));
   }
 
   @override

@@ -1,15 +1,18 @@
-import '../../constant/app_constant.dart';
-import '../../model/product_detail_model.dart';
-import '../../util/widget_util.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+
+import '../../constant/app_constant.dart';
+import '../../model/product_detail_model.dart';
 import '../../util/extended_util.dart';
+import '../../util/widget_util.dart';
 
-
+///品牌信息
 class BrandInfo extends StatelessWidget {
 
+  ///品牌详情
   final ProductDetail? detail;
 
+  ///构造
   const BrandInfo({Key? key, this.detail}) : super(key: key);
 
   @override
@@ -32,7 +35,7 @@ class BrandInfo extends StatelessWidget {
     );
   }
 
-  // 店铺
+  /// 店铺
   Widget renderItem2(){
     if(detail!.shopName!.isEmpty){
       return Container();
@@ -59,7 +62,7 @@ class BrandInfo extends StatelessWidget {
   }
 
 
-  // 品牌
+  /// 品牌
   Widget renderItem(){
     if(detail!.brandName!.isEmpty){
       return Container();

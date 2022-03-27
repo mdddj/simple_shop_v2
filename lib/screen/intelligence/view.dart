@@ -1,5 +1,6 @@
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:flustars/flustars.dart' hide WidgetUtil;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,12 +30,14 @@ class _IntelligencePageState extends State<IntelligencePage>
   Widget build(BuildContext context) {
     return GetBuilder<IntelligenceLogic>(
       builder: (logic) {
-        return Scaffold(
-          appBar: _appbar as PreferredSizeWidget?,
-          body: logic.initLoading.value
-              ? kLoadingWidget
-              : ListView.builder(
-                  itemBuilder: _builder, itemCount: logic.list.length),
+        return CupertinoPageScaffold(
+          navigationBar: _appbar,
+          child: SafeArea(
+            child: logic.initLoading.value
+                ? kLoadingWidget
+                : ListView.builder(
+                itemBuilder: _builder, itemCount: logic.list.length),
+          ),
         );
       },
       init: IntelligenceLogic(),
@@ -114,10 +117,10 @@ class _IntelligencePageState extends State<IntelligencePage>
     );
   }
 
-  Widget get _appbar => AppBar(
-      title: Text('优惠情报'),
-      bottom: AppbarBottomTabbar(
-        controller: tabController,
-        changeIndex: IntelligenceLogic.instance.onChange,
-      ));
+  CupertinoNavigationBar get _appbar => CupertinoNavigationBar(
+      middle: Text('优惠情报'),);
+      // bottom: AppbarBottomTabbar(
+      //   controller: tabController,
+      //   changeIndex: IntelligenceLogic.instance.onChange,
+      // ));
 }

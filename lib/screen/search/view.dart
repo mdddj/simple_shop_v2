@@ -45,41 +45,43 @@ class _SearchPageState extends State<SearchPage> {
     final searchInit = context.watch<AppProvider>().searchInit;
     return CupertinoPageScaffold(
       backgroundColor: Colors.white,
-      child: SizedBox(
-        height: Get.height - 64,
-        child: Column(
-          children: [
-            _appbar,
-            AnimatedSwitcher(
-              duration: Duration(seconds: 1),
-              child: _showSearchInput
-                  ? Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CupertinoSearchTextField(
-                        onChanged: logic.onKeyWorldsChange,
-                      ))
-                  : Container(
-                      alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('正在搜索:${logic.searchKeyWorlds.value}'),
-                    ),
-            ),
-            Expanded(
-                child: searchInit
-                    ? Container()
-                    : SearchListComponent(
-                        searchRepostory: logic.searchRepostory,
-                        controller: _scrollController,
-                      ))
-          ],
+      child: SafeArea(
+        child: SizedBox(
+          height: Get.height - 64,
+          child: Column(
+            children: [
+              _appbar,
+              AnimatedSwitcher(
+                duration: Duration(seconds: 1),
+                child: _showSearchInput
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CupertinoSearchTextField(
+                          onChanged: logic.onKeyWorldsChange,
+                        ))
+                    : Container(
+                        alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('正在搜索:${logic.searchKeyWorlds.value}'),
+                      ),
+              ),
+              Expanded(
+                  child: searchInit
+                      ? Container()
+                      : SearchListComponent(
+                          searchRepostory: logic.searchRepostory,
+                          controller: _scrollController,
+                        ))
+            ],
+          ),
         ),
       ),
     );
   }
 
   /// 标题栏
-  Widget get _appbar => AppBar(
-        title: Text('搜索'),
+  Widget get _appbar => CupertinoNavigationBar(
+        middle: Text('搜索'),
       );
 
   @override
