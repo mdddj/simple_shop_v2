@@ -9,8 +9,10 @@ import 'simple_widget/loadingmore_busying_widget.dart';
 class CustomIndicator {
   CustomIndicator._();
 
+  ///实例
   static CustomIndicator get instance => CustomIndicator._();
 
+  ///私有化对象
   factory CustomIndicator() => instance;
 
   /// 加载更多的样式
@@ -33,6 +35,6 @@ class CustomIndicator {
         break;
     }
     widget ??= Container();
-    return widget;
+    return SliverToBoxAdapter(child: widget,);
   }
 }

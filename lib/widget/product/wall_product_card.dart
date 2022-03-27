@@ -1,18 +1,20 @@
 import 'package:dataoke_sdk/model/product.dart';
-
-import '../../util/extended_util.dart';
-import '../../util/widget_util.dart';
-import '../price/simple_price_layout.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../util/extended_util.dart';
+import '../../util/widget_util.dart';
+import '../price/simple_price_layout.dart';
 import 'product_widgets.dart';
 
 /// 瀑布流卡片
 class WallProductCard extends StatelessWidget {
+
+  ///产品模型
   final Product product;
 
+  ///构造
   const WallProductCard({Key? key, required this.product}) : super(key: key);
 
   @override

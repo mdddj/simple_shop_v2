@@ -27,39 +27,33 @@ class _ProductListComponentsState extends State<ProductListComponents>
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return LoadingMoreList(
-          ListConfig<Product>(
-              extendedListDelegate:
-                  SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-                collectGarbage: (List<int> indexes) {
-                  indexes.forEach((index) {
-                    final provider = ExtendedNetworkImageProvider(
-                      _repository[index].mainPic,
-                    );
-                    provider.evict();
-                  });
-                },
-              ),
-              itemBuilder: _builder,
-              sourceList: _repository,
-              indicatorBuilder: CustomIndicator.instance.loadingMoreStyle,
-              padding: EdgeInsets.all(12)),
-        );
-      },
+    return LoadingMoreSliverList(
+      SliverListConfig<Product>(
+          extendedListDelegate:
+          SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 12,
+            crossAxisSpacing: 12,
+            collectGarbage: (List<int> indexes) {
+              indexes.forEach((index) {
+                final provider = ExtendedNetworkImageProvider(
+                  _repository[index].mainPic,
+                );
+                provider.evict();
+              });
+            },
+          ),
+          itemBuilder: _builder,
+          sourceList: _repository,
+          indicatorBuilder: CustomIndicator.instance.loadingMoreStyle,
+          padding: EdgeInsets.all(12)),
     );
   }
 
   /// 子组件布局
   Widget _builder(BuildContext context, Product item, int index) {
     return Container(
-      child: WallProductCard(
-        product: item,
-      ),
+      child: WallProductCard(product: item),
     );
   }
 

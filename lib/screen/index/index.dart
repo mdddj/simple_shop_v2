@@ -1,48 +1,64 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
-
-import '../taobao_activity/view.dart';
+import 'package:get/get.dart';
+import 'package:loading_more_list/loading_more_list.dart';
 
 import '../../constant/app_constant.dart';
-
-import '../../components/product_list/products_list_components.dart';
 import '../../controller/app_controller.dart';
 import '../../controller/index_controller.dart';
 import '../../service/impl/render_widget_service.dart';
 import '../../widget/index/carousel.dart';
-import '../../widget/index/drawer.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
+import '../../widget/product/wall_product_card.dart';
+import '../taobao_activity/view.dart';
 import 'waimai.dart';
 
+///APP首页
 class AppIndex extends StatefulWidget {
   @override
   _AppIndexState createState() => _AppIndexState();
 }
 
-class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin {
+class _AppIndexState extends State<AppIndex>
+    with AutomaticKeepAliveClientMixin {
   final logic = Get.put(IndexController());
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return CupertinoPageScaffold(
-      key: logic.scaffoldKey,
-      navigationBar:CupertinoNavigationBar(
-        middle: Text('典典的小卖部'),
-      ), child: SafeArea(
-        child: EasyRefresh.custom(slivers: [
-        _renderCategory(), Waimai(), _renderCarousel(),
+        key: logic.scaffoldKey,
+        navigationBar: CupertinoNavigationBar(
+          middle: Text('典典的小卖部'),
+        ),
+        child: SafeArea(
+          child: EasyRefresh.custom(slivers: [
+            _renderCategory(),
+            Waimai(),
+            _renderCarousel(),
+            _renderBody()
+          ], onLoad: _nextPage),
+        ));
+  }
 
-    ]),
-      )
-    );
+  ///加载更多
+  Future<void> _nextPage() async {
+    await AppController.instance.fetchIndexProduct();
   }
 
   /// 首页 - 商品列表
   Widget _renderBody() {
-    return ProductListComponents();
+    return Obx(() {
+      final products = AppController.instance.products;
+      return SliverWaterfallFlow.count(
+          crossAxisCount: 2,
+          mainAxisSpacing: kDefaultPadded,
+          crossAxisSpacing: kDefaultPadded,
+          children: [
+            ...products
+                .map((element) => WallProductCard(product: element))
+                .toList()
+          ]);
+    });
   }
 
   /// 首页 - 轮播图
@@ -55,7 +71,7 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
   /// 首页 - 主分类
   Widget _renderCategory() {
     return SliverToBoxAdapter(
-      child: Obx((){
+      child: Obx(() {
         final categorys = AppController.instance.categorys.value;
         return Container(
           child: RenderWidgetService().renderCategoryWidget(categorys,
@@ -65,33 +81,14 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
     );
   }
 
-  /// 首页 - 导航条
-  Widget _renderAppbar() {
-    return SliverAppBar(
-      leading: IconButton(
-        icon: Icon(Icons.menu),
-        onPressed: () {
-          IndexController.find.scaffoldKey.currentState!.openDrawer();
-        },
-      ),
-      title: Text(
-        '典典的小卖部',
-      ),
-      actions: [
-        IconButton(icon: Icon(Icons.search), onPressed: () {}),
-        IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
-      ],
-      pinned: true,
-    );
-  }
-
   /// 轮播图
   Widget carousel() {
     return Obx(() {
-      final list = IndexController.find.carousels.value;
-      final images = List<String>.from(list.map((element) => element.topicImage)).toList();
+      final list = IndexController.find.carousels;
+      final images =
+          List<String>.from(list.map((element) => element.topicImage)).toList();
       return Container(
-        padding: EdgeInsets.only(left: 12,right: 12),
+        padding: EdgeInsets.only(left: 12, right: 12),
         child: AspectRatio(
             aspectRatio: 2.53,
             child: CarouselComponent(

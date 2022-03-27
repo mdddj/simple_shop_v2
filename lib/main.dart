@@ -12,7 +12,7 @@ import 'provider/factory.dart';
 import 'service/app_service.dart';
 import 'service/impl/api_service_impl.dart';
 
-///
+///入口函数
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DdTaokeUtil.instance.init('https://itbug.shop', '443', proxy: '',debug: false);
@@ -24,6 +24,7 @@ void main() async {
   runApp(MyApp());
 }
 
+///APP实例
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,14 +34,6 @@ class MyApp extends StatelessWidget {
         title: '梁典典',
         debugShowCheckedModeBanner: false,
         locale: ui.window.locale,
-        // theme: ThemeData(
-        //     visualDensity: VisualDensity.adaptivePlatformDensity,
-        //     appBarTheme: AppBarTheme(backgroundColor: Colors.white,titleTextStyle: TextStyle(color: Colors.black,fontSize: 12),iconTheme: IconThemeData(color: Colors.grey,size: 20),elevation: 0 ),
-        //     primaryColor: kPrimaryColor,cardTheme: CardTheme(
-        //       elevation: 0
-        //     )),
-        theme: CupertinoThemeData(
-        ),
         home: MainTabbars(),
       ),
     );
