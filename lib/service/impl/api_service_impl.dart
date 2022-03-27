@@ -30,7 +30,7 @@ class ApiService extends GetxService {
     if (pageId != null) params['pageId'] = '$pageId';
     if (pageSize != null) params['pageSize'] = '$pageSize';
     if (cid != null) params['cid'] = '$cid';
-    final response = await HttpRequest.req(dtkApi + '/top', data: params);
+    final response = await HttpRequest.req('$dtkApi/top', data: params);
     return response.isNotEmpty
         ? productFromJson(response) as FutureOr<List<Product>>
         : [];
@@ -40,13 +40,13 @@ class ApiService extends GetxService {
     var params = <String, String>{};
     if (id != null) params['id'] = id;
     if (goodsId != null) params['goodsId'] = goodsId;
-    final response = await HttpRequest.req(dtkApi + '/detail', data: params);
+    final response = await HttpRequest.req('$dtkApi/detail', data: params);
     return productDetailFromJson(response);
   }
 
   Future getComments(String id) async {
     final response =
-        await HttpRequest.req(dtkApi + '/comment', data: {'id': id});
+        await HttpRequest.req('$dtkApi/comment', data: {'id': id});
     return response;
   }
 

@@ -1,13 +1,14 @@
 import 'dart:convert';
 
 import 'package:dataoke_sdk/network/util.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:get_it/get_it.dart';
 
 import '../components/utils.dart';
 import '../model/pdd_detail.dart';
 import '../model/wph_detail_resul.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:get_it/get_it.dart';
 
+/// 淘客的一些接口
 class TKApiService {
   /// 美团领券
   Future<String> meituan(Map<String, String> data,
@@ -178,4 +179,5 @@ class TKApiService {
   }
 }
 
+/// 开放调用
 TKApiService get tkApi => GetIt.I.get<TKApiService>();
