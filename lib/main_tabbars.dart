@@ -14,7 +14,7 @@ const kTabData = [
   {'layout': '首页', 'icon': CupertinoIcons.home},
   {'layout': '分类', 'icon': CupertinoIcons.archivebox_fill},
   {'layout': '搜索', 'icon': CupertinoIcons.search},
-  {'layout': '消息', 'icon': CupertinoIcons.chart_bar_alt_fill},
+  {'layout': '情报', 'icon': CupertinoIcons.chart_bar_alt_fill},
   {'layout': '九块九', 'icon': CupertinoIcons.volume_down},
 ];
 
@@ -70,9 +70,9 @@ class _MainTabbarsState extends State<MainTabbars>
       case 2:
         return const SearchPage();
       case 3:
-        return const NineNinePage();
+        return const IntelligencePage();
     }
-    return const IntelligencePage();
+    return const NineNinePage();
   }
 
   @override

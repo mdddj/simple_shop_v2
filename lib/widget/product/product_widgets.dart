@@ -1,5 +1,6 @@
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 
 /// 商品的一些相关信息
 class ProductWidgets extends StatelessWidget {
@@ -22,12 +23,14 @@ class ProductWidgets extends StatelessWidget {
         color: CupertinoColors.systemPink,
         borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
-      alignment: Alignment.center,
       child: Text(
-        '${product.couponPrice}元直减',
-        style: const TextStyle(fontSize: 12),
+        '${product.couponPrice.toString().replaceAll('.0', '')}元直减',
+        style: TextStyle(
+            fontSize: 12,
+            color: Get.mediaQuery.platformBrightness == Brightness.dark
+                ? CupertinoColors.inactiveGray
+                : CupertinoColors.white),
       ),
     );
   }
-
 }
