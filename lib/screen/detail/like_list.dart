@@ -19,15 +19,14 @@ class LikeProducts extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(kDefaultPadded),
       margin: const EdgeInsets.only(top: kDefaultPadded),
-      decoration: const BoxDecoration(
-          color: Colors.white,
+      decoration:  const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           WidgetUtil.instance.renderTitle('猜你喜欢'),
           const SizedBox(
-            height: 6,
+            height: kDefaultPadded,
           ),
           ProductHorizontalList(
               products: products,

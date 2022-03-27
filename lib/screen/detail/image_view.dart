@@ -28,7 +28,6 @@ class ImageView extends StatelessWidget {
       margin: const EdgeInsets.only(top: kDefaultPadded),
       padding: const EdgeInsets.symmetric(vertical: kDefaultPadded),
       decoration: const BoxDecoration(
-          color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,13 +60,14 @@ class ImageView extends StatelessWidget {
   }
 
   Widget renderItem(DetailImage img) {
-    final w = Get.width;
-    return ExtendedImage.network(
-      img.img!.imageUrl(),
-      width: w,
-      height: w,
-      loadStateChanged: WidgetUtil.instance.s,
-      cache: false,
-    );
+    if(img.img!=null){
+      return ExtendedImage.network(
+        img.img!.imageUrl(),
+        loadStateChanged: WidgetUtil.instance.s,
+        cache: false,
+        fit: BoxFit.cover,
+      );
+    }
+    return const SizedBox();
   }
 }

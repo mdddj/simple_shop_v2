@@ -20,7 +20,11 @@ class IndexController extends GetxController {
   /// 轮播图
   RxList<Carousel> carousels = RxList<Carousel>([]);
 
-  RxList<Product> timeBuyProducts = RxList<Product>([]);
+  final RxList<Product> _timeBuyProducts = RxList<Product>([]);
+
+  set timeBuyProducts(List<Product> values) => _timeBuyProducts.value = values;
+
+  List<Product> get timeBuyProducts => _timeBuyProducts.toList();
 
   ///加载中状态
   RxBool loading = true.obs;
@@ -42,7 +46,7 @@ class IndexController extends GetxController {
   // 加载限时抢购数据
   Future<void> getTimeBuyProducts() async {
     DdTaokeSdk.instance.getDdq().then((value) {
-      timeBuyProducts.addAll(value?.goodsList??[]);
+      timeBuyProducts = value?.goodsList??[];
       update();
     });
   }

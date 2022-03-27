@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../constant/app_constant.dart';
 import '../../constant/color_constant.dart';
 import '../../util/extended_util.dart';
 import '../../widget/image/simple_image.dart';
@@ -37,7 +38,7 @@ class _IntelligencePageState extends State<IntelligencePage>
             child: logic.initLoading.value
                 ? kLoadingWidget
                 : ListView.builder(
-                itemBuilder: _builder, itemCount: logic.list.length),
+                    itemBuilder: _builder, itemCount: logic.list.length),
           ),
         );
       },
@@ -54,7 +55,6 @@ class _IntelligencePageState extends State<IntelligencePage>
       margin: EdgeInsets.only(
           top: index == 0 ? 12 : 0, left: 12, right: 12, bottom: 12),
       decoration: const BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       child: Column(
@@ -79,6 +79,7 @@ class _IntelligencePageState extends State<IntelligencePage>
                 height: 120,
                 child: SimpleImage(
                   url: item.img!,
+                  radius: 8,
                 ),
               ),
               const SizedBox(width: 6),
@@ -94,15 +95,15 @@ class _IntelligencePageState extends State<IntelligencePage>
               ))
             ],
           ),
+          const SizedBox(height: kDefaultPadded,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TextButton(
-                  onPressed: () {
-                    Utils().copy(item.title);
-                  },
-                  child: const Text('复制文案')),
-              TextButton(
+              CupertinoButton(
+                  child: const Text('复制文案'),
+                  onPressed: () => Utils().copy(item.title)),
+              CupertinoButton.filled(
+                padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded* 2,vertical: 2),
                   onPressed: () async {
                     final result = await DdTaokeSdk.instance
                         .getCouponsDetail(taobaoGoodsId: item.itemId!);
@@ -119,9 +120,10 @@ class _IntelligencePageState extends State<IntelligencePage>
   }
 
   CupertinoNavigationBar get _appbar => const CupertinoNavigationBar(
-      middle: Text('优惠情报'),);
-      // bottom: AppbarBottomTabbar(
-      //   controller: tabController,
-      //   changeIndex: IntelligenceLogic.instance.onChange,
-      // ));
+        middle: Text('优惠情报'),
+      );
+// bottom: AppbarBottomTabbar(
+//   controller: tabController,
+//   changeIndex: IntelligenceLogic.instance.onChange,
+// ));
 }

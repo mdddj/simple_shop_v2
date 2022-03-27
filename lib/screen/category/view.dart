@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:waterfall_flow/waterfall_flow.dart';
 
+import '../../constant/app_constant.dart';
 import '../../provider/app.dart';
 import '../../util/widget_util.dart';
 import '../../widget/loading/simple_loadings.dart';
@@ -43,39 +44,47 @@ class _CategoryPageState extends State<CategoryPage> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             width: 120,
-            height: Get.height - kToolbarHeight - context.mediaQuery.padding.top,
-            decoration: const BoxDecoration(color: Colors.white),
+            height:
+                Get.height - kToolbarHeight - context.mediaQuery.padding.top,
             child: LiveList(
                 itemBuilder: _leftBuilder, itemCount: categorys.length),
           ),
           Expanded(
-              child: Container(
-            padding: const EdgeInsets.all(8.0),
-            decoration: const BoxDecoration(color: Colors.white),
-            child: WaterfallFlow.builder(
-              gridDelegate: const SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3, mainAxisSpacing: 12, crossAxisSpacing: 12),
-              itemBuilder: (_, index) {
-                final item = currentCategory!.subcategories![index];
-                return GestureDetector(
-                  onTap: () {
-                    WidgetUtil.instance.toCategoryPage(currentCategory,
-                        childId: item.subcid.toString());
-                  },
+              child: WaterfallFlow.builder(
+            padding: const EdgeInsets.all(kDefaultPadded),
+            gridDelegate:
+                const SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 12,
+                    crossAxisSpacing: 12),
+            itemBuilder: (_, index) {
+              final item = currentCategory!.subcategories![index];
+              return GestureDetector(
+                onTap: () {
+                  WidgetUtil.instance.toCategoryPage(currentCategory,
+                      childId: item.subcid.toString());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(kDefaultPadded / 2),
                   child: Column(
                     children: [
-                      Image.network(item.scpic!),
+                      ClipRRect(
+                        child: AspectRatio(
+                            child: Image.network(item.scpic!),aspectRatio: 1,),
+                        borderRadius: BorderRadius.circular(1000),
+                      ),
+                      const SizedBox(width: 1,),
                       Text(item.subcname!)
                     ],
                   ),
-                );
-              },
-              itemCount: currentCategory!.subcategories!.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-            ),
+                ),
+              );
+            },
+            itemCount: currentCategory!.subcategories!.length,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
           ))
         ],
       ),
@@ -91,12 +100,17 @@ class _CategoryPageState extends State<CategoryPage> {
     }
     return GestureDetector(
       onTap: () => context.read<AppProvider>().changeCurrentCategory(item),
-      child: Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration:
-            BoxDecoration(color: isCurrent ? Colors.grey[200] : Colors.white),
-        child: Text('${item.cname}'),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded),
+        child: Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(vertical: kDefaultPadded),
+          decoration:
+              BoxDecoration(color: isCurrent ? context.theme.primaryColor : null,
+              borderRadius: BorderRadius.circular(8)
+              ),
+          child: Text('${item.cname}'),
+        ),
       ),
     );
   }

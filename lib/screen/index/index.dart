@@ -48,7 +48,7 @@ class _AppIndexState extends State<AppIndex>
   /// 限时抢购
   Widget _renderTimeBuy(){
     return Obx((){
-      final products = logic.timeBuyProducts.value;
+      final products = logic.timeBuyProducts;
       return   TimebuyComponent(products: products,).sliverBox;
     });
   }
@@ -88,7 +88,7 @@ class _AppIndexState extends State<AppIndex>
   Widget _renderCategory() {
     return SliverToBoxAdapter(
       child: Obx(() {
-        final categorys = AppController.instance.categorys.value;
+        final categorys = AppController.instance.categorys;
         return Container(
           child: RenderWidgetService().renderCategoryWidget(categorys,
               onSelectd: IndexController.find.onSelected),

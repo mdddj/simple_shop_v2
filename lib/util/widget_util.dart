@@ -53,7 +53,7 @@ class WidgetUtil {
   Widget renderTitle(String title) {
     return Text(
       title,
-      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+      style: const TextStyle(fontWeight: FontWeight.bold),
     );
   }
 

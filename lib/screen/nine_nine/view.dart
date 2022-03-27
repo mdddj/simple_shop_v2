@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../constant/app_constant.dart';
 import '../../widget/loading/simple_loadings.dart';
 import '../../widget/product/simple_card.dart';
 import 'logic.dart';
@@ -18,6 +19,8 @@ class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderSt
   final NineNineLogic logic = Get.put(NineNineLogic());
 
   late TabController _tabController;
+
+  int _currIndex = 1;
 
   @override
   void initState() {
@@ -54,13 +57,38 @@ class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderSt
       child: SafeArea(
         child: Obx(() {
 
-          if(logic.loading.value){
-            return kLoadingWidget;
-          }
 
-          return ListView.builder(
-            itemBuilder: _itemBuilder,
-            itemCount: logic.products.length,
+
+          return Column(
+            children: [
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(kDefaultPadded),
+                child: CupertinoSlidingSegmentedControl<int>(children: const {
+                  1: Text('9.9'),
+                  2: Text('19.9'),
+                  3: Text('29.9')
+                }, onValueChanged: (index){
+                  if(index==null){
+                    return;
+                  }
+                  setState(() {
+                    _currIndex = index;
+                  });
+                  logic.onTabChanged(index);
+                },groupValue: _currIndex,),
+              ),
+              Expanded(
+                child: AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 300),
+
+                  child:logic.loading.value ? kLoadingWidget : ListView.builder(
+                    itemBuilder: _itemBuilder,
+                    itemCount: logic.products.length,
+                  ),
+                ),
+              ),
+            ],
           );
 
         }),

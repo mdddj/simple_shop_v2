@@ -51,49 +51,44 @@ class _SearchListComponentState extends State<SearchListComponent> {
       onTap: () => WidgetUtil.instance.detailPage(product: item),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: PhysicalModel(
-          color: Colors.grey[100]!,
-          elevation: 3,
-          borderRadius: _radius,
-          child: Container(
-            padding: const EdgeInsets.symmetric(
-                horizontal: kDefaultPadded, vertical: kDefaultPadded),
-            decoration:
-                BoxDecoration(color: Colors.white, borderRadius: _radius),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: _imageSize,
-                  height: _imageSize,
-                  child: SimpleImage(
-                    url: item.mainPic!,
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+              horizontal: kDefaultPadded, vertical: kDefaultPadded),
+          decoration:
+              BoxDecoration( borderRadius: _radius),
+          child: Row(
+            children: [
+              SizedBox(
+                width: _imageSize,
+                height: _imageSize,
+                child: SimpleImage(
+                  url: item.mainPic!,
+                  radius: 8,
+                ),
+              ),
+              const SizedBox(
+                width: kDefaultPadded,
+              ),
+              Expanded(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(minHeight: _imageSize),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '${item.dtitle}',
+                      ),
+                      Text(
+                        '券后 ${'${item.actualPrice}'.coverRmbPrice}',
+                        style:
+                            TextStyle(color: kPriceValueColor, fontSize: 15),
+                      )
+                    ],
                   ),
                 ),
-                const SizedBox(
-                  width: kDefaultPadded,
-                ),
-                Expanded(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(minHeight: _imageSize),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '${item.dtitle}',
-                          style: const TextStyle(color: Colors.black, fontSize: 15),
-                        ),
-                        Text(
-                          '券后 ${'${item.actualPrice}'.coverRmbPrice}',
-                          style:
-                              TextStyle(color: kPriceValueColor, fontSize: 15),
-                        )
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),

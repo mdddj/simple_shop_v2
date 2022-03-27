@@ -20,8 +20,7 @@ class SimpleCard extends StatelessWidget {
       child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(8)),
+          decoration: BoxDecoration( borderRadius: BorderRadius.circular(8)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -30,6 +29,7 @@ class SimpleCard extends StatelessWidget {
                 height: 90,
                 child: SimpleImage(
                   url: product.mainPic!,
+                  radius: 8,
                 ),
               ),
               const SizedBox(

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
@@ -46,13 +45,12 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     final searchInit = context.watch<AppProvider>().searchInit;
     return CupertinoPageScaffold(
-      backgroundColor: Colors.white,
+      navigationBar: _appbar,
       child: SafeArea(
         child: SizedBox(
           height: Get.height - 64,
           child: Column(
             children: [
-              _appbar,
               AnimatedSwitcher(
                 duration: const Duration(seconds: 1),
                 child: _showSearchInput
@@ -60,6 +58,7 @@ class _SearchPageState extends State<SearchPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: CupertinoSearchTextField(
                           onChanged: logic.onKeyWorldsChange,
+                          placeholder: '查询优惠券,比如输入"辣条"',
                         ))
                     : Container(
                         alignment: Alignment.centerLeft,
@@ -82,7 +81,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   /// 标题栏
-  Widget get _appbar => const CupertinoNavigationBar(
+  CupertinoNavigationBar get _appbar => const CupertinoNavigationBar(
         middle: Text('搜索'),
       );
 

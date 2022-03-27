@@ -11,8 +11,11 @@ class SimpleImage extends StatelessWidget {
   ///图片src
   final String url;
 
+  ///设置圆角
+  final double? radius;
+
   ///构造
-  const SimpleImage({Key? key, required this.url}) : super(key: key);
+  const SimpleImage({Key? key, required this.url,this.radius}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +41,7 @@ class SimpleImage extends StatelessWidget {
             loadStateChanged: WidgetUtil.instance.s,
             cache: true,
             shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.circular(radius??0),
           ),
         ),
       ],

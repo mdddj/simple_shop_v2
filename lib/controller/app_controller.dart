@@ -17,7 +17,10 @@ class AppController extends GetxController {
   final api = ApiService.instance;
 
   ///产品超级分类
-  RxList<Category> categorys = RxList<Category>([]);
+  final RxList<Category> _categorys = RxList<Category>([]);
+
+  set categorys(List<Category> values)=>_categorys.value = values;
+  List<Category> get categorys => _categorys.toList();
 
   ///首页的产品列表
   RxList<Product> products = RxList<Product>([]);
@@ -35,7 +38,7 @@ class AppController extends GetxController {
   /// 加载分类
   void loadCategory() {
     DdTaokeSdk.instance.getCategorys().then((value) {
-      categorys.addAll(value);
+      categorys = value;
       update();
     });
   }

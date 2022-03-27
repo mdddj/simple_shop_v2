@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 
 import '../../constant/app_constant.dart';
 import '../../ext/string.dart';
+import '../../ext/theme.dart';
 import '../../mixin/detail_mixin.dart';
 import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
@@ -115,8 +116,8 @@ class _DetailIndexState extends State<DetailIndex>
         child: Container(
           height: 64,
           decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border(top: BorderSide(color: Colors.grey[200]!)),
+            color: context.darkMode ? CupertinoColors.black : CupertinoColors.white,
+            border: Border(top: BorderSide(color: context.theme.dividerColor)),
           ),
           child: Row(
             children: [
@@ -173,7 +174,6 @@ class _DetailIndexState extends State<DetailIndex>
   Widget renderGroup1() {
     return Container(
       decoration: const BoxDecoration(
-          color: Colors.white,
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(15),
               bottomRight: Radius.circular(15))),
@@ -238,8 +238,8 @@ class _DetailIndexState extends State<DetailIndex>
         horizontal: kDefaultPadded,
       ),
       margin: const EdgeInsets.only(top: kDefaultPadded),
-      height: 1,
-      color: Colors.grey[200],
+      height: .6,
+      color: context.theme.dividerColor,
     );
   }
 
