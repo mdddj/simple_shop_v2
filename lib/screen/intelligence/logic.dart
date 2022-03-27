@@ -6,10 +6,10 @@ import 'package:get/get.dart';
 class IntelligenceLogic extends GetxController {
   static IntelligenceLogic get instance => Get.find<IntelligenceLogic>();
 
-  var pageId = 1;
-  var list = <ListElement>[].obs;
-  var type = '4'.obs;
-  var initLoading = false.obs;
+  int pageId = 1;
+  RxList<ListElement> list = <ListElement>[].obs;
+  RxString type = '4'.obs;
+  RxBool initLoading = false.obs;
 
   @override
   void onInit() {
@@ -20,7 +20,7 @@ class IntelligenceLogic extends GetxController {
       pageId = 1;
       list.clear();
       loadData();
-    }, time: Duration(milliseconds: 300));
+    }, time: const Duration(milliseconds: 300));
   }
 
   /// 加载数据

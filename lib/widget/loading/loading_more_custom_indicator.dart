@@ -1,7 +1,7 @@
-import '../empty/simple_empty_status_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
+import '../empty/simple_empty_status_widget.dart';
 import 'simple_widget/full_screen_widget.dart';
 import 'simple_widget/loadingmore_busying_widget.dart';
 
@@ -17,24 +17,23 @@ class CustomIndicator {
 
   /// 加载更多的样式
   Widget loadingMoreStyle(BuildContext context, IndicatorStatus status) {
-    var widget;
+    Widget widget = const SliverToBoxAdapter();
     switch (status) {
       case IndicatorStatus.none:
         widget = Container();
         break;
       case IndicatorStatus.loadingMoreBusying:
-        widget = LoadingMoreBysyingWidget();
+        widget = const LoadingMoreBysyingWidget();
         break;
       case IndicatorStatus.fullScreenBusying:
-        widget = FullScreenWidget();
+        widget = const FullScreenWidget();
         break;
       case IndicatorStatus.empty:
-        widget = CustomEmptyWidget();
+        widget = const CustomEmptyWidget();
         break;
       default:
         break;
     }
-    widget ??= Container();
     return SliverToBoxAdapter(child: widget,);
   }
 }

@@ -1,6 +1,7 @@
 
-import '../http_request.dart';
 import 'package:dio/dio.dart';
+
+import '../http_request.dart';
 
 /// 参数拦截器
 class ParamsTokenInterceptor extends Interceptor{

@@ -20,6 +20,8 @@ const kTabData = [
 
 /// 主页面结构
 class MainTabbars extends StatefulWidget {
+  const MainTabbars({Key? key}) : super(key: key);
+
   @override
   _MainTabbarsState createState() => _MainTabbarsState();
 }
@@ -62,15 +64,15 @@ class _MainTabbarsState extends State<MainTabbars>
   Widget _renderPage(context,int index){
     switch(index){
       case 0:
-        return AppIndex();
+        return const AppIndex();
       case 1:
-        return CategoryPage();
+        return const CategoryPage();
       case 2:
-        return SearchPage();
+        return const SearchPage();
       case 3:
-        return NineNinePage();
+        return const NineNinePage();
     }
-    return IntelligencePage();
+    return const IntelligencePage();
   }
 
   @override
@@ -85,7 +87,7 @@ class _MainTabbarsState extends State<MainTabbars>
   /// 底部导航
   List<BottomNavigationBarItem> _renderTabs() {
     var list = <BottomNavigationBarItem>[];
-    kTabData.forEach((element) {
+    for (var element in kTabData) {
       list.add(BottomNavigationBarItem(
         icon: Icon(
           element['icon'] as IconData?,
@@ -93,7 +95,7 @@ class _MainTabbarsState extends State<MainTabbars>
         ),
         label: element['layout'].toString()
       ));
-    });
+    }
     return list;
   }
 

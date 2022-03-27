@@ -1,3 +1,4 @@
+include: package:flutter_lints/flutter.yaml
 analyzer:
   strong-mode:
     implicit-dynamic: true
@@ -26,7 +27,7 @@ linter:
     # DOCUMENTATION
     - slash_for_doc_comments
     - package_api_docs # prefer
-    - public_member_api_docs # prefer
+    # - public_member_api_docs # prefer
 
 
     # USAGE

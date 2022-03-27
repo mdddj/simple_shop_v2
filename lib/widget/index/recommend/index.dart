@@ -1,9 +1,9 @@
 import 'package:dataoke_sdk/model/product.dart';
-import '../../../constant/app_constant.dart';
-import '../../../util/widget_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../constant/app_constant.dart';
+import '../../../util/widget_util.dart';
 import '../../image/layoutbuilder_image.dart';
 
 /// 商品推荐
@@ -16,7 +16,7 @@ class RecommendIndex extends StatelessWidget {
   Widget build(BuildContext context) {
     if (GetUtils.isNull(products)) return Container();
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         childAspectRatio: 0.8,
         mainAxisSpacing: kDefaultPadded,
@@ -24,13 +24,13 @@ class RecommendIndex extends StatelessWidget {
       ),
       itemBuilder: itemBuilder,
       itemCount: products!.length,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       padding: EdgeInsets.zero,
       shrinkWrap: true,
     );
   }
 
-  Widget itemBuilder(context, index) {
+  Widget itemBuilder(BuildContext context,int index) {
     return renderItem(products![index]);
   }
 
@@ -43,27 +43,27 @@ class RecommendIndex extends StatelessWidget {
             WidgetUtil.instance.detailPage(product: item);
           },
           child: Container(
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 LayoutBuilderImage(url: item.mainPic, constraints: constraints),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Text(
                       '$rmb ${item.actualPrice}',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Text(

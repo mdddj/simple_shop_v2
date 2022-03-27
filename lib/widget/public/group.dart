@@ -1,6 +1,7 @@
-import '../../constant/app_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../constant/app_constant.dart';
 
 class Group extends StatelessWidget {
   final Widget? body;
@@ -14,10 +15,10 @@ class Group extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
           horizontal: kDefaultPadded, vertical: kDefaultPadded / 3),
-      padding: EdgeInsets.all(kDefaultPadded / 2),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(kDefaultPadded / 2),
+      decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(8)),
           color: Colors.white),
       child: Column(
@@ -25,10 +26,10 @@ class Group extends StatelessWidget {
         children: [
           if (showTitle)
             Padding(
-              padding: EdgeInsets.symmetric(vertical: kDefaultPadded / 2),
+              padding: const EdgeInsets.symmetric(vertical: kDefaultPadded / 2),
               child: Text(
                 '$title',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               ),
             ),
           body!

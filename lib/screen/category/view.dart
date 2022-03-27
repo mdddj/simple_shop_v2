@@ -1,16 +1,19 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:dataoke_sdk/model/category.dart';
 import 'package:flutter/cupertino.dart';
-import '../../provider/app.dart';
-import '../../widget/loading/simple_loadings.dart';
-import '../../util/widget_util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:waterfall_flow/waterfall_flow.dart';
 
+import '../../provider/app.dart';
+import '../../util/widget_util.dart';
+import '../../widget/loading/simple_loadings.dart';
+
 ///分类页面
 class CategoryPage extends StatefulWidget {
+  const CategoryPage({Key? key}) : super(key: key);
+
   @override
   _CategoryPageState createState() => _CategoryPageState();
 }
@@ -26,7 +29,7 @@ class _CategoryPageState extends State<CategoryPage> {
     final categorys = context.watch<AppProvider>().categorys;
 
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
+      navigationBar: const CupertinoNavigationBar(
         middle: Text('分类'),
       ),
       child: SafeArea(child: _renderBody(categorys)),
@@ -43,16 +46,16 @@ class _CategoryPageState extends State<CategoryPage> {
           Container(
             width: 120,
             height: Get.height - kToolbarHeight - context.mediaQuery.padding.top,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: LiveList(
                 itemBuilder: _leftBuilder, itemCount: categorys.length),
           ),
           Expanded(
               child: Container(
             padding: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: WaterfallFlow.builder(
-              gridDelegate: SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverWaterfallFlowDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3, mainAxisSpacing: 12, crossAxisSpacing: 12),
               itemBuilder: (_, index) {
                 final item = currentCategory!.subcategories![index];
@@ -61,19 +64,17 @@ class _CategoryPageState extends State<CategoryPage> {
                     WidgetUtil.instance.toCategoryPage(currentCategory,
                         childId: item.subcid.toString());
                   },
-                  child: Container(
-                    child: Column(
-                      children: [
-                        Image.network(item.scpic!),
-                        Text(item.subcname!)
-                      ],
-                    ),
+                  child: Column(
+                    children: [
+                      Image.network(item.scpic!),
+                      Text(item.subcname!)
+                    ],
                   ),
                 );
               },
               itemCount: currentCategory!.subcategories!.length,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
             ),
           ))
         ],
@@ -92,7 +93,7 @@ class _CategoryPageState extends State<CategoryPage> {
       onTap: () => context.read<AppProvider>().changeCurrentCategory(item),
       child: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         decoration:
             BoxDecoration(color: isCurrent ? Colors.grey[200] : Colors.white),
         child: Text('${item.cname}'),

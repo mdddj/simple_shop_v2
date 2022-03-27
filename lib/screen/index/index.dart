@@ -7,14 +7,16 @@ import '../../constant/app_constant.dart';
 import '../../controller/app_controller.dart';
 import '../../controller/index_controller.dart';
 import '../../service/impl/render_widget_service.dart';
-import '../../util/net/network/dio_errors.dart';
 import '../../widget/index/carousel.dart';
+import '../../widget/index/timebuy/component.dart';
 import '../../widget/product/wall_product_card.dart';
 import '../taobao_activity/view.dart';
 import 'waimai.dart';
 
 ///APP首页
 class AppIndex extends StatefulWidget {
+  const AppIndex({Key? key}) : super(key: key);
+
   @override
   _AppIndexState createState() => _AppIndexState();
 }
@@ -28,17 +30,27 @@ class _AppIndexState extends State<AppIndex>
     super.build(context);
     return CupertinoPageScaffold(
         key: logic.scaffoldKey,
-        navigationBar: CupertinoNavigationBar(
+        navigationBar: const CupertinoNavigationBar(
           middle: Text('典典的小卖部'),
         ),
         child: SafeArea(
           child: EasyRefresh.custom(slivers: [
             _renderCategory(),
-            Waimai(),
+            const Waimai(),
             _renderCarousel(),
+            _renderTimeBuy(),
             _renderBody()
           ], onLoad: _nextPage),
         ));
+  }
+
+
+  /// 限时抢购
+  Widget _renderTimeBuy(){
+    return Obx((){
+      final products = logic.timeBuyProducts.value;
+      return   TimebuyComponent(products: products,).sliverBox;
+    });
   }
 
   ///加载更多
@@ -51,7 +63,7 @@ class _AppIndexState extends State<AppIndex>
     return Obx(() {
       final products = AppController.instance.products;
       return SliverPadding(
-        padding: EdgeInsets.all(kDefaultPadded),
+        padding: const EdgeInsets.all(kDefaultPadded),
         sliver: SliverWaterfallFlow.count(
             crossAxisCount: 2,
             mainAxisSpacing: kDefaultPadded,
@@ -92,7 +104,7 @@ class _AppIndexState extends State<AppIndex>
       final images =
           List<String>.from(list.map((element) => element.topicImage)).toList();
       return Container(
-        padding: EdgeInsets.only(left: 12, right: 12),
+        padding: const EdgeInsets.only(left: 12, right: 12),
         child: AspectRatio(
             aspectRatio: 2.53,
             child: CarouselComponent(
@@ -102,7 +114,6 @@ class _AppIndexState extends State<AppIndex>
 
                 if (_item.sourceType != null) {
                   /// 调用淘宝活动
-                  print(_item.activityId);
                   var view = TaobaoActivityPage(
                     activityId: '${_item.activityId}',
                     title: '${_item.topicName}',

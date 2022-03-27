@@ -1,35 +1,36 @@
 import 'package:dataoke_sdk/model/product.dart';
+import 'package:flutter/material.dart';
 
 import '../../../constant/app_constant.dart';
 import '../../product/product.dart';
-import 'package:flutter/material.dart';
 
 /// 限时抢购首页组件
 class TimebuyComponent extends StatelessWidget {
-  final List<Product>? products;
+  final List<Product> products;
 
-  const TimebuyComponent({Key? key, this.products}) : super(key: key);
+  const TimebuyComponent({Key? key, required this.products}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return renderBody();
+    return Padding(
+      padding: const EdgeInsets.all(kDefaultPadded),
+      child: renderBody(),
+    );
   }
 
-  Container renderBody() {
-    return Container(
-      child: Column(
-        children: [renderProducts()],
-      ),
+  Column renderBody() {
+    return Column(
+      children: [renderProducts()],
     );
   }
 
   Widget renderTitle() {
     return Padding(
       padding:
-          EdgeInsets.symmetric(horizontal: kDefaultPadded / 2, vertical: 4),
+          const EdgeInsets.symmetric(horizontal: kDefaultPadded / 2, vertical: 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children: const [
           Text(
             '限时抢购',
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
@@ -43,7 +44,7 @@ class TimebuyComponent extends StatelessWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: products!.map(renderItemLayout).toList(),
+        children: products.map(renderItemLayout).toList(),
       ),
     );
   }

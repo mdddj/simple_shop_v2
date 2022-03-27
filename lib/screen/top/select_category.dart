@@ -1,7 +1,8 @@
 import 'package:dataoke_sdk/model/category.dart';
-import '../../widget/category/category_select_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../widget/category/category_select_dialog.dart';
 
 typedef OnSelect = void Function(Category? category);
 
@@ -40,11 +41,11 @@ class SelectCategory extends StatelessWidget {
           },
           child: Chip(
             label: Text(isCurr ? '${currentCategory!.cname}' : '类别'),
-            deleteIcon: Icon(
+            deleteIcon: const Icon(
               Icons.arrow_drop_down_sharp,
               color: Colors.black,
             ),
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
                 side: BorderSide(color: Colors.grey),
                 borderRadius: BorderRadius.all(Radius.circular(55))),
             backgroundColor: isCurr ? Get.theme.highlightColor : Colors.white,

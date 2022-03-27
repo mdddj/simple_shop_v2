@@ -1,8 +1,9 @@
 import 'dart:convert';
-import 'request_params_util.dart';
+
 import 'package:get/get.dart';
 
 import 'aes_util.dart';
+import 'request_params_util.dart';
 
 /// 加密请求工具类
 class RequestUtil{
@@ -16,9 +17,9 @@ class RequestUtil{
     var paramsToken = RequestParamsUtils.generateToken(newParams);
     var data = AesUtil.encryptAESCbc128WithPadding7(base64Encode(utf8.encode(json.encode(newParams))));
     // print("-----------------------------------------参数&MD5-------------------------------------");
-    params.keys.forEach((element) {
+    for (var element in params.keys) {
       // print("$element = ${params[element]}");
-    });
+    }
     // print(paramsToken);
     // print("---------------------------------------------------------------------------------");
     if(showLog){

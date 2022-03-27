@@ -1,13 +1,15 @@
-import '../../provider/app.dart';
-import '../../components/search/search_list_component.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import '../../components/search/search_list_component.dart';
+import '../../provider/app.dart';
 import 'logic.dart';
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({Key? key}) : super(key: key);
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -52,7 +54,7 @@ class _SearchPageState extends State<SearchPage> {
             children: [
               _appbar,
               AnimatedSwitcher(
-                duration: Duration(seconds: 1),
+                duration: const Duration(seconds: 1),
                 child: _showSearchInput
                     ? Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -80,7 +82,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   /// 标题栏
-  Widget get _appbar => CupertinoNavigationBar(
+  Widget get _appbar => const CupertinoNavigationBar(
         middle: Text('搜索'),
       );
 

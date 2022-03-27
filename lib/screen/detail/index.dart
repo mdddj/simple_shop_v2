@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:after_layout/after_layout.dart';
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/model/coupon_link_result.dart';
@@ -56,7 +54,6 @@ class _DetailIndexState extends State<DetailIndex>
 
   @override
   Widget build(BuildContext context) {
-    print(jsonEncode(widget.product?.toJson()));
     if (loading) return LoadingWidget(appBar: _renderAppbar(),);
     return buildScaffold();
   }
@@ -92,7 +89,7 @@ class _DetailIndexState extends State<DetailIndex>
           child: renderGroup1(),
         );
       case 1:
-        return BrandInfo();
+        return const BrandInfo();
       case 2:
         return LikeProducts(
           products: likeProducts,
@@ -102,7 +99,7 @@ class _DetailIndexState extends State<DetailIndex>
           product: detail,
         );
       case 4:
-        return SizedBox(
+        return const SizedBox(
           height: 64,
         );
       default:
@@ -123,11 +120,11 @@ class _DetailIndexState extends State<DetailIndex>
           ),
           child: Row(
             children: [
-              SizedBox(width: 12,),
+              const SizedBox(width: 12,),
               GestureDetector(
-                  child: Icon(CupertinoIcons.info),
-                  onTap: () => Get.to(() => HelpPage())),
-              SizedBox(width: 12,),
+                  child: const Icon(CupertinoIcons.info),
+                  onTap: () => Get.to(() => const HelpPage())),
+              const SizedBox(width: 12,),
               Expanded(
                   child: Flex(
                 direction: Axis.horizontal,
@@ -135,21 +132,21 @@ class _DetailIndexState extends State<DetailIndex>
                   Flexible(
                     child: Container(
                       width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 12),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
                       child: btn1(),
                     ),
                   ),
-                  SizedBox(width: 12,),
+                  const SizedBox(width: 12,),
                   Flexible(
                     child: Container(
                       width: double.infinity,
-                      padding: EdgeInsets.symmetric(vertical: 12),
+                      padding: const EdgeInsets.symmetric(vertical: 12),
                       child: btn2(),
                     ),
                   )
                 ],
               )),
-              SizedBox(width: 12,)
+              const SizedBox(width: 12,)
             ],
           ),
         ));
@@ -159,7 +156,7 @@ class _DetailIndexState extends State<DetailIndex>
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: tkl == null ? null : () => copyTkl(tkl!.tpwd,context: context),
-      child: Text(
+      child: const Text(
         '复制口令',
       ),
     );
@@ -169,13 +166,13 @@ class _DetailIndexState extends State<DetailIndex>
     return CupertinoButton.filled(
       padding: EdgeInsets.zero,
       onPressed: tkl == null ? null : () => tkl!.couponClickUrl!.tryLaunch(),
-      child: Text('领券'),
+      child: const Text('领券'),
     );
   }
 
   Widget renderGroup1() {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(15),
@@ -198,10 +195,10 @@ class _DetailIndexState extends State<DetailIndex>
       return Container();
     }
     return Container(
-      margin: EdgeInsets.all(kDefaultPadded),
+      margin: const EdgeInsets.all(kDefaultPadded),
       child: Row(
         children: [
-          Container(
+          SizedBox(
               height: 30,
               width: 60,
               child: WidgetUtil.instance.renderListTileTitle('优惠')),
@@ -210,21 +207,21 @@ class _DetailIndexState extends State<DetailIndex>
             children: [
               Container(
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                 decoration: BoxDecoration(
                     color: Colors.pink.withOpacity(.07),
-                    borderRadius: BorderRadius.all(Radius.circular(8))),
+                    borderRadius: const BorderRadius.all(Radius.circular(8))),
                 child: Text(
                   '${NumUtil.getNumByValueDouble(detail!.couponPrice, 0)}元隐藏券',
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.pink,
                       fontWeight: FontWeight.bold),
                 ),
               ),
             ],
           ),
-          Spacer(),
-          CupertinoButton(child:Text(
+          const Spacer(),
+          CupertinoButton(child:const Text(
             '去领取',
           ) , onPressed: ()=>openTb(tkl!.couponClickUrl!))
         ],
@@ -237,10 +234,10 @@ class _DetailIndexState extends State<DetailIndex>
       return Container();
     }
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: kDefaultPadded,
       ),
-      margin: EdgeInsets.only(top: kDefaultPadded),
+      margin: const EdgeInsets.only(top: kDefaultPadded),
       height: 1,
       color: Colors.grey[200],
     );
@@ -252,7 +249,7 @@ class _DetailIndexState extends State<DetailIndex>
     }
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.symmetric(horizontal: kDefaultPadded, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded, vertical: 6),
       child: Wrap(
         alignment: WrapAlignment.start,
         children: [
@@ -260,11 +257,11 @@ class _DetailIndexState extends State<DetailIndex>
             decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: Colors.orange.withOpacity(.23))),
-            padding: EdgeInsets.symmetric(horizontal: kDefaultPadded / 2),
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded / 2),
             child: Text(
               '${detail!.subdivisionName}喜爱榜No.${detail!.subdivisionRank}',
               style:
-                  TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
+                  const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
             ),
           )
         ],
@@ -282,53 +279,51 @@ class _DetailIndexState extends State<DetailIndex>
           children: [
             Expanded(
               child: Padding(
-                padding: EdgeInsets.only(left: kDefaultPadded),
+                padding: const EdgeInsets.only(left: kDefaultPadded),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      child: Text(
-                        '${detail!.title}',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                    Text(
+                      '${detail!.title}',
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 6,
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: kDefaultPadded,
             ),
             Column(
               children: [
-                Icon(CupertinoIcons.person_2_fill,color: CupertinoColors.inactiveGray,),
+                const Icon(CupertinoIcons.person_2_fill,color: CupertinoColors.inactiveGray,),
                 Text(
                   '${detail!.monthSales}人已领',
-                  style: TextStyle(fontSize: 10, color: CupertinoColors.inactiveGray),
+                  style: const TextStyle(fontSize: 10, color: CupertinoColors.inactiveGray),
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 6,
             ),
           ],
         ),
         Container(
-          margin: EdgeInsets.only(top: 6),
-          padding: EdgeInsets.symmetric(horizontal: kDefaultPadded),
+          margin: const EdgeInsets.only(top: 6),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded),
           alignment: Alignment.centerLeft,
           child: ExpandableText(
             '${detail!.desc}',
             expandText: '展开',
             collapseText: '收起',
             maxLines: 2,
-            style: TextStyle(color: Colors.grey),
+            style: const TextStyle(color: Colors.grey),
             linkColor: Colors.black,
           ),
         )
@@ -341,21 +336,21 @@ class _DetailIndexState extends State<DetailIndex>
       return Container();
     }
     return Container(
-      padding: EdgeInsets.all(kDefaultPadded),
+      padding: const EdgeInsets.all(kDefaultPadded),
       alignment: Alignment.centerLeft,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(
-            '${detail!.actualPrice.toRMB()}',
-            style: TextStyle(fontSize: 22, color: Colors.pink),
+            detail!.actualPrice.toRMB(),
+            style: const TextStyle(fontSize: 22, color: Colors.pink),
           ),
-          SizedBox(
+          const SizedBox(
             width: 6,
           ),
           Text(
             '淘宝价${detail!.originalPrice.toRMB()}',
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 12,
                 decoration: TextDecoration.lineThrough),

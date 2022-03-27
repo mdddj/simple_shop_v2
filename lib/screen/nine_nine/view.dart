@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
-
-import '../../widget/product/simple_card.dart';
-import '../../widget/loading/simple_loadings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../widget/loading/simple_loadings.dart';
+import '../../widget/product/simple_card.dart';
 import 'logic.dart';
 
 /// 九块九包邮产品
 class NineNinePage extends StatefulWidget {
+  const NineNinePage({Key? key}) : super(key: key);
+
   @override
   _NineNinePageState createState() => _NineNinePageState();
 }
@@ -47,7 +48,7 @@ class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderSt
       //     ),
       //   ),
       // ),
-      navigationBar: CupertinoNavigationBar(
+      navigationBar: const CupertinoNavigationBar(
         middle: Text('9快9包邮'),
       ),
       child: SafeArea(

@@ -12,7 +12,7 @@ class CouperTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
       decoration: BoxDecoration(
           color: Get.theme.primaryColor,
           borderRadius: BorderRadius.circular(8)),

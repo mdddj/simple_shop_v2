@@ -1,11 +1,11 @@
 import 'package:dataoke_sdk/model/product.dart';
-
-import '../../util/extended_util.dart';
-import '../../util/widget_util.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flustars/flustars.dart' hide WidgetUtil;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../util/extended_util.dart';
+import '../../util/widget_util.dart';
 
 // 商品卡片布局
 class ProductLayout extends StatelessWidget {
@@ -16,8 +16,8 @@ class ProductLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 4, left: 4),
-      decoration: BoxDecoration(),
+      margin: const EdgeInsets.only(right: 4, left: 4),
+      decoration: const BoxDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [renderMainImage(), renderPrice(), renderDiscountPrice()],
@@ -28,7 +28,7 @@ class ProductLayout extends StatelessWidget {
   // 原价
   Widget renderDiscountPrice() {
     return Container(
-      margin: EdgeInsets.only(top: 4),
+      margin: const EdgeInsets.only(top: 4),
       child: Text(
         '¥ ${product.originalPrice}',
         style: Get.textTheme.bodyText1!.copyWith(
@@ -42,7 +42,7 @@ class ProductLayout extends StatelessWidget {
   // 券后价
   Widget renderPrice() {
     return Container(
-      margin: EdgeInsets.only(top: 4),
+      margin: const EdgeInsets.only(top: 4),
       child: Text(
         '¥ ${product.actualPrice}',
         style:
@@ -83,16 +83,16 @@ class ProductLayout extends StatelessWidget {
   Widget renderDiscount() {
     return Container(
       decoration: BoxDecoration(color: Colors.orange.withOpacity(.77)),
-      padding: EdgeInsets.all(2),
+      padding: const EdgeInsets.all(2),
       child: Column(
         children: [
-          Icon(
+          const Icon(
             Icons.trending_down,
             size: 12,
           ),
           Text(
             '-${NumUtil.getNumByValueDouble(product.discounts! * 100, 0)}%',
-            style: TextStyle(fontSize: 8, fontWeight: FontWeight.w400),
+            style: const TextStyle(fontSize: 8, fontWeight: FontWeight.w400),
           )
         ],
       ),

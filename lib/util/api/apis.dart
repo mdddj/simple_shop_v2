@@ -1,8 +1,8 @@
 import 'package:dataoke_sdk/network/util.dart';
-
-import '../../components/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../components/utils.dart';
 
 abstract class ApiService {
   /// 登入

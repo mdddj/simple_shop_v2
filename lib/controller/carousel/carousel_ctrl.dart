@@ -1,6 +1,7 @@
+import 'package:get/get.dart';
+
 import '../../model/topic_model.dart';
 import '../../service/impl/api_service_impl.dart';
-import 'package:get/get.dart';
 
 class CarouselController extends GetxController{
 

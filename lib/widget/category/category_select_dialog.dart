@@ -29,13 +29,13 @@ class CategorySelectDialog extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-      title: Text(
+      title: const Text(
         '选择分类',
         style: TextStyle(color: Colors.black),
       ),
       backgroundColor: Colors.white,
       leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             color: Colors.black,
           ),
@@ -49,17 +49,15 @@ class CategorySelectDialog extends StatelessWidget {
   }
 
   Widget renderItem(Category item) {
-    return Container(
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundImage: NetworkImage(item.cpic!.imageUrl()),
-        ),
-        title: Text('${item.cname}'),
-        onTap: () {
-          Get.back(result: item);
-        },
-        onLongPress: () {},
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundImage: NetworkImage(item.cpic!.imageUrl()),
       ),
+      title: Text('${item.cname}'),
+      onTap: () {
+        Get.back(result: item);
+      },
+      onLongPress: () {},
     );
   }
 }

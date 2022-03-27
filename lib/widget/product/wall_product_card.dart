@@ -1,7 +1,6 @@
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
@@ -24,8 +23,7 @@ class WallProductCard extends StatelessWidget {
         WidgetUtil.instance.detailPage(product: product);
       },
       child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(8)),
+        decoration: BoxDecoration( borderRadius: BorderRadius.circular(8)),
         child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
             return Column(
@@ -33,15 +31,14 @@ class WallProductCard extends StatelessWidget {
               children: [
                 _image(constraints),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         '${product.dtitle}',
-                        style: Get.textTheme.bodyText1,
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       SimplePrice(
                         product: product,
                       ),
@@ -68,7 +65,7 @@ class WallProductCard extends StatelessWidget {
           height: constraints.maxWidth,
           loadStateChanged: WidgetUtil.instance.s,
           cache: true,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(8), topRight: Radius.circular(8)),
           shape: BoxShape.rectangle,
         ),

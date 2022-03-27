@@ -1,11 +1,12 @@
 import 'package:dataoke_sdk/model/category.dart';
+import 'package:extended_image/extended_image.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../../constant/app_constant.dart';
 import '../../../functions/fun_type.dart';
-import '../../../util/widget_util.dart';
-import 'package:extended_image/extended_image.dart';
-import 'package:get/get.dart';
 import '../../../util/extended_util.dart';
-import 'package:flutter/material.dart';
+import '../../../util/widget_util.dart';
 
 /// 超级分类图标选择类型组件
 class CategoryIconTheme extends StatelessWidget {
@@ -17,13 +18,13 @@ class CategoryIconTheme extends StatelessWidget {
   final List<Category>? categorys;
 
   ///构造
-  CategoryIconTheme(this.onSelect, this.categorys);
+  const CategoryIconTheme(this.onSelect, this.categorys, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: kCategoryComponentHeight,
-      padding: EdgeInsets.only(left: kDefaultPadded),
+      padding: const EdgeInsets.only(left: kDefaultPadded),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: itemBuild,
@@ -33,7 +34,7 @@ class CategoryIconTheme extends StatelessWidget {
   }
 
   /// 子项目布局
-  Widget itemBuild(context, index) {
+  Widget itemBuild(BuildContext context,int index) {
     final item = categorys![index];
     return buildItem(item, index);
   }
@@ -47,7 +48,7 @@ class CategoryIconTheme extends StatelessWidget {
       child: Container(
         width: kCategoryComponentHeight - 30,
         height: kCategoryComponentHeight,
-        margin: EdgeInsets.only(right: kDefaultPadded),
+        margin: const EdgeInsets.only(right: kDefaultPadded),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -68,7 +69,7 @@ class CategoryIconTheme extends StatelessWidget {
   /// 图片加载
   Widget buildExtendedImage(Category category, double size) =>
       ExtendedImage.network(
-        '${category.cpic!.imageUrl()}',
+        category.cpic!.imageUrl(),
         width: size,
         height: size,
         cache: true,

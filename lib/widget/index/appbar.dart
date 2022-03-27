@@ -1,6 +1,7 @@
-import '../../constant/app_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../constant/app_constant.dart';
 
 
 class CustomAppbarDele extends SliverPersistentHeaderDelegate{
@@ -35,16 +36,16 @@ class Appbar extends StatelessWidget {
     return Container(
       height: kToolbarHeight,
       margin: EdgeInsets.only(top: Get.mediaQuery.padding.top),
-      padding: EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.only(top: 8),
       child: Stack(
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 width: kDefaultPadded,
               ),
-              IconButton(icon: Icon(Icons.menu), onPressed: onOpenMenu as void Function()?),
+              IconButton(icon: const Icon(Icons.menu), onPressed: onOpenMenu as void Function()?),
               Expanded(child: buildRightIcons())
             ],
           ),
@@ -58,9 +59,9 @@ class Appbar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        IconButton(icon: Icon(Icons.search), onPressed: () {}),
-        IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
-        SizedBox(
+        IconButton(icon: const Icon(Icons.search), onPressed: () {}),
+        IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
+        const SizedBox(
           width: kDefaultPadded,
         )
       ],

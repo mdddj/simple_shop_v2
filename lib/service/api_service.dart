@@ -69,7 +69,6 @@ class TKApiService {
   /// 获取唯品会商品详情
   /// id  --  id 或者url
   Future<WeipinhuiDetail?> getWphProductInfo(String id) async {
-    print('商品id: $id');
     final result = await utils.api
         .get('/api/zhe/wph-detail-v2', data: {'id': id, 'queryDetail': true});
     if (result.isNotEmpty) {
@@ -99,7 +98,6 @@ class TKApiService {
     if (response.isNotEmpty) {
       try {
         final _map = jsonDecode(response);
-        print(_map['goodsList'].runtimeType);
         if (_map['goodsList'] is List<dynamic>) {
           final _list = List<PddDetail>.from(
               (_map['goodsList'] as List<dynamic>)
@@ -107,7 +105,6 @@ class TKApiService {
           result.addAll(_list);
         }
       } catch (s, st) {
-        print('解析拼多多数据失败:$s');
         print(st);
       }
     }
@@ -152,8 +149,6 @@ class TKApiService {
             return PddDetail.fromJson(item);
           }
         } catch (e, s) {
-          print(e);
-          print(s);
           print('拼多多商品详情解析失败');
         }
       }

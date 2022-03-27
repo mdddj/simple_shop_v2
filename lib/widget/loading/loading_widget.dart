@@ -13,7 +13,7 @@ class LoadingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: appBar,
-      child: Center(
+      child: const Center(
         child: CupertinoActivityIndicator(),
       ),
     );

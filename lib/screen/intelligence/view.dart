@@ -8,10 +8,11 @@ import '../../constant/color_constant.dart';
 import '../../util/extended_util.dart';
 import '../../widget/image/simple_image.dart';
 import '../../widget/loading/simple_loadings.dart';
-import 'component/appbar_bottom_tabbar.dart';
 import 'logic.dart';
 
 class IntelligencePage extends StatefulWidget {
+  const IntelligencePage({Key? key}) : super(key: key);
+
   @override
   _IntelligencePageState createState() => _IntelligencePageState();
 }
@@ -49,10 +50,10 @@ class _IntelligencePageState extends State<IntelligencePage>
     final list = IntelligenceLogic.instance.list;
     final item = list[index];
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       margin: EdgeInsets.only(
           top: index == 0 ? 12 : 0, left: 12, right: 12, bottom: 12),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
@@ -61,15 +62,15 @@ class _IntelligencePageState extends State<IntelligencePage>
         children: [
           Row(
             children: [
-              Text('梁典典'),
-              SizedBox(width: 6),
+              const Text('梁典典'),
+              const SizedBox(width: 6),
               Text(
                 '${TimelineUtil.formatByDateTime(item.updateTime!, locale: 'zh')}发布',
                 style: TextStyle(color: kTextColor),
               )
             ],
           ),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -80,10 +81,10 @@ class _IntelligencePageState extends State<IntelligencePage>
                   url: item.img!,
                 ),
               ),
-              SizedBox(width: 6),
+              const SizedBox(width: 6),
               Expanded(
                   child: Container(
-                constraints: BoxConstraints(minHeight: 120),
+                constraints: const BoxConstraints(minHeight: 120),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -100,7 +101,7 @@ class _IntelligencePageState extends State<IntelligencePage>
                   onPressed: () {
                     Utils().copy(item.title);
                   },
-                  child: Text('复制文案')),
+                  child: const Text('复制文案')),
               TextButton(
                   onPressed: () async {
                     final result = await DdTaokeSdk.instance
@@ -109,7 +110,7 @@ class _IntelligencePageState extends State<IntelligencePage>
                       await Utils().openTaobao(result.couponClickUrl!);
                     }
                   },
-                  child: Text('去购买')),
+                  child: const Text('去购买')),
             ],
           )
         ],
@@ -117,7 +118,7 @@ class _IntelligencePageState extends State<IntelligencePage>
     );
   }
 
-  CupertinoNavigationBar get _appbar => CupertinoNavigationBar(
+  CupertinoNavigationBar get _appbar => const CupertinoNavigationBar(
       middle: Text('优惠情报'),);
       // bottom: AppbarBottomTabbar(
       //   controller: tabController,

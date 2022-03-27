@@ -4,23 +4,23 @@ import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/model/category.dart';
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:dataoke_sdk/params/product_list_param.dart';
-
-import '../../../functions/fun_verify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../../../functions/fun_verify.dart';
+
 class CategoryProductListLogic extends GetxController {
   static CategoryProductListLogic get instance =>
       Get.find<CategoryProductListLogic>();
-  var panentId = ''.obs; // 父分类id
-  var childId = ''.obs; // 子分类id
+  RxString panentId = ''.obs; // 父分类id
+  RxString childId = ''.obs; // 子分类id
 
-  var pageId = 1.obs; // 第几页
-  var sort = '0'.obs; // 排序
+  RxInt pageId = 1.obs; // 第几页
+  RxString sort = '0'.obs; // 排序
 
-  var products = <Product>[].obs; // 显示的商品列表
+  RxList<Product> products = <Product>[].obs; // 显示的商品列表
 
   ScrollController scrollController = ScrollController();
   EasyRefreshController refreshController = EasyRefreshController();
@@ -64,7 +64,7 @@ class CategoryProductListLogic extends GetxController {
   ProductListParam get getParams => ProductListParam(
       pageId: '${pageId.value}',
       pageSize: '10',
-      sort: '${sort.value}',
+      sort: sort.value,
       cids: '${childId.value},${panentId.value}');
 
   /// 加载数据

@@ -31,7 +31,6 @@ class ProductListRepository extends LoadingMoreBase<Product> {
       _hasMore = result != null && result.list!.length == _pageSize;
       _isSuccess = true;
     } catch (e) {
-      print(e);
       _isSuccess = false;
     }
 

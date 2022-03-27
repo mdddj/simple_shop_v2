@@ -4,6 +4,8 @@ import '../../constant/color_constant.dart';
 
 /// 帮助页面
 class HelpPage extends StatefulWidget {
+  const HelpPage({Key? key}) : super(key: key);
+
   @override
   _HelpPageState createState() => _HelpPageState();
 }
@@ -12,7 +14,7 @@ class _HelpPageState extends State<HelpPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(middle: Text('领券帮助'),),
+      navigationBar: const CupertinoNavigationBar(middle: Text('领券帮助'),),
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -33,7 +35,7 @@ class _HelpPageState extends State<HelpPage> {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: CupertinoColors.white,
           borderRadius: BorderRadius.all(Radius.circular(5)),
         ),
@@ -48,12 +50,12 @@ class _HelpPageState extends State<HelpPage> {
   /// 文字
   Widget _title(String title) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 12,
         vertical: 15,
       ),
       child: Text(
-        '$title',
+        title,
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: kPrimaryColor),
       ),
     );
@@ -63,7 +65,7 @@ class _HelpPageState extends State<HelpPage> {
   Widget _assetImage(String name) {
     return ClipRRect(
         borderRadius:
-            BorderRadius.only(bottomLeft: Radius.circular(5), bottomRight: Radius.circular(5)),
+            const BorderRadius.only(bottomLeft: Radius.circular(5), bottomRight: Radius.circular(5)),
         child: Image.asset('assets/help/$name'));
   }
 }

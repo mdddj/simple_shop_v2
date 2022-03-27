@@ -1,14 +1,14 @@
 import 'dart:developer';
 
-import '../../../functions/fun_type.dart';
-import 'request_util.dart';
-import 'result_model.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide Response;
 
+import '../../../functions/fun_type.dart';
 import 'aes_util.dart';
 import 'dio_errors.dart';
 import 'interceptor/params_token_interceptor.dart';
+import 'request_util.dart';
+import 'result_model.dart';
 
 /// 典典的小卖部
 /// 网络请求工具封装

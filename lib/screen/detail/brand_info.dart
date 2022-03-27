@@ -21,8 +21,8 @@ class BrandInfo extends StatelessWidget {
       return Container();
     }
     return Container(
-      margin: EdgeInsets.only(top: kDefaultPadded),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(top: kDefaultPadded),
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(15))
       ),
@@ -51,9 +51,9 @@ class BrandInfo extends StatelessWidget {
             children: [
               CircleAvatar(
                 child: ExtendedImage.network(detail!.shopLogo!.imageUrl(),shape:BoxShape.rectangle,
-                borderRadius: BorderRadius.all(Radius.circular(50)),),
+                borderRadius: const BorderRadius.all(Radius.circular(50)),),
               ),
-              Icon(Icons.chevron_right,)
+              const Icon(Icons.chevron_right,)
             ],
           ),
         );

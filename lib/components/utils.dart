@@ -56,7 +56,6 @@ class Utils {
     }
     var _url = url;
     _url = '$urlYs${urlHandle(url)}';
-    print('app 约束跳转$_url');
     if (await canLaunch(_url)) {
       // 判断当前手机是否安装某app. 能否正常跳转
       await launch(_url);

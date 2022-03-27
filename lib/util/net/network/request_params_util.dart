@@ -55,7 +55,7 @@ class RequestParamsUtils{
 
   /// md5 加密
   static String encryptMD5(String data) {
-    var content = Utf8Encoder().convert(data);
+    var content = const Utf8Encoder().convert(data);
     var digest = md5.convert(content);
     return digest.toString();
   }

@@ -2,14 +2,15 @@ import 'dart:convert';
 
 import 'package:dataoke_sdk/model/category.dart';
 import 'package:dataoke_sdk/model/product.dart';
-import '../constant/color_constant.dart';
-import '../widget/loading/skeleton.dart';
-import '../screen/detail/index.dart';
-import '../screen/list/category_product_list/view.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../constant/color_constant.dart';
+import '../screen/detail/index.dart';
+import '../screen/list/category_product_list/view.dart';
+import '../widget/loading/skeleton.dart';
 
 class WidgetUtil {
   WidgetUtil._();
@@ -51,8 +52,8 @@ class WidgetUtil {
 
   Widget renderTitle(String title) {
     return Text(
-      '$title',
-      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+      title,
+      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
     );
   }
 
@@ -78,7 +79,7 @@ class WidgetUtil {
           },
           child: Stack(
             fit: StackFit.expand,
-            children: <Widget>[
+            children: const <Widget>[
               Center(
                 child: Text('图片加载失败'),
               )
@@ -99,6 +100,6 @@ class WidgetUtil {
     } else {
       box.remove('category-child');
     }
-    Get.to(() => CategoryProductListPage());
+    Get.to(() => const CategoryProductListPage());
   }
 }

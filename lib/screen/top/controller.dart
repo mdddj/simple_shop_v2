@@ -2,16 +2,16 @@ import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/model/category.dart';
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:dataoke_sdk/params/top_param.dart';
+import 'package:get/get.dart';
 
 import '../../service/impl/api_service_impl.dart';
-import 'package:get/get.dart';
 
 class TopController extends GetxController {
   final service = ApiService();
-  var page = 1.obs;
-  var goods = RxList<Product>([]);
-  var cid = 0.obs;
-  var loading = true.obs;
+  RxInt page = 1.obs;
+  RxList<Product> goods = RxList<Product>([]);
+  RxInt cid = 0.obs;
+  RxBool loading = true.obs;
 
   @override
   void onReady() {

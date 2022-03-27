@@ -1,11 +1,12 @@
 import 'package:dataoke_sdk/model/product.dart';
-import '../../util/extended_util.dart';
-import 'package:extended_list/extended_list.dart';
-import '../../constant/app_constant.dart';
-import '../../util/widget_util.dart';
 import 'package:extended_image/extended_image.dart';
+import 'package:extended_list/extended_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../constant/app_constant.dart';
+import '../../util/extended_util.dart';
+import '../../util/widget_util.dart';
 
 double get w => (Get.width - (kDefaultPadded * 3)) / 3;
 
@@ -30,7 +31,7 @@ class ProductHorizontalList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         extendedListDelegate:
             ExtendedListDelegate(collectGarbage: (List<int> indexs) {
-          indexs.forEach((index) {
+          for (var index in indexs) {
             final product = products[index];
             if (product.mainPic != null) {
               final provider = ExtendedNetworkImageProvider(
@@ -38,7 +39,7 @@ class ProductHorizontalList extends StatelessWidget {
               );
               provider.evict();
             }
-          });
+          }
         }),
       ),
     );
@@ -53,12 +54,12 @@ class ProductHorizontalList extends StatelessWidget {
       },
       child: Container(
         width: w,
-        margin: EdgeInsets.only(right: kDefaultPadded),
+        margin: const EdgeInsets.only(right: kDefaultPadded),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ExtendedImage.network(
-              '${item.mainPic!.imageUrl()}',
+              item.mainPic!.imageUrl(),
               width: w,
               height: w,
               cache: true,
@@ -70,8 +71,8 @@ class ProductHorizontalList extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             Text(
-              '${item.actualPrice.toRMB()}',
-              style: TextStyle(color: Colors.pink),
+              item.actualPrice.toRMB(),
+              style: const TextStyle(color: Colors.pink),
             )
           ],
         ),

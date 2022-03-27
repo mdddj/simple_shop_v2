@@ -22,7 +22,7 @@ class _TaobaoActivityPageState extends State<TaobaoActivityPage> {
 
   @override
   void initState() {
-    logic.init(widget.activityId);
+    logic.init = widget.activityId;
     super.initState();
   }
 
@@ -35,9 +35,9 @@ class _TaobaoActivityPageState extends State<TaobaoActivityPage> {
           children: [
             Obx((){
               if(logic.activityLinks.value!=null){
-                return Text('${jsonEncode(logic.activityLinks.value!)}');
+                return Text(jsonEncode(logic.activityLinks.value!));
               }
-              return Text('');
+              return const Text('');
             })
           ],
         ),

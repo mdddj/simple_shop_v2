@@ -39,7 +39,7 @@ mixin DetailMixin {
     util.copy(tklString);
     if(context!=null){
       showCupertinoDialog(context: context, builder:( context){
-        return CupertinoAlertDialog(
+        return const CupertinoAlertDialog(
           content: Text('复制口令成功,打开淘宝领取优惠券'),
         );
       } ,barrierDismissible: true);

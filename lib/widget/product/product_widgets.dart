@@ -19,14 +19,14 @@ class ProductWidgets extends StatelessWidget {
   /// 券面额
   Widget _couponWidget() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
         color: kDangerColor,
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       child: Text(
         '$rmb${product.couponPrice} 元券',
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }

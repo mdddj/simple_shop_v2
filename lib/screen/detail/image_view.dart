@@ -1,12 +1,13 @@
 import 'package:dataoke_sdk/model/product.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:extended_list/extended_list.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../constant/app_constant.dart';
 import '../../model/product_detail_model.dart';
-import '../../util/widget_util.dart';
-import 'package:extended_image/extended_image.dart';
-import 'package:flutter/material.dart';
 import '../../util/extended_util.dart';
-import 'package:get/get.dart';
+import '../../util/widget_util.dart';
 
 class ImageView extends StatelessWidget {
   final Product? product;
@@ -24,27 +25,25 @@ class ImageView extends StatelessWidget {
     }
     return Container(
       width: Get.width,
-      margin: EdgeInsets.only(top: kDefaultPadded),
-      padding: EdgeInsets.symmetric(vertical: kDefaultPadded),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(top: kDefaultPadded),
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPadded),
+      decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: kDefaultPadded),
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded),
             child: WidgetUtil.instance.renderTitle('商品详情'),
           ),
-          SizedBox(
+          const SizedBox(
             height: kDefaultPadded / 2,
           ),
           if (list.isEmpty)
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(child: Text('暂无详情')),
-              ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Center(child: Text('暂无详情')),
             ),
           if (list.isNotEmpty)
             ExtendedListView.builder(
@@ -53,8 +52,8 @@ class ImageView extends StatelessWidget {
               },
               itemCount: list.length,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              extendedListDelegate: ExtendedListDelegate(),
+              physics: const NeverScrollableScrollPhysics(),
+              extendedListDelegate: const ExtendedListDelegate(),
             )
         ],
       ),
@@ -63,14 +62,12 @@ class ImageView extends StatelessWidget {
 
   Widget renderItem(DetailImage img) {
     final w = Get.width;
-    return Container(
-      child: ExtendedImage.network(
-        '${img.img!.imageUrl()}',
-        width: w,
-        height: w,
-        loadStateChanged: WidgetUtil.instance.s,
-        cache: false,
-      ),
+    return ExtendedImage.network(
+      img.img!.imageUrl(),
+      width: w,
+      height: w,
+      loadStateChanged: WidgetUtil.instance.s,
+      cache: false,
     );
   }
 }

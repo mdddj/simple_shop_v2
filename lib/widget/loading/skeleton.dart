@@ -5,7 +5,7 @@ class Skeleton extends StatefulWidget {
   final double width;
   final double cornerRadius;
 
-  Skeleton({
+  const Skeleton({
     Key? key,
     this.height = 20,
     this.width = 200,

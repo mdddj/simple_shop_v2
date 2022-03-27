@@ -4,11 +4,11 @@ import 'package:dataoke_sdk/params/nine_nine_param.dart';
 import 'package:get/get.dart';
 
 class NineNineLogic extends GetxController {
-  var page = 1.obs;
-  var pageSize = 20;
-  var nineCid = RxInt(-1);
-  var products = RxList<Product>([]);
-  var loading = false.obs;
+  RxInt page = 1.obs;
+  int pageSize = 20;
+  RxInt nineCid = RxInt(-1);
+  RxList<Product> products = RxList<Product>([]);
+  RxBool loading = false.obs;
 
   /// 加载商品
   Future<void> getProducts() async {
@@ -19,7 +19,6 @@ class NineNineLogic extends GetxController {
             nineCid: '$nineCid'));
     if (result != null && result.list != null) {
       products.addAll(result.list!);
-      print('获取到商品:${result.list!.length}');
       update();
     }
   }

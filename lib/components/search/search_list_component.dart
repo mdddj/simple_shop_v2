@@ -33,19 +33,19 @@ class _SearchListComponentState extends State<SearchListComponent> {
         indicatorBuilder: CustomIndicator.instance.loadingMoreStyle,
         extendedListDelegate: ExtendedListDelegate(
           collectGarbage: (List<int> indexes) {
-            indexes.forEach((index) {
+            for (var index in indexes) {
               final provider = ExtendedNetworkImageProvider(
                 widget.searchRepostory[index].mainPic!,
               );
               provider.evict();
-            });
+            }
           },
         )));
   }
 
   /// 渲染每个卡片样式
   Widget _renderItem(_, Product item, int index) {
-    final _imageSize = 80.0;
+    const _imageSize = 80.0;
     final _radius = BorderRadius.circular(5);
     return GestureDetector(
       onTap: () => WidgetUtil.instance.detailPage(product: item),
@@ -56,7 +56,7 @@ class _SearchListComponentState extends State<SearchListComponent> {
           elevation: 3,
           borderRadius: _radius,
           child: Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
                 horizontal: kDefaultPadded, vertical: kDefaultPadded),
             decoration:
                 BoxDecoration(color: Colors.white, borderRadius: _radius),
@@ -69,19 +69,19 @@ class _SearchListComponentState extends State<SearchListComponent> {
                     url: item.mainPic!,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: kDefaultPadded,
                 ),
                 Expanded(
                   child: ConstrainedBox(
-                    constraints: BoxConstraints(minHeight: _imageSize),
+                    constraints: const BoxConstraints(minHeight: _imageSize),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           '${item.dtitle}',
-                          style: TextStyle(color: Colors.black, fontSize: 15),
+                          style: const TextStyle(color: Colors.black, fontSize: 15),
                         ),
                         Text(
                           '券后 ${'${item.actualPrice}'.coverRmbPrice}',

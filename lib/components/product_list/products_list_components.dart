@@ -11,13 +11,15 @@ import 'repository.dart';
 
 ///产品列表
 class ProductListComponents extends StatefulWidget {
+  const ProductListComponents({Key? key}) : super(key: key);
+
   @override
   _ProductListComponentsState createState() => _ProductListComponentsState();
 }
 
 class _ProductListComponentsState extends State<ProductListComponents>
     with AfterLayoutMixin<ProductListComponents> {
-  late var _repository;
+  late ProductListRepository _repository;
 
   @override
   void initState() {
@@ -35,26 +37,24 @@ class _ProductListComponentsState extends State<ProductListComponents>
             mainAxisSpacing: 12,
             crossAxisSpacing: 12,
             collectGarbage: (List<int> indexes) {
-              indexes.forEach((index) {
+              for (var index in indexes) {
                 final provider = ExtendedNetworkImageProvider(
-                  _repository[index].mainPic,
+                  _repository[index].mainPic!,
                 );
                 provider.evict();
-              });
+              }
             },
           ),
           itemBuilder: _builder,
           sourceList: _repository,
           indicatorBuilder: CustomIndicator.instance.loadingMoreStyle,
-          padding: EdgeInsets.all(12)),
+          padding: const EdgeInsets.all(12)),
     );
   }
 
   /// 子组件布局
   Widget _builder(BuildContext context, Product item, int index) {
-    return Container(
-      child: WallProductCard(product: item),
-    );
+    return WallProductCard(product: item);
   }
 
   @override

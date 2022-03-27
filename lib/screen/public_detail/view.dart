@@ -1,11 +1,3 @@
-import 'dart:convert';
-
-import '../../components/utils.dart';
-import '../../service/api_service.dart';
-import '../../widget/image/simple_image.dart';
-import '../../widget/loading/simple_loadings.dart';
-
-import '../../components/no_shadow_croll_ehavior.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:fcontrol_nullsafety/fdefine.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +6,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fsuper_nullsafety/fsuper_nullsafety.dart';
 import 'package:get/get.dart';
 
+import '../../components/no_shadow_croll_ehavior.dart';
+import '../../components/utils.dart';
+import '../../service/api_service.dart';
+import '../../widget/image/simple_image.dart';
+import '../../widget/loading/simple_loadings.dart';
 import 'abs.dart';
 import 'model.dart';
 
@@ -48,7 +45,7 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        const SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: BlurHash(hash: 'LgJQ[]~o%0V?tixvNHM}R-xaaeWU'),
@@ -59,7 +56,7 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
               ? ScrollConfiguration(
                   behavior: NoShadowScrollBehavior(),
                   child: SingleChildScrollView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     child: Column(
                       children: [renderNav(), renderHeader(), renderDetail()],
                     ),
@@ -89,7 +86,7 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
                   ))
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Row(
@@ -99,10 +96,10 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
                 height: 50,
                 child: Image.asset('assets/images/dd.png'),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 12,
               ),
-              Text(
+              const Text(
                 '典典为你推荐',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               )
@@ -117,24 +114,24 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
   Widget renderDetail() {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.all(12),
+      margin: const EdgeInsets.all(12),
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return Column(
             children: [
               Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('商品信息'),
-                    SizedBox(height: 5),
+                    const Text('商品信息'),
+                    const SizedBox(height: 5),
                     Row(
                       children: [
                         Text(
                           '销量${info!.sales}件',
-                          style: TextStyle(color: Colors.grey, fontSize: 15),
+                          style: const TextStyle(color: Colors.grey, fontSize: 15),
                         )
                       ],
                     )
@@ -169,7 +166,7 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
   Widget renderHeader() {
     return Container(
       alignment: Alignment.centerLeft,
-      margin: EdgeInsets.all(12),
+      margin: const EdgeInsets.all(12),
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,42 +177,42 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                   decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(5)),
                   child: Text(
-                    '${getTypeLabel()}',
-                    style: TextStyle(color: Colors.white),
+                    getTypeLabel(),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Text(
-                  '${info!.title}',
+                  info!.title,
                   style: Get.textTheme.headline5!.copyWith(fontSize: 18),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      constraints: BoxConstraints(minHeight: 120),
+                      constraints: const BoxConstraints(minHeight: 120),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             '券后价',
                             style: TextStyle(color: Colors.red, fontSize: 12),
                           ),
                           FSuper(
                               text: '¥ ',
-                              style: TextStyle(color: Colors.red, fontSize: 16),
-                              spans: [TextSpan(text: '${info!.price}', style: TextStyle(color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold))],
+                              style: const TextStyle(color: Colors.red, fontSize: 16),
+                              spans: [TextSpan(text: '${info!.price}', style: const TextStyle(color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold))],
                               lightOrientation: FLightOrientation.RightTop)
                         ],
                       ),
@@ -227,7 +224,7 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ],
@@ -236,17 +233,17 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
           GestureDetector(
             onTap: onGetCoupon,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               height: 50,
-              decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12))),
+              decoration: const BoxDecoration(color: Colors.red, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12))),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     '${info!.coupon.replaceAll('.00', '')}元隐藏券',
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
-                  Text(
+                  const Text(
                     '去领券 >',
                     style: TextStyle(color: Colors.white),
                   )
@@ -261,7 +258,6 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
 
   @override
   Future<PublicDetailModel?> fetchData() async {
-    print('id是:${widget.goodsId}');
     switch (widget.type) {
       case 'pdd':
         return await getPxxDetail();
@@ -309,7 +305,6 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
   Future<void> pxxGet({bool onShare = false}) async {
     final urls =  await tkApi.pddCovert(widget.goodsId); // 获取转换成功的链接对象
     if(urls!=null){
-      print('转链成功:${jsonEncode(urls)}');
       if(onShare){
         utils.copy(urls['mobile_short_url'],message: '链接已复制');
         return;

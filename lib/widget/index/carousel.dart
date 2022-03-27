@@ -43,7 +43,7 @@ class _CarouselComponentState extends State<CarouselComponent> {
           indicatorBgPadding: 5.0,
           dotBgColor: Colors.grey.withOpacity(.07),
           borderRadius: true,
-          defaultImage: Skeleton(
+          defaultImage: const Skeleton(
             width: double.infinity,
             height: 200,
           ),
@@ -62,13 +62,13 @@ class _CarouselComponentState extends State<CarouselComponent> {
           child: Container(
             height: 30,
             alignment: Alignment.centerRight,
-            padding: EdgeInsets.symmetric(horizontal: kDefaultPadded),
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded),
             decoration: BoxDecoration(
                 color: Colors.black.withOpacity(.5),
-                borderRadius: BorderRadius.all(Radius.circular(50))),
+                borderRadius: const BorderRadius.all(Radius.circular(50))),
             child: Text(
               '$currImageIndex / ${widget.images.length}',
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         )
@@ -77,10 +77,8 @@ class _CarouselComponentState extends State<CarouselComponent> {
   }
 
   Widget _builderItem(String image) {
-    return Container(
-      child: SimpleImage(
-        url: image,
-      ),
+    return SimpleImage(
+      url: image,
     );
   }
 }

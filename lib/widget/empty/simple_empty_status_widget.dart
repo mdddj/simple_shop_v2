@@ -7,16 +7,14 @@ class CustomEmptyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Icon(Icons.assessment_outlined),
-          SizedBox(
-            height: 12,
-          ),
-          Text(title ?? '暂无数据!'),
-        ],
-      ),
+    return Column(
+      children: [
+        const Icon(Icons.assessment_outlined),
+        const SizedBox(
+          height: 12,
+        ),
+        Text(title ?? '暂无数据!'),
+      ],
     );
   }
 }

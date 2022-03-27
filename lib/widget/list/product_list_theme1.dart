@@ -1,10 +1,10 @@
 import 'package:dataoke_sdk/model/product.dart';
+import 'package:extended_image/extended_image.dart';
+import 'package:flutter/material.dart';
 
 import '../../constant/app_constant.dart';
 import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
-import 'package:extended_image/extended_image.dart';
-import 'package:flutter/material.dart';
 
 // 商品列表
 class ProductListTheme1 extends StatelessWidget {
@@ -26,11 +26,11 @@ class ProductListTheme1 extends StatelessWidget {
   Widget builder(BuildContext context, int index) {
     final item = products[index];
     return Container(
-      margin: EdgeInsets.symmetric(vertical: kDefaultPadded),
+      margin: const EdgeInsets.symmetric(vertical: kDefaultPadded),
       child: ListTile(
         leading: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-            return Container(
+            return SizedBox(
               height: constraints.maxHeight,
               width: constraints.maxHeight + 40,
               child: Row(
@@ -38,12 +38,12 @@ class ProductListTheme1 extends StatelessWidget {
                 children: [
                   Text('${index + 1}'),
                   ExtendedImage.network(
-                    '${item.mainPic!.imageUrl()}',
+                    item.mainPic!.imageUrl(),
                     width: constraints.maxHeight,
                     height: constraints.maxHeight,
                     shape: BoxShape.rectangle,
                     loadStateChanged: WidgetUtil.instance.s,
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
                   ),
                 ],
               ),
@@ -51,26 +51,26 @@ class ProductListTheme1 extends StatelessWidget {
           },
         ),
         title: Text('${item.dtitle}',
-            style: TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: 14),
             maxLines: 1,
             overflow: TextOverflow.ellipsis),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             Text(
               '卖出${item.monthSales}件',
-              style: TextStyle(fontSize: 12),
+              style: const TextStyle(fontSize: 12),
             ),
             Row(
               children: [
-                Text('${item.actualPrice.toRMB()}',
-                    style: TextStyle(fontSize: 12)),
-                SizedBox(width: 6),
-                Text('${item.originalPrice.toRMB()}',
-                    style: TextStyle(
+                Text(item.actualPrice.toRMB(),
+                    style: const TextStyle(fontSize: 12)),
+                const SizedBox(width: 6),
+                Text(item.originalPrice.toRMB(),
+                    style: const TextStyle(
                         fontSize: 12, decoration: TextDecoration.lineThrough)),
               ],
             )

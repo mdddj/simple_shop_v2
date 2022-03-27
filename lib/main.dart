@@ -23,11 +23,13 @@ void main() async {
   Get.put(AppController());
   await GetStorage.init();
   PaintingBinding.instance!.imageCache!.maximumSizeBytes = 1000 << 20;
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 ///APP实例
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
             locale: ui.window.locale,
             theme: CupertinoThemeData(
                 brightness:value.themModel),
-            home: MainTabbars(),
+            home: const MainTabbars(),
           );
         },),
       ),

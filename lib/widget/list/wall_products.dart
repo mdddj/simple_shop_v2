@@ -1,9 +1,9 @@
 import 'package:dataoke_sdk/model/product.dart';
-
-import '../product/wall_product_card.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:waterfall_flow/waterfall_flow.dart';
+
+import '../product/wall_product_card.dart';
 
 /// 瀑布流商品
 class WaterfallsFlowLayout extends StatelessWidget {
@@ -19,16 +19,16 @@ class WaterfallsFlowLayout extends StatelessWidget {
           mainAxisSpacing: 12,
           crossAxisSpacing: 12,
           collectGarbage: (List<int> garbages) {
-            garbages.forEach((index) {
+            for (var index in garbages) {
               final provider = ExtendedNetworkImageProvider(
                 products![index].mainPic!,
               );
               provider.evict();
-            });
+            }
           }),
       itemBuilder: _builder,
       itemCount: products!.length,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
     );
   }

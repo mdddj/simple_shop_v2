@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dataoke_sdk/apis/apis.dart';
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/params/activity_link_param.dart';
@@ -26,7 +24,6 @@ class _WaimaiState extends State<Waimai> {
   Future<void> handleWithElm() async {
     final result = await DdTaokeSdk.instance.getActivityLink(
         ActivityLinkParam(promotionSceneId: '20150318019998877'));
-    print('${jsonEncode(result)}');
     if (result != null) {
       final url = result.clickUrl;
       if (await canLaunch(url)) {
@@ -50,7 +47,7 @@ class _WaimaiState extends State<Waimai> {
   Widget _renderItem(
       String svg, String title, String subTitle, VoidCallback onTap) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: [
           Row(
@@ -61,12 +58,12 @@ class _WaimaiState extends State<Waimai> {
                 width: 30,
                 height: 30,
               ),
-              SizedBox(width: 6,),
-              Text('$title')
+              const SizedBox(width: 6,),
+              Text(title)
             ],
           ),
-          Spacer(),
-          TextButton(onPressed: onTap, child: Text('领券'))
+          const Spacer(),
+          TextButton(onPressed: onTap, child: const Text('领券'))
         ],
       ),
     );
@@ -75,7 +72,7 @@ class _WaimaiState extends State<Waimai> {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       sliver: SliverWaterfallFlow.count(
         crossAxisCount: 2,
         children: [

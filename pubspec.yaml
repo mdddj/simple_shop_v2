@@ -52,6 +52,8 @@ dependencies:
   # icon图标扩展
   font_awesome_flutter: ^10.1.0
   fsuper_nullsafety: ^3.0.1
+  flutter_lints: ^1.0.4
+  pedantic_mono: ^1.17.0
 
 dev_dependencies:
   flutter_test:

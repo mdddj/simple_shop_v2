@@ -28,7 +28,7 @@ class AppController extends GetxController {
   @override
   void onInit() {
     loadCategory();
-    Future.delayed(Duration(milliseconds: 300),fetchIndexProduct);
+    Future.delayed(const Duration(milliseconds: 300),fetchIndexProduct);
     super.onInit();
   }
 

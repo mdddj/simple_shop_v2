@@ -10,7 +10,7 @@ class AppbarBottomTabbar extends StatelessWidget implements PreferredSizeWidget{
   Widget build(BuildContext context) {
     return TabBar(
       isScrollable: true,
-      tabs: [
+      tabs: const [
         Tab(
           text: '全部',
         ),
@@ -33,5 +33,5 @@ class AppbarBottomTabbar extends StatelessWidget implements PreferredSizeWidget{
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(48);
+  Size get preferredSize => const Size.fromHeight(48);
 }
