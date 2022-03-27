@@ -1,5 +1,6 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:dataoke_sdk/model/category.dart';
+import 'package:flutter/cupertino.dart';
 import '../../provider/app.dart';
 import '../../widget/loading/simple_loadings.dart';
 import '../../util/widget_util.dart';
@@ -8,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:waterfall_flow/waterfall_flow.dart';
 
+///分类页面
 class CategoryPage extends StatefulWidget {
   @override
   _CategoryPageState createState() => _CategoryPageState();
@@ -23,9 +25,11 @@ class _CategoryPageState extends State<CategoryPage> {
 
     final categorys = context.watch<AppProvider>().categorys;
 
-    return Scaffold(
-      appBar: AppBar(title: Text('分类')),
-      body: _renderBody(categorys),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text('分类'),
+      ),
+      child: SafeArea(child: _renderBody(categorys)),
     );
   }
 
@@ -38,7 +42,7 @@ class _CategoryPageState extends State<CategoryPage> {
         children: [
           Container(
             width: 120,
-            height: Get.height - kToolbarHeight - Get.mediaQuery.padding.top,
+            height: Get.height - kToolbarHeight - context.mediaQuery.padding.top,
             decoration: BoxDecoration(color: Colors.white),
             child: LiveList(
                 itemBuilder: _leftBuilder, itemCount: categorys.length),

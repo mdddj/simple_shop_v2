@@ -1,12 +1,15 @@
 import 'package:after_layout/after_layout.dart';
 import 'package:dataoke_sdk/model/product.dart';
-import 'repository.dart';
-import '../../widget/loading/loading_more_custom_indicator.dart';
-import '../../widget/product/wall_product_card.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
+import '../../widget/loading/loading_more_custom_indicator.dart';
+import '../../widget/product/wall_product_card.dart';
+import 'repository.dart';
+
+
+///产品列表
 class ProductListComponents extends StatefulWidget {
   @override
   _ProductListComponentsState createState() => _ProductListComponentsState();

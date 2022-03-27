@@ -1,15 +1,16 @@
-import '../util/api/apis.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../util/api/apis.dart';
+
 /// 工具类
 class Utils {
   Api get api => GetIt.instance.get<Api>();
 
-  // 显示一条消息
+  /// 显示一条消息
   void showMessage(String msg) {
     final _context = Get.context;
     if (_context != null) {
@@ -18,7 +19,7 @@ class Utils {
     }
   }
 
-  //处理图片不带http
+  ///处理图片不带http
   String imageHeaderHandle(String url) {
     if (url.indexOf('//') == 0) {
       return 'https:$url';
@@ -26,7 +27,7 @@ class Utils {
     return url;
   }
 
-  // 复制
+  /// 复制
   void copy(String? text, {String? message}) {
     Clipboard.setData(ClipboardData(text: text));
     showMessage(message ?? '复制成功');
@@ -41,7 +42,7 @@ class Utils {
     }
   }
 
-  // 跳转到浏览器
+  /// 跳转到浏览器
   Future<void> openLink(String url, {String urlYs = ''}) async {
     await urlToApp(url, urlYs);
   }

@@ -1,15 +1,15 @@
 import 'package:dataoke_sdk/model/product.dart';
-
-import '../../util/widget_util.dart';
-import '../../constant/color_constant.dart';
 import 'package:extended_image/extended_image.dart';
-import '../../constant/app_constant.dart';
-import '../../widget/loading/loading_more_custom_indicator.dart';
-import '../../widget/image/simple_image.dart';
-import 'repository.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
+
+import '../../constant/app_constant.dart';
+import '../../constant/color_constant.dart';
 import '../../util/extended_util.dart';
+import '../../util/widget_util.dart';
+import '../../widget/image/simple_image.dart';
+import '../../widget/loading/loading_more_custom_indicator.dart';
+import 'repository.dart';
 
 class SearchListComponent extends StatefulWidget {
   final SearchRepostory searchRepostory;
@@ -84,7 +84,7 @@ class _SearchListComponentState extends State<SearchListComponent> {
                           style: TextStyle(color: Colors.black, fontSize: 15),
                         ),
                         Text(
-                          '券后 ' + '${item.actualPrice}'.coverRmbPrice,
+                          '券后 ${'${item.actualPrice}'.coverRmbPrice}',
                           style:
                               TextStyle(color: kPriceValueColor, fontSize: 15),
                         )

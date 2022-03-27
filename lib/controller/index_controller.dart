@@ -3,10 +3,10 @@ import 'package:dataoke_sdk/model/carousel_model.dart';
 import 'package:dataoke_sdk/model/category.dart';
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:dataoke_sdk/params/product_list_param.dart';
-
-import '../service/impl/api_service_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../service/impl/api_service_impl.dart';
 
 /// 首页控制器
 class IndexController extends GetxController {
@@ -14,13 +14,14 @@ class IndexController extends GetxController {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final service = ApiService.instance;
 
-  // 显示商品列表
-  var indexProducts = RxList<Product>([]);
+  /// 显示商品列表
+  RxList<Product> indexProducts = RxList<Product>([]);
 
-  // 轮播图
-  var carousels = RxList<Carousel>([]);
+  /// 轮播图
+  RxList<Carousel> carousels = RxList<Carousel>([]);
 
-  var loading = true.obs;
+  ///加载中状态
+  RxBool loading = true.obs;
 
   @override
   void onInit() async {

@@ -1,15 +1,18 @@
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
-import '../loading/skeleton.dart';
+import 'package:flutter/material.dart';
 
 import '../image/simple_image.dart';
-import 'package:flutter/material.dart';
+import '../loading/skeleton.dart';
 
 /// 轮播图组件
 class CarouselComponent extends StatelessWidget {
   /// 图片列表
   final List<String> images;
+
+  ///图片被选中回调
   final ValueChanged<int>? onTap;
 
+  ///构造
   const CarouselComponent({Key? key, required this.images, this.onTap})
       : super(key: key);
 

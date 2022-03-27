@@ -91,23 +91,26 @@ class _AppIndexState extends State<AppIndex> with AutomaticKeepAliveClientMixin 
       final list = IndexController.find.carousels.value;
       final images = List<String>.from(list.map((element) => element.topicImage)).toList();
       return Container(
-          height: 200,
-          margin: EdgeInsets.symmetric(horizontal: kDefaultPadded),
-          child: CarouselComponent(
-            images: images,
-            onTap: (index) {
-              final _item = IndexController.find.carousels[index];
-              if (_item.sourceType != null) {
-                /// 调用淘宝活动
-                print(_item.activityId);
-                var view = TaobaoActivityPage(
-                  activityId: '${_item.activityId}',
-                  title: '${_item.topicName}',
-                );
-                Get.to(() => view);
-              }
-            },
-          ));
+        padding: EdgeInsets.only(left: 12,right: 12),
+        child: AspectRatio(
+            aspectRatio: 2.53,
+            child: CarouselComponent(
+              images: images,
+              onTap: (index) {
+                final _item = IndexController.find.carousels[index];
+
+                if (_item.sourceType != null) {
+                  /// 调用淘宝活动
+                  print(_item.activityId);
+                  var view = TaobaoActivityPage(
+                    activityId: '${_item.activityId}',
+                    title: '${_item.topicName}',
+                  );
+                  Get.to(() => view);
+                }
+              },
+            )),
+      );
     });
   }
 

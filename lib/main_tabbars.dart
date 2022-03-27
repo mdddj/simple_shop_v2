@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'screen/nine_nine/view.dart';
+
 import 'screen/category/view.dart';
 import 'screen/index/index.dart';
-import 'package:flutter/material.dart';
-
 import 'screen/intelligence/view.dart';
+import 'screen/nine_nine/view.dart';
 import 'screen/search/view.dart';
-import 'widget/loading/simple_loadings.dart';
 
+///首页菜单
 const kTabData = [
   {'layout': '首页', 'icon': CupertinoIcons.home},
   {'layout': '分类', 'icon': CupertinoIcons.archivebox_fill},
@@ -67,6 +66,7 @@ class _MainTabbarsState extends State<MainTabbars>
           element['icon'] as IconData?,
           size: 20,
         ),
+        label: element['layout'].toString()
       ));
     });
     return list;

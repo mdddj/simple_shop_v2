@@ -1,3 +1,3 @@
 
 /// 大淘客接口
-const String DTK_API = '/api/v1/dtk/apis';
+const String dtkApi = '/api/v1/dtk/apis';

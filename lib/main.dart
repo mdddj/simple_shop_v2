@@ -1,16 +1,16 @@
+import 'dart:ui' as ui;
+
 import 'package:dataoke_sdk/network/util.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
+
 import 'controller/app_controller.dart';
+import 'main_tabbars.dart';
 import 'provider/factory.dart';
 import 'service/app_service.dart';
 import 'service/impl/api_service_impl.dart';
-import 'package:get/get.dart';
-import 'dart:ui' as ui;
-
-import 'package:get_storage/get_storage.dart';
-
-import 'main_tabbars.dart';
 
 ///
 void main() async {
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: providers,
-      child: CupertinoApp(
+      child: GetCupertinoApp(
         title: '梁典典',
         debugShowCheckedModeBanner: false,
         locale: ui.window.locale,

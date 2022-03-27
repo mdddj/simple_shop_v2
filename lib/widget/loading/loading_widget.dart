@@ -1,22 +1,19 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+/// 加载中状态的小部件
 class LoadingWidget extends StatelessWidget {
 
-  final AppBar? appBar;
+  ///导航条
+  final CupertinoNavigationBar? appBar;
 
+  ///构造
   const LoadingWidget({Key? key, this.appBar}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: !GetUtils.isNull(appBar) ? appBar : AppBar(
-        backgroundColor: Get.theme.scaffoldBackgroundColor,
-        elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
-      ),
-      body: Center(
+    return CupertinoPageScaffold(
+      navigationBar: appBar,
+      child: Center(
         child: CupertinoActivityIndicator(),
       ),
     );

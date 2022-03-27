@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dataoke_sdk/model/category.dart';
 import 'package:dataoke_sdk/model/product.dart';
+import '../constant/color_constant.dart';
 import '../widget/loading/skeleton.dart';
 import '../screen/detail/index.dart';
 import '../screen/list/category_product_list/view.dart';
@@ -33,6 +34,7 @@ class WidgetUtil {
     }
   }
 
+  ///标题
   Widget renderListTileTitle(String title) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -42,7 +44,7 @@ class WidgetUtil {
           alignment: Alignment.centerLeft,
           child: Text(
             title,
-            style: TextStyle(fontSize: 12, color: Colors.grey),
+            style: TextStyle(color: kTextColor),
           ));
     });
   }

@@ -1,13 +1,12 @@
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:flustars/flustars.dart' hide WidgetUtil;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constant/color_constant.dart';
 import '../../util/extended_util.dart';
 import '../../widget/image/simple_image.dart';
 import '../../widget/loading/simple_loadings.dart';
-import 'package:flustars/flustars.dart' hide WidgetUtil;
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import 'component/appbar_bottom_tabbar.dart';
 import 'logic.dart';
 

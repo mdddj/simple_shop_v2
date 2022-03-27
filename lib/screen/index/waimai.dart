@@ -8,6 +8,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../ext/string.dart';
+
 /// 领取外卖优惠券
 class Waimai extends StatefulWidget {
   const Waimai({Key? key}) : super(key: key);
@@ -38,7 +40,7 @@ class _WaimaiState extends State<Waimai> {
       ..miniCode = '1';
 
    api.request(dataHandle: (map){
-      final url =  map['data'];
+       map['data'].toString().tryLaunch();
    });
   }
 

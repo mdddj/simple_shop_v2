@@ -1,13 +1,17 @@
-import '../../util/widget_util.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+
 import '../../util/extended_util.dart';
+import '../../util/widget_util.dart';
 
 /// 简单的图片
 /// 需要直系父亲组件声明宽高
 class SimpleImage extends StatelessWidget {
+
+  ///图片src
   final String url;
 
+  ///构造
   const SimpleImage({Key? key, required this.url}) : super(key: key);
 
   @override
@@ -34,7 +38,6 @@ class SimpleImage extends StatelessWidget {
             loadStateChanged: WidgetUtil.instance.s,
             cache: true,
             shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(8),
           ),
         ),
       ],

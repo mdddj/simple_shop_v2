@@ -2,27 +2,30 @@ import 'package:after_layout/after_layout.dart';
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/model/coupon_link_result.dart';
 import 'package:dataoke_sdk/model/product.dart';
-import '../other/help.dart';
+import 'package:expandable_text/expandable_text.dart';
+import 'package:flustars/flustars.dart' hide WidgetUtil;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../constant/app_constant.dart';
 import '../../mixin/detail_mixin.dart';
-import '../../util/custom_floating_location.dart';
+import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
 import '../../widget/index/carousel.dart';
 import '../../widget/loading/loading_widget.dart';
-import 'package:expandable_text/expandable_text.dart';
-import 'package:flustars/flustars.dart' hide WidgetUtil;
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../util/extended_util.dart';
-
+import '../other/help.dart';
 import 'brand_info.dart';
 import 'image_view.dart';
 import 'like_list.dart';
 
-// 详情页面
+///产品详情页面
 class DetailIndex extends StatefulWidget {
+
+  ///产品模型
   final Product? product;
 
+  ///构造
   const DetailIndex({Key? key, this.product}) : super(key: key);
 
   @override
@@ -32,7 +35,6 @@ class DetailIndex extends StatefulWidget {
 class _DetailIndexState extends State<DetailIndex>
     with AfterLayoutMixin<DetailIndex>, DetailMixin {
   final scrollController = ScrollController();
-  var showToTopButton = false;
 
   bool loading = true;
   String? productId;
@@ -42,26 +44,6 @@ class _DetailIndexState extends State<DetailIndex>
   List<Product> likeProducts = [];
   int currImageIndex = 1;
 
-  @override
-  void initState() {
-    super.initState();
-    scrollController.addListener(() {
-      final px = scrollController.offset;
-      if (px > 200.0) {
-        if (!showToTopButton) {
-          setState(() {
-            showToTopButton = true;
-          });
-        }
-      } else {
-        if (showToTopButton) {
-          setState(() {
-            showToTopButton = false;
-          });
-        }
-      }
-    });
-  }
 
   @override
   void dispose() {
@@ -71,46 +53,31 @@ class _DetailIndexState extends State<DetailIndex>
 
   @override
   Widget build(BuildContext context) {
-    if (loading) return LoadingWidget();
+    if (loading) return LoadingWidget(appBar: _renderAppbar(),);
     return buildScaffold();
   }
 
+  CupertinoNavigationBar _renderAppbar(){
+    return  CupertinoNavigationBar(
+      middle: Text('${detail == null ? '产品详情' : detail!.dtitle}'),
+    );
+  }
+
   Widget buildScaffold() {
-    return Scaffold(
-      backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        title: Text(
-          '${detail == null ? '详情' : detail!.dtitle}',
-          style: TextStyle(color: Colors.black),
+    return CupertinoPageScaffold(
+      navigationBar:_renderAppbar(),
+      child: SafeArea(
+        child: Stack(
+          children: [
+            ListView.builder(
+              itemBuilder: _builder,
+              itemCount: 5,
+              controller: scrollController,
+            ),
+            renderBottomAction(),
+          ],
         ),
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
-        actions: [IconButton(icon: Icon(Icons.share), onPressed: () {})],
       ),
-      body: Stack(
-        children: [
-          ListView.builder(
-            itemBuilder: _builder,
-            itemCount: 5,
-            controller: scrollController,
-          ),
-          renderBottomAction(),
-        ],
-      ),
-      floatingActionButton: showToTopButton
-          ? FloatingActionButton(
-              onPressed: () {
-                scrollController.jumpTo(0);
-              },
-              backgroundColor: Colors.white,
-              child: Icon(
-                Icons.vertical_align_top,
-                color: Colors.black,
-              ),
-            )
-          : null,
-      floatingActionButtonLocation: CustomFloatingActionButtonLocation(
-          FloatingActionButtonLocation.endFloat, 0, -65),
     );
   }
 
@@ -152,9 +119,10 @@ class _DetailIndexState extends State<DetailIndex>
           ),
           child: Row(
             children: [
-              IconButton(
-                  icon: Icon(Icons.help),
-                  onPressed: () => Get.to(() => HelpPage())),
+              SizedBox(width: 12,),
+              GestureDetector(
+                  child: Icon(CupertinoIcons.info),
+                  onTap: () => Get.to(() => HelpPage())),
               Expanded(
                   child: Flex(
                 direction: Axis.horizontal,
@@ -229,31 +197,38 @@ class _DetailIndexState extends State<DetailIndex>
     if (detail == null) {
       return Container();
     }
-    return ListTile(
-      leading: WidgetUtil.instance.renderListTileTitle('优惠'),
-      title: Row(
+    return Container(
+      margin: EdgeInsets.all(kDefaultPadded),
+      child: Row(
         children: [
           Container(
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
-            decoration: BoxDecoration(
-                color: Colors.pink.withOpacity(.07),
-                borderRadius: BorderRadius.all(Radius.circular(8))),
-            child: Text(
-              '${NumUtil.getNumByValueDouble(detail!.couponPrice, 0)}元隐藏券',
-              style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.pink,
-                  fontWeight: FontWeight.bold),
-            ),
+              height: 30,
+              width: 60,
+              child: WidgetUtil.instance.renderListTileTitle('优惠')),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+                decoration: BoxDecoration(
+                    color: Colors.pink.withOpacity(.07),
+                    borderRadius: BorderRadius.all(Radius.circular(8))),
+                child: Text(
+                  '${NumUtil.getNumByValueDouble(detail!.couponPrice, 0)}元隐藏券',
+                  style: TextStyle(
+                      color: Colors.pink,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
           ),
+          Spacer(),
+          CupertinoButton(child:Text(
+            '领券',
+          ) , onPressed: ()=>openTb(tkl!.couponClickUrl!))
         ],
       ),
-      trailing: Text(
-        '领券',
-        style: TextStyle(color: Colors.black, fontSize: 12),
-      ),
-      onTap: () => openTb(tkl!.couponClickUrl!),
     );
   }
 

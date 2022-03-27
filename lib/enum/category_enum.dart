@@ -1,5 +1,10 @@
 
+///分类选择器类型
 enum CategoryRenderType{
-  TAB, // tab选项卡
-  ICON // 图标 + 文字
+
+  /// tab选项卡
+  tab,
+
+  /// 图标 + 文字
+  icon
 }
