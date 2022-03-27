@@ -1,7 +1,5 @@
 import 'package:dataoke_sdk/model/product.dart';
-import '../../constant/app_constant.dart';
-import '../../constant/color_constant.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 /// 商品的一些相关信息
 class ProductWidgets extends StatelessWidget {
@@ -20,13 +18,14 @@ class ProductWidgets extends StatelessWidget {
   Widget _couponWidget() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-      decoration: BoxDecoration(
-        color: kDangerColor,
-        borderRadius: const BorderRadius.all(Radius.circular(5)),
+      decoration: const BoxDecoration(
+        color: CupertinoColors.systemPink,
+        borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
+      alignment: Alignment.center,
       child: Text(
-        '$rmb${product.couponPrice} 元券',
-        style: const TextStyle(color: Colors.white),
+        '${product.couponPrice}元直减',
+        style: const TextStyle(fontSize: 12),
       ),
     );
   }

@@ -4,10 +4,7 @@ import 'package:dataoke_sdk/model/product.dart';
 import 'package:dataoke_sdk/params/top_param.dart';
 import 'package:get/get.dart';
 
-import '../../service/impl/api_service_impl.dart';
-
 class TopController extends GetxController {
-  final service = ApiService();
   RxInt page = 1.obs;
   RxList<Product> goods = RxList<Product>([]);
   RxInt cid = 0.obs;

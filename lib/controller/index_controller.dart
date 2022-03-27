@@ -6,13 +6,10 @@ import 'package:dataoke_sdk/params/product_list_param.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../service/impl/api_service_impl.dart';
-
 /// 首页控制器
 class IndexController extends GetxController {
   static IndexController get find => Get.find<IndexController>();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-  final service = ApiService.instance;
 
   /// 显示商品列表
   RxList<Product> indexProducts = RxList<Product>([]);

@@ -41,7 +41,6 @@ class Api extends ApiService {
   @override
   void errorHandle(int? code, String? msg) {
     if (msg != null) {
-      print(msg);
       utils.showMessage(msg);
     }
   }

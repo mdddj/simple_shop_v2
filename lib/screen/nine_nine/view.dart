@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constant/app_constant.dart';
@@ -18,13 +17,10 @@ class NineNinePage extends StatefulWidget {
 class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderStateMixin {
   final NineNineLogic logic = Get.put(NineNineLogic());
 
-  late TabController _tabController;
-
   int _currIndex = 1;
 
   @override
   void initState() {
-    _tabController = TabController(length: 4, vsync: this);
     super.initState();
   }
 

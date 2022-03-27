@@ -42,6 +42,7 @@ class WallProductCard extends StatelessWidget {
                       SimplePrice(
                         product: product,
                       ),
+                      const SizedBox(height: 6,),
                       ProductWidgets(
                         product: product,
                       )

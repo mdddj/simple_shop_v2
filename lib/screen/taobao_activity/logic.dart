@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../util/extended_util.dart';
 
 class TaobaoActivityLogic extends GetxController {
-  late final String activityId;
+    String? _activityId;
 
   RxInt pageId = RxInt(1);
 
@@ -14,7 +14,7 @@ class TaobaoActivityLogic extends GetxController {
   /// 活动转链
   Future<void> getLinks() async {
     var result = await DdTaokeSdk.instance
-        .getActivityLink(ActivityLinkParam(promotionSceneId: activityId));
+        .getActivityLink(ActivityLinkParam(promotionSceneId: _activityId!));
 
     if (result != null) {
       activityLinks.value = result;
@@ -24,7 +24,8 @@ class TaobaoActivityLogic extends GetxController {
   }
 
   /// 初始化活动id参数
-  set init(String id) => activityId = id;
+  set initId(String id) => _activityId = id;
+  String get initId => _activityId!;
 
   @override
   void onReady() {

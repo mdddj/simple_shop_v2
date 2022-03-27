@@ -17,14 +17,12 @@ class SimplePrice extends StatelessWidget {
         TextSpan(
             text: rmb,
             style: TextStyle(
-                color: kPriceSymbolColor,
-                fontSize: kPriceValueFontSize * kSymbolZoom)),
+                color: kPriceSymbolColor)),
         const TextSpan(text: ' '),
         TextSpan(
             text: product.actualPrice.toString(),
             style: TextStyle(
                 color: kPriceValueColor,
-                fontSize: kPriceValueFontSize,
                 fontWeight: FontWeight.bold))
       ]),
     );

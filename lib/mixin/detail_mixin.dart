@@ -1,22 +1,13 @@
-import 'package:dataoke_sdk/model/product.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../ext/string.dart';
-import '../model/product_detail_model.dart';
-import '../service/impl/api_service_impl.dart';
 import '../util/extended_util.dart';
 
 /// 详情页面的一些方法
 mixin DetailMixin {
-  ///一些接口服务
-  final service = ApiService();
   ///工具集合
   final util = Utils();
 
-  /// 加载商品详情信息
-  Future<ProductDetail> getDetail(String productId) async {
-    return service.detail(id: productId);
-  }
 
   /// 加载轮播图map
   Map<String, int> getImages(String imageString) {
@@ -29,10 +20,6 @@ mixin DetailMixin {
     return map;
   }
 
-  /// 加载相似商品
-  Future<List<Product>> loadLikeproducts(String productId) async {
-    return service.getLikeProducts(productId, 10);
-  }
 
   /// 复制淘口令
   void copyTkl(String? tklString,{BuildContext? context}) {

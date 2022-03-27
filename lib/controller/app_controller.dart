@@ -5,7 +5,6 @@ import 'package:dataoke_sdk/params/product_list_param.dart';
 import 'package:get/get.dart';
 
 import '../constant/api_constant.dart';
-import '../service/impl/api_service_impl.dart';
 
 /// 初始化 app 全局属性
 class AppController extends GetxController {
@@ -13,8 +12,6 @@ class AppController extends GetxController {
   ///实例
   static AppController get instance => Get.find<AppController>();
 
-  ///部分api
-  final api = ApiService.instance;
 
   ///产品超级分类
   final RxList<Category> _categorys = RxList<Category>([]);

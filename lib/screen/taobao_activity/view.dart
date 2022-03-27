@@ -22,7 +22,7 @@ class _TaobaoActivityPageState extends State<TaobaoActivityPage> {
 
   @override
   void initState() {
-    logic.init = widget.activityId;
+    logic.initId = widget.activityId;
     super.initState();
   }
 

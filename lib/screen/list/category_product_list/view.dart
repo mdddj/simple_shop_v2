@@ -1,4 +1,3 @@
-import 'package:dataoke_sdk/constant/sort.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
@@ -37,41 +36,41 @@ class CategoryProductListPage extends StatelessWidget {
     );
   }
 
-
-  Widget _renderfilter(){
+  Widget _renderfilter() {
     return const Icon(CupertinoIcons.sort_down);
   }
 
-  Widget _renderMenu(CategoryProductListLogic logic){
-    return PopupMenuButton<String>(
-      itemBuilder: (_) {
-        return [
-          const PopupMenuItem(
-            value: '0',
-            child: Text('综合排序'),
-          ),
-          PopupMenuItem(
-            value: DdSort.couponHighToLow,
-            child: const Text('最高人气'),
-          ),
-          PopupMenuItem(
-            value: DdSort.salesHighToLow,
-            child: const Text('销量从高到低'),
-          ),
-          PopupMenuItem(
-            value: DdSort.priceLowToHigh,
-            child: const Text('价格从低到高'),
-          ),
-          PopupMenuItem(
-            value: DdSort.priceHighToLow,
-            child: const Text('价格从高到低'),
-          )
-        ];
-      },
-      icon: const Icon(Icons.sort),
-      onSelected: logic.onSort,
-    );
-  }
+  //
+  // Widget _renderMenu(CategoryProductListLogic logic){
+  //   return PopupMenuButton<String>(
+  //     itemBuilder: (_) {
+  //       return [
+  //         const PopupMenuItem(
+  //           value: '0',
+  //           child: Text('综合排序'),
+  //         ),
+  //         PopupMenuItem(
+  //           value: DdSort.couponHighToLow,
+  //           child: const Text('最高人气'),
+  //         ),
+  //         PopupMenuItem(
+  //           value: DdSort.salesHighToLow,
+  //           child: const Text('销量从高到低'),
+  //         ),
+  //         PopupMenuItem(
+  //           value: DdSort.priceLowToHigh,
+  //           child: const Text('价格从低到高'),
+  //         ),
+  //         PopupMenuItem(
+  //           value: DdSort.priceHighToLow,
+  //           child: const Text('价格从高到低'),
+  //         )
+  //       ];
+  //     },
+  //     icon: const Icon(Icons.sort),
+  //     onSelected: logic.onSort,
+  //   );
+  // }
 
   Widget _productList() {
     final logic = CategoryProductListLogic.instance;
@@ -82,15 +81,13 @@ class CategoryProductListPage extends StatelessWidget {
           crossAxisCount: 2,
           children: logic.products
               .map((element) => WallProductCard(
-                product: element,
-              ))
+                    product: element,
+                  ))
               .toList()),
       padding: const EdgeInsets.all(12),
     );
   }
 }
-
-
 
 class CustomCupertinoActionSheet extends StatelessWidget {
   const CustomCupertinoActionSheet({Key? key}) : super(key: key);
@@ -106,35 +103,35 @@ class CustomCupertinoActionSheet extends StatelessWidget {
     );
   }
 
-  Widget _buildCupertinoActionSheet(BuildContext context) =>
-      Container(
+  Widget _buildCupertinoActionSheet(BuildContext context) => Container(
         alignment: Alignment.bottomCenter,
         child: CupertinoActionSheet(
           title: const Text("Please chose a language"),
           message: const Text('the language you use in this application.'),
           cancelButton: CupertinoActionSheetAction(
-              onPressed: () => Navigator.pop(context), child: const Text("Cancel")),
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Cancel")),
           actions: <Widget>[
             CupertinoActionSheetAction(
-                onPressed: () => Navigator.pop(context), child: const Text('Dart')),
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Dart')),
             CupertinoActionSheetAction(
-                onPressed: () => Navigator.pop(context), child: const Text('Java')),
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Java')),
             CupertinoActionSheetAction(
-                onPressed: () => Navigator.pop(context), child: const Text('Kotlin')),
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Kotlin')),
           ],
         ),
       );
 
-  Widget _buildRaisedButton(BuildContext context) => RaisedButton(
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10))),
-    color: Colors.blue,
-    onPressed: () => showDialog(
-        context: context,
-        builder: (ctx) => _buildCupertinoActionSheet(context)),
-    child: const Text(
-      'Just Show It !',
-      style: TextStyle(color: Colors.white),
-    ),
-  );
+  Widget _buildRaisedButton(BuildContext context) => ElevatedButton(
+        onPressed: () => showDialog(
+            context: context,
+            builder: (ctx) => _buildCupertinoActionSheet(context)),
+        child: const Text(
+          'Just Show It !',
+          style: TextStyle(color: Colors.white),
+        ),
+      );
 }

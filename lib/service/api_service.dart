@@ -60,9 +60,7 @@ class TKApiService {
         final list = map['content'] as List<dynamic>;
         valueChanged?.call(list);
       }
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (_) {
     }
   }
 
@@ -75,8 +73,7 @@ class TKApiService {
       try {
         final item = jsonDecode(result)['result'][0];
         return WeipinhuiDetail.fromJson(item);
-      } catch (e, s) {
-        print(s);
+      } catch (_) {
       }
     }
     return null;
@@ -104,8 +101,7 @@ class TKApiService {
                   .map((e) => PddDetail.fromJson(e))).toList();
           result.addAll(_list);
         }
-      } catch (s, st) {
-        print(st);
+      } catch (_) {
       }
     }
     return result;
@@ -126,8 +122,7 @@ class TKApiService {
               return pddRespose['list'] as List<dynamic>;
             }
           }
-        } catch (e) {
-          print('拼多多商品解析失败');
+        } catch (_) {
         }
       }
     }
@@ -148,8 +143,7 @@ class TKApiService {
             final item = pddRespose.first;
             return PddDetail.fromJson(item);
           }
-        } catch (e, s) {
-          print('拼多多商品详情解析失败');
+        } catch (_) {
         }
       }
     }
