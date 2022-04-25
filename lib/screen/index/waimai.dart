@@ -39,9 +39,7 @@ class _WaimaiState extends State<Waimai> {
       ..linkType = '1'
       ..miniCode = '1';
 
-   api.request(dataHandle: (map){
-       map['data'].toString().tryLaunch();
-   });
+   api.request();
   }
 
   Widget _renderItem(

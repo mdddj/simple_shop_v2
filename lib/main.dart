@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:dataoke_sdk/network/util.dart';
+import 'package:dd_check_plugin/dd_check_plugin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -17,6 +18,7 @@ void main() async {
   DdTaokeUtil.instance
       .init('https://itbug.shop', '443', proxy: '', debug: false);
   Get.put(AppController());
+  
   await GetStorage.init();
   PaintingBinding.instance!.imageCache!.maximumSizeBytes = 1000 << 20;
   runApp(const MyApp());
