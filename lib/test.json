@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "data": {
+    "content": [
+      {
+        "id": 319.0,
+        "channel": "girlmerry-live",
+        "sku": "EA002966",
+        "roomId": "girlmerry-2",
+        "image": "https://img.girlmerry.com/media/catalog/product/cache/004687cb99dc05843bebe55dc8d3c356/E/A/EA002966_1.jpg",
+        "title": "XS-L spring new stylish simple solid color inelastic lace-up hollow ruffle sleeve sexy top",
+        "productId": 760744.0,
+        "sortValue": 0.0
+      },
+      {
+        "id": 321.0,
+        "channel": "girlmerry-live",
+        "sku": "EA003024",
+        "roomId": "girlmerry-2",
+        "image": "https://img.girlmerry.com/media/catalog/product/cache/004687cb99dc05843bebe55dc8d3c356/E/A/EA003024_1.jpg",
+        "title": "Summer new simple patchwork contrast color micro-elastic irregular puff sleeves metal adjustable buckle zip-up stylish top",
+        "productId": 763272.0,
+        "sortValue": 1.0
+      },
+      {
+        "id": 318.0,
+        "channel": "girlmerry-live",
+        "sku": "AA004547",
+        "roomId": "girlmerry-2",
+        "image": "https://img.girlmerry.com/media/catalog/product/cache/004687cb99dc05843bebe55dc8d3c356/A/A/AA004547_1.jpg",
+        "title": "New stylish sequin stretch zip-up with padded plus size elbow sleeves elegant maxi evening dress(with lining)",
+        "productId": 760788.0,
+        "sortValue": 2.0
+      },
+      {
+        "id": 317.0,
+        "channel": "girlmerry-live",
+        "sku": "AA004311",
+        "roomId": "girlmerry-2",
+        "image": "https://img.girlmerry.com/media/catalog/product/cache/004687cb99dc05843bebe55dc8d3c356/A/A/AA004311_1.jpg",
+        "title": "XS-L spring new stylish simple solid color hollow stretch slim pleated sexy mini dress",
+        "productId": 752099.0,
+        "sortValue": 3.0
+      },
+      {
+        "id": 320.0,
+        "channel": "girlmerry-live",
+        "sku": "AA004271",
+        "roomId": "girlmerry-2",
+        "image": "https://img.girlmerry.com/media/catalog/product/cache/004687cb99dc05843bebe55dc8d3c356/A/A/AA004271_1.jpg",
+        "title": "Summer new stylish simple solid color orange hollow stretch high slit sexy midi dress",
+        "productId": 750946.0,
+        "sortValue": 4.0
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "empty": false,
+        "unsorted": false,
+        "sorted": true
+      },
+      "offset": 0.0,
+      "pageNumber": 0.0,
+      "pageSize": 1000.0,
+      "paged": true,
+      "unpaged": false
+    },
+    "last": true,
+    "totalPages": 1.0,
+    "totalElements": 5.0,
+    "first": true,
+    "size": 1000.0,
+    "number": 0.0,
+    "sort": {
+      "empty": false,
+      "unsorted": false,
+      "sorted": true
+    },
+    "numberOfElements": 5.0,
+    "empty": false
+  }
+}
