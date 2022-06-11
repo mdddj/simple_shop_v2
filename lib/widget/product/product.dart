@@ -1,6 +1,6 @@
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:flustars/flustars.dart' hide WidgetUtil;
+import 'package:flustars_flutter3/flustars_flutter3.dart' hide WidgetUtil;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

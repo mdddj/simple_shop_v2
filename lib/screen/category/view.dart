@@ -33,12 +33,12 @@ class _CategoryPageState extends State<CategoryPage> {
       navigationBar: const CupertinoNavigationBar(
         middle: Text('分类'),
       ),
-      child: SafeArea(child: _renderBody(categorys)),
+      child: SafeArea(child: _renderBody(categorys,"")),
     );
   }
 
   /// 主题显示内容
-  Widget _renderBody(List<Category> categorys) {
+  Widget _renderBody(List<Category> categorys,String str) {
     final currentCategory = context.watch<AppProvider>().currentCategory;
     return SingleChildScrollView(
       child: Row(

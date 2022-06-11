@@ -11,21 +11,22 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  get: ^4.6.1
-  provider: ^6.0.2
-  after_layout: ^1.1.0
+  get: ^4.6.5
+  provider: ^6.0.3
+  after_layout: ^1.2.0
   dio: ^4.0.6
-  dd_check_plugin: ^0.0.3
-  url_launcher: ^6.1.0
-  flustars: ^2.0.1
-  extended_image: ^6.0.2+1
-  flutter_easyrefresh: ^2.2.1
+  dd_check_plugin: ^0.0.6
+  url_launcher: ^6.1.3
+  flustars_flutter3: ^3.0.0
+  extended_image: ^6.2.1
+  flutter_easyrefresh:
+    git:
+      url: https://github.com/hkloudou/flutter_easyrefresh.git
+      ref: v2-flutter3
   expandable_text: ^2.3.0
   get_storage: ^2.0.3
-  flutter_svg: ^1.0.3
-  dataoke_sdk:
-    path: ../plugins/dataoke_sdk
+  flutter_svg: ^1.1.0
+
   waterfall_flow: ^3.0.2
   flutter_spinkit: ^5.1.0
   loading_more_list: ^4.1.2 # 加载更多
@@ -33,11 +34,11 @@ dependencies:
 
   carousel_pro_nullsafety: ^1.0.2
 
-  dd_js_util: ^0.1.0
+  dd_js_util: ^0.2.1
 
 
   # 开屏图片制作
-  flutter_native_splash: ^2.1.6
+  flutter_native_splash: ^2.2.3
 
   # 列表和网格动画
   auto_animated: ^3.0.1
@@ -47,13 +48,17 @@ dependencies:
 
   # icon图标扩展
   font_awesome_flutter: ^10.1.0
-  fsuper_nullsafety: ^3.0.1
-  flutter_lints: ^1.0.4
+  fsuper_nullsafety: ^3.0.3
 
+  dataoke_sdk:
+    path: ../plugins/dataoke_sdk
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+dependency_overrides:
+  visibility_detector: ^0.3.3
 
 flutter:
   assets:

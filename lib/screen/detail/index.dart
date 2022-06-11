@@ -3,7 +3,8 @@ import 'package:dataoke_sdk/dd_taoke_sdk.dart';
 import 'package:dataoke_sdk/model/coupon_link_result.dart';
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:expandable_text/expandable_text.dart';
-import 'package:flustars/flustars.dart' hide WidgetUtil;
+import 'package:flustars_flutter3/flustars_flutter3.dart' hide WidgetUtil;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

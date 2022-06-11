@@ -35,8 +35,13 @@ DdTaokeUtil.instance.init('http://itbug.shop', '80', proxy: '');
 
 
 
-
-
+|  类型   | 名称  | 必填  |
+|  ----  | ----  | ----  |
+| Key? | key | false |
+| Create<T> | create | true |
+| bool? | lazy | false |
+| TransitionBuilder? | builder | false |
+| Widget? | child | false |
 
 
 

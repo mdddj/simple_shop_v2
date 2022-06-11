@@ -1,5 +1,5 @@
 import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:flustars/flustars.dart' hide WidgetUtil;
+import 'package:flustars_flutter3/flustars_flutter3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

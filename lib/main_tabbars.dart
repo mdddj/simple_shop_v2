@@ -40,7 +40,7 @@ class _MainTabbarsState extends State<MainTabbars>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addObserver(_themeObs);
+    WidgetsBinding.instance.addObserver(_themeObs);
     Future.microtask(() => context.read<AppProvider>().changeThemeModel(MediaQuery.of(context).platformBrightness));
     Future.microtask(() {
       DdCheckPlugin.instance.init(DdTaokeUtil.instance.createInstance()!);
@@ -49,7 +49,7 @@ class _MainTabbarsState extends State<MainTabbars>
 
   @override
   void dispose() {
-    WidgetsBinding.instance?.removeObserver(_themeObs);
+    WidgetsBinding.instance.removeObserver(_themeObs);
     super.dispose();
   }
 
