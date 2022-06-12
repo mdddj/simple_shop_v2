@@ -30,8 +30,8 @@ class _AppIndexState extends State<AppIndex>
     super.build(context);
     return CupertinoPageScaffold(
         key: logic.scaffoldKey,
-        navigationBar: const CupertinoNavigationBar(
-          middle: Text(kAppName),
+        navigationBar:  CupertinoNavigationBar(
+          middle: Text(kAppName.tr),
         ),
         child: SafeArea(
           child: EasyRefresh.custom(slivers: [

@@ -62,10 +62,10 @@ class _IntelligencePageState extends State<IntelligencePage>
         children: [
           Row(
             children: [
-              const Text('梁典典'),
+               Text('梁典典'.tr),
               const SizedBox(width: 6),
               Text(
-                '${TimelineUtil.formatByDateTime(item.updateTime!, locale: 'zh')}发布',
+                '${TimelineUtil.formatByDateTime(item.updateTime!, locale: 'en')} ${'发布'.tr}',
                 style: TextStyle(color: kTextColor),
               )
             ],
@@ -89,7 +89,8 @@ class _IntelligencePageState extends State<IntelligencePage>
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${item.title}'),
+                    // Text('${item.title}'),
+                    Text('Product title Product title Product title')
                   ],
                 ),
               ))
@@ -100,7 +101,7 @@ class _IntelligencePageState extends State<IntelligencePage>
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CupertinoButton(
-                  child: const Text('复制文案'),
+                  child:  Text('复制文案'.tr),
                   onPressed: () => Utils().copy(item.title)),
               CupertinoButton.filled(
                 padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded* 2,vertical: 2),
@@ -111,7 +112,7 @@ class _IntelligencePageState extends State<IntelligencePage>
                       await Utils().openTaobao(result.couponClickUrl!);
                     }
                   },
-                  child: const Text('去购买')),
+                  child: Text('去购买'.tr)),
             ],
           )
         ],
@@ -119,8 +120,8 @@ class _IntelligencePageState extends State<IntelligencePage>
     );
   }
 
-  CupertinoNavigationBar get _appbar => const CupertinoNavigationBar(
-        middle: Text('优惠情报'),
+  CupertinoNavigationBar get _appbar =>  CupertinoNavigationBar(
+        middle: Text('优惠情报'.tr),
       );
 // bottom: AppbarBottomTabbar(
 //   controller: tabController,

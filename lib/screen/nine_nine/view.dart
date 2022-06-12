@@ -47,8 +47,8 @@ class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderSt
       //     ),
       //   ),
       // ),
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('9快9包邮'),
+      navigationBar: CupertinoNavigationBar(
+        middle: Text('9快9包邮'.tr),
       ),
       child: SafeArea(
         child: Obx(() {

@@ -35,8 +35,9 @@ class WallProductCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        '${product.dtitle}',
+                      const Text(
+                        // '${product.dtitle}',
+                        'product title'
                       ),
                       const SizedBox(height: 4),
                       SimplePrice(

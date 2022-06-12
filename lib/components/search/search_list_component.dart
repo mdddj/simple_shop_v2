@@ -1,6 +1,7 @@
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
 import '../../constant/app_constant.dart';
@@ -77,10 +78,11 @@ class _SearchListComponentState extends State<SearchListComponent> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${item.dtitle}',
+                        // '${item.dtitle}',
+                        'Product title'
                       ),
                       Text(
-                        '券后 ${'${item.actualPrice}'.coverRmbPrice}',
+                        '${'券后'.tr} ${'${item.actualPrice}'.coverRmbPrice}',
                         style:
                             TextStyle(color: kPriceValueColor, fontSize: 15),
                       )

@@ -16,7 +16,7 @@ class CategoryProductListPage extends StatelessWidget {
       builder: (logic) {
         return CupertinoPageScaffold(
           navigationBar: CupertinoNavigationBar(
-            middle: const Text('产品列表'),
+            middle:  Text('产品列表'.tr),
             trailing: _renderfilter(),
           ),
           child: SafeArea(

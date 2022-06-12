@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 
+import 'constant/app_constant.dart';
 import 'controller/app_controller.dart';
 import 'main_tabbars.dart';
 import 'provider/app.dart';
 import 'provider/factory.dart';
+import 'translation/i18n.dart';
 
 ///入口函数
 void main() async {
@@ -35,7 +37,8 @@ class MyApp extends StatelessWidget {
         create: (BuildContext context) => AppProvider(),
         child: Consumer<AppProvider>(builder: (BuildContext context, value, Widget? child) {
           return GetCupertinoApp(
-            title: '梁典典',
+            title: kAppName,
+            translations: I18n(),
             debugShowCheckedModeBanner: false,
             locale: ui.window.locale,
             theme: CupertinoThemeData(

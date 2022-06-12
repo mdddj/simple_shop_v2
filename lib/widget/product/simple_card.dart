@@ -42,7 +42,8 @@ class SimpleCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('${product.dtitle}'),
+                    // Text('${product.dtitle}'),
+                    Text('Product title'),
                     Text(
                       '${product.actualPrice?.toRMB()}',
                       style: TextStyle(color: Get.theme.primaryColor),

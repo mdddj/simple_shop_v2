@@ -1,5 +1,6 @@
 import 'package:dataoke_sdk/network/util.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import 'mixin/theme.dart';
@@ -97,7 +98,7 @@ class _MainTabbarsState extends State<MainTabbars>
           element['icon'] as IconData?,
           size: 20,
         ),
-        label: element['layout'].toString()
+        label: element['layout'].toString().tr
       ));
     }
     return list;

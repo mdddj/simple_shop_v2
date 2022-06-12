@@ -58,12 +58,12 @@ class _SearchPageState extends State<SearchPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: CupertinoSearchTextField(
                           onChanged: logic.onKeyWorldsChange,
-                          placeholder: '查询优惠券,比如输入"辣条"',
+                          placeholder: '查询优惠券'.tr,
                         ))
                     : Container(
                         alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('正在搜索:${logic.searchKeyWorlds.value}'),
+                        child: Text('${'正在搜索'.tr}:${logic.searchKeyWorlds.value}'),
                       ),
               ),
               Expanded(
@@ -81,8 +81,8 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   /// 标题栏
-  CupertinoNavigationBar get _appbar => const CupertinoNavigationBar(
-        middle: Text('搜索'),
+  CupertinoNavigationBar get _appbar =>  CupertinoNavigationBar(
+        middle: Text('搜索'.tr),
       );
 
   @override

@@ -62,7 +62,8 @@ class _DetailIndexState extends State<DetailIndex>
 
   CupertinoNavigationBar _renderAppbar(){
     return  CupertinoNavigationBar(
-      middle: Text('${detail == null ? '产品详情' : detail!.dtitle}'),
+      //detail!.dtitle
+      middle: Text('${detail == null ? 'loading...' : 'Product title'}'),
     );
   }
 
@@ -158,8 +159,8 @@ class _DetailIndexState extends State<DetailIndex>
     return CupertinoButton(
       padding: EdgeInsets.zero,
       onPressed: tkl == null ? null : () => copyTkl(tkl!.tpwd,context: context),
-      child: const Text(
-        '复制口令',
+      child:  Text(
+        '复制口令'.tr,
       ),
     );
   }
@@ -168,7 +169,7 @@ class _DetailIndexState extends State<DetailIndex>
     return CupertinoButton.filled(
       padding: EdgeInsets.zero,
       onPressed: tkl == null ? null : () => tkl!.couponClickUrl!.tryLaunch(),
-      child: const Text('领券'),
+      child:  Text('领券'.tr),
     );
   }
 
@@ -202,7 +203,7 @@ class _DetailIndexState extends State<DetailIndex>
           SizedBox(
               height: 30,
               width: 60,
-              child: WidgetUtil.instance.renderListTileTitle('优惠')),
+              child: WidgetUtil.instance.renderListTileTitle('优惠'.tr)),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -213,7 +214,7 @@ class _DetailIndexState extends State<DetailIndex>
                     color: Colors.pink.withOpacity(.07),
                     borderRadius: const BorderRadius.all(Radius.circular(8))),
                 child: Text(
-                  '${NumUtil.getNumByValueDouble(detail!.couponPrice, 0)}元隐藏券',
+                  '${NumUtil.getNumByValueDouble(detail!.couponPrice, 0)} ${'元隐藏券'.tr}',
                   style: const TextStyle(
                       color: Colors.pink,
                       fontWeight: FontWeight.bold),
@@ -222,8 +223,8 @@ class _DetailIndexState extends State<DetailIndex>
             ],
           ),
           const Spacer(),
-          CupertinoButton(child:const Text(
-            '去领取',
+          CupertinoButton(child: Text(
+            '去领取'.tr,
           ) , onPressed: ()=>openTb(tkl!.couponClickUrl!))
         ],
       ),
@@ -260,7 +261,7 @@ class _DetailIndexState extends State<DetailIndex>
                 border: Border.all(color: Colors.orange.withOpacity(.23))),
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded / 2),
             child: Text(
-              '${detail!.subdivisionName}喜爱榜No.${detail!.subdivisionRank}',
+              '${detail!.subdivisionName} ${'喜爱榜'.tr} No.${detail!.subdivisionRank}',
               style:
                   const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),
             ),
@@ -285,7 +286,8 @@ class _DetailIndexState extends State<DetailIndex>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${detail!.title}',
+                      // '${detail!.title}',
+                      'Product title',
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
                       maxLines: 2,
@@ -305,7 +307,7 @@ class _DetailIndexState extends State<DetailIndex>
               children: [
                 const Icon(CupertinoIcons.person_2_fill,color: CupertinoColors.inactiveGray,),
                 Text(
-                  '${detail!.monthSales}人已领',
+                  '${detail!.monthSales} ${'人已领'.tr}',
                   style: const TextStyle(fontSize: 10, color: CupertinoColors.inactiveGray),
                 )
               ],
@@ -320,7 +322,8 @@ class _DetailIndexState extends State<DetailIndex>
           padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded),
           alignment: Alignment.centerLeft,
           child: ExpandableText(
-            '${detail!.desc}',
+            // '${detail!.desc}',
+            'Product Info',
             expandText: '展开',
             collapseText: '收起',
             maxLines: 2,
@@ -350,7 +353,7 @@ class _DetailIndexState extends State<DetailIndex>
             width: 6,
           ),
           Text(
-            '淘宝价${detail!.originalPrice.toRMB()}',
+            '${'淘宝价'.tr} ${detail!.originalPrice.toRMB()}',
             style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 12,

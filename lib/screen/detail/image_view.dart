@@ -34,15 +34,15 @@ class ImageView extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded),
-            child: WidgetUtil.instance.renderTitle('商品详情'),
+            child: WidgetUtil.instance.renderTitle('商品详情'.tr),
           ),
           const SizedBox(
             height: kDefaultPadded / 2,
           ),
           if (list.isEmpty)
-            const Padding(
+             Padding(
               padding: EdgeInsets.all(8.0),
-              child: Center(child: Text('暂无详情')),
+              child: Center(child: Text('暂无详情'.tr)),
             ),
           if (list.isNotEmpty)
             ExtendedListView.builder(

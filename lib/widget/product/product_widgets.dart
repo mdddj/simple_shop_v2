@@ -24,7 +24,7 @@ class ProductWidgets extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
       child: Text(
-        '${product.couponPrice.toString().replaceAll('.0', '')}元直减',
+        '${product.couponPrice.toString().replaceAll('.0', '')} ${'元直减'.tr}',
         style: TextStyle(
             fontSize: 12,
             color: Get.mediaQuery.platformBrightness == Brightness.dark

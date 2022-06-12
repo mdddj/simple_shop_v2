@@ -1,5 +1,6 @@
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constant/app_constant.dart';
 import '../../util/widget_util.dart';
@@ -24,7 +25,7 @@ class LikeProducts extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          WidgetUtil.instance.renderTitle('猜你喜欢'),
+          WidgetUtil.instance.renderTitle('猜你喜欢'.tr),
           const SizedBox(
             height: kDefaultPadded,
           ),

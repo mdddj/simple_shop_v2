@@ -59,7 +59,9 @@ class CategoryIconTheme extends StatelessWidget {
               child: buildExtendedImage(
                   category, (kCategoryComponentHeight - 30) * .8),
             )),
-            Text('${category.cname}'.tr,maxLines: 1,overflow: TextOverflow.ellipsis,)
+            Text('${category.cname}'.tr,maxLines: 1,overflow: TextOverflow.ellipsis,style: const TextStyle(
+              fontSize: 12
+            ),)
           ],
         ),
       ),

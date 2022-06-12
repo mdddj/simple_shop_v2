@@ -1,5 +1,6 @@
 import 'package:dataoke_sdk/model/product.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 
 import '../../constant/app_constant.dart';
 import '../../util/extended_util.dart';
@@ -25,7 +26,7 @@ class SimplePrice extends StatelessWidget {
             width: 6,
           ),
           Text(
-            '淘宝价${product.originalPrice.toRMB()}',
+            '${'淘宝价'.tr}${product.originalPrice.toRMB()}',
             style: const TextStyle(
                 color: CupertinoColors.inactiveGray,
                 fontSize: 10,

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 
 import '../../constant/color_constant.dart';
 
@@ -14,7 +15,7 @@ class _HelpPageState extends State<HelpPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(middle: Text('领券帮助'),),
+      navigationBar:  CupertinoNavigationBar(middle: Text('领券帮助'.tr),),
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -55,7 +56,7 @@ class _HelpPageState extends State<HelpPage> {
         vertical: 15,
       ),
       child: Text(
-        title,
+        title.tr,
         style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: kPrimaryColor),
       ),
     );

@@ -76,7 +76,7 @@ class _CategoryPageState extends State<CategoryPage> {
                         borderRadius: BorderRadius.circular(1000),
                       ),
                       const SizedBox(width: 1,),
-                      Text(item.subcname!)
+                      Text(item.subcname!.tr)
                     ],
                   ),
                 ),
@@ -109,7 +109,7 @@ class _CategoryPageState extends State<CategoryPage> {
               BoxDecoration(color: isCurrent ? context.theme.primaryColor : null,
               borderRadius: BorderRadius.circular(8)
               ),
-          child: Text('${item.cname}'),
+          child: Text('${item.cname}'.tr,textAlign: TextAlign.center,),
         ),
       ),
     );

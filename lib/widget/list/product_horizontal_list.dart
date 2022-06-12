@@ -66,7 +66,8 @@ class ProductHorizontalList extends StatelessWidget {
               loadStateChanged: WidgetUtil.instance.s,
             ),
             Text(
-              '${item.dtitle}',
+              // '${item.dtitle}',
+              'Product title',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
