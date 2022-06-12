@@ -40,7 +40,8 @@ class MyApp extends StatelessWidget {
             title: kAppName,
             translations: I18n(),
             debugShowCheckedModeBanner: false,
-            locale: ui.window.locale,
+            // locale: ui.window.locale,
+            locale: const Locale.fromSubtags(languageCode: "en"),
             theme: CupertinoThemeData(
                 brightness:value.themModel,
             ),
