@@ -15,7 +15,7 @@ dependencies:
   provider: ^6.0.3
   after_layout: ^1.2.0
   dio: ^4.0.6
-  dd_check_plugin: ^0.0.6
+#  dd_check_plugin: ^0.0.6
   url_launcher: ^6.1.3
   flustars_flutter3: ^3.0.0
   extended_image: ^6.2.1
@@ -36,6 +36,7 @@ dependencies:
 
   dd_js_util: ^0.2.1
 
+  cupertino_icons: any
 
   # 开屏图片制作
   flutter_native_splash: ^2.2.3

@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  cupertino_icons:
+    dependency: "direct main"
+    description:
+      name: cupertino_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
   dataoke_sdk:
     dependency: "direct main"
     description:
@@ -120,20 +127,6 @@ packages:
       relative: true
     source: path
     version: "0.0.5"
-  dbus:
-    dependency: transitive
-    description:
-      name: dbus
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.4"
-  dd_check_plugin:
-    dependency: "direct main"
-    description:
-      name: dd_check_plugin
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.6"
   dd_js_util:
     dependency: "direct main"
     description:
@@ -506,55 +499,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  network_info_plus:
-    dependency: transitive
-    description:
-      name: network_info_plus
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.3"
-  network_info_plus_linux:
-    dependency: transitive
-    description:
-      name: network_info_plus_linux
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.2"
-  network_info_plus_macos:
-    dependency: transitive
-    description:
-      name: network_info_plus_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.0"
-  network_info_plus_platform_interface:
-    dependency: transitive
-    description:
-      name: network_info_plus_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.2"
-  network_info_plus_web:
-    dependency: transitive
-    description:
-      name: network_info_plus_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
-  network_info_plus_windows:
-    dependency: transitive
-    description:
-      name: network_info_plus_windows
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2"
-  nm:
-    dependency: transitive
-    description:
-      name: nm
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0"
   octo_image:
     dependency: transitive
     description:
@@ -562,13 +506,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0-nullsafety.0"
-  package_info:
-    dependency: transitive
-    description:
-      name: package_info
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2"
   path:
     dependency: transitive
     description:

@@ -1,5 +1,4 @@
 import 'package:dataoke_sdk/network/util.dart';
-import 'package:dd_check_plugin/dd_check_plugin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
@@ -43,7 +42,7 @@ class _MainTabbarsState extends State<MainTabbars>
     WidgetsBinding.instance.addObserver(_themeObs);
     Future.microtask(() => context.read<AppProvider>().changeThemeModel(MediaQuery.of(context).platformBrightness));
     Future.microtask(() {
-      DdCheckPlugin.instance.init(DdTaokeUtil.instance.createInstance()!);
+      // DdCheckPlugin.instance.init(DdTaokeUtil.instance.createInstance()!);
     });
   }
 
