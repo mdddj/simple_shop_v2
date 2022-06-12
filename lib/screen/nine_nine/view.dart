@@ -27,34 +27,11 @@ class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      // appBar: AppBar(
-      //   title: Text('九块九包邮专区'),
-      //   bottom: PreferredSize(
-      //     preferredSize: Size.fromHeight(48),
-      //     child: Container(
-      //       alignment: Alignment.centerLeft,
-      //       child: TabBar(
-      //         tabs: [
-      //           Tab(text: '精选'),
-      //           Tab(text: '5.9包邮'),
-      //           Tab(text: '9.9包邮'),
-      //           Tab(text: '19.9包邮'),
-      //         ],
-      //         controller: _tabController,
-      //         isScrollable: true,
-      //         onTap: logic.onTabChanged,
-      //       ),
-      //     ),
-      //   ),
-      // ),
       navigationBar: const CupertinoNavigationBar(
         middle: Text('9快9包邮'),
       ),
       child: SafeArea(
         child: Obx(() {
-
-
-
           return Column(
             children: [
               Container(
