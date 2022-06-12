@@ -1,4 +1,4 @@
-# 典典的小卖部v2版本
+# 大典商城v2版本
 
 ![](https://badgen.net/badge/QQ群/667186542)
 ![](https://badgen.net/badge/Flutter/v3.0.2)

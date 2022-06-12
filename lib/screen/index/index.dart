@@ -31,7 +31,7 @@ class _AppIndexState extends State<AppIndex>
     return CupertinoPageScaffold(
         key: logic.scaffoldKey,
         navigationBar: const CupertinoNavigationBar(
-          middle: Text('典典的小卖部'),
+          middle: Text(kAppName),
         ),
         child: SafeArea(
           child: EasyRefresh.custom(slivers: [

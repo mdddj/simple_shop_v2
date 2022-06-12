@@ -62,7 +62,7 @@ class IndexDarwer extends StatelessWidget {
       padding: const EdgeInsets.all(kDefaultPadded / 2),
       margin: EdgeInsets.only(top: Get.mediaQuery.padding.top),
       child: Text(
-        '典典的小卖部',
+        kAppName,
         style: Get.textTheme.headline5,
       ),
     );

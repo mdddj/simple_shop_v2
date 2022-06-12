@@ -2,7 +2,7 @@
 import 'package:get/get.dart';
 
 ///应用名称
-const String kAppName = '典典的小卖部';
+const String kAppName = '大典商城';
 
 ///默认边距
 const double kDefaultPadded = 12.0;
