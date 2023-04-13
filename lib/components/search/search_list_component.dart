@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
@@ -20,10 +20,10 @@ class SearchListComponent extends StatefulWidget {
       : super(key: key);
 
   @override
-  _SearchListComponentState createState() => _SearchListComponentState();
+  SearchListComponentState createState() => SearchListComponentState();
 }
 
-class _SearchListComponentState extends State<SearchListComponent> {
+class SearchListComponentState extends State<SearchListComponent> {
   @override
   Widget build(BuildContext context) {
     return LoadingMoreList(ListConfig<Product>(
@@ -35,7 +35,7 @@ class _SearchListComponentState extends State<SearchListComponent> {
           collectGarbage: (List<int> indexes) {
             for (var index in indexes) {
               final provider = ExtendedNetworkImageProvider(
-                widget.searchRepostory[index].mainPic!,
+                widget.searchRepostory[index].mainPic,
               );
               provider.evict();
             }
@@ -62,7 +62,7 @@ class _SearchListComponentState extends State<SearchListComponent> {
                 width: _imageSize,
                 height: _imageSize,
                 child: SimpleImage(
-                  url: item.mainPic!,
+                  url: item.mainPic,
                   radius: 8,
                 ),
               ),
@@ -77,7 +77,7 @@ class _SearchListComponentState extends State<SearchListComponent> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${item.dtitle}',
+                        item.dtitle,
                       ),
                       Text(
                         '券后 ${'${item.actualPrice}'.coverRmbPrice}',

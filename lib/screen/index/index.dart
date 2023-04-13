@@ -18,10 +18,10 @@ class AppIndex extends StatefulWidget {
   const AppIndex({Key? key}) : super(key: key);
 
   @override
-  _AppIndexState createState() => _AppIndexState();
+  AppIndexState createState() => AppIndexState();
 }
 
-class _AppIndexState extends State<AppIndex>
+class AppIndexState extends State<AppIndex>
     with AutomaticKeepAliveClientMixin {
   final logic = Get.put(IndexController());
 
@@ -113,14 +113,11 @@ class _AppIndexState extends State<AppIndex>
               onTap: (index) {
                 final _item = IndexController.find.carousels[index];
 
-                if (_item.sourceType != null) {
-                  /// 调用淘宝活动
-                  var view = TaobaoActivityPage(
-                    activityId: '${_item.activityId}',
-                    title: '${_item.topicName}',
-                  );
-                  Get.to(() => view);
-                }
+                var view = TaobaoActivityPage(
+                  activityId: _item.activityId,
+                  title: _item.topicName,
+                );
+                Get.to(() => view);
               },
             )),
       );

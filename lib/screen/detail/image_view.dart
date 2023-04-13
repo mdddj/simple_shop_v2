@@ -1,6 +1,6 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
-import 'package:extended_list/extended_list.dart';
+import 'package:extended_list/extended_list.dart' show ExtendedListDelegate, ExtendedListView;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,8 +20,8 @@ class ImageView extends StatelessWidget {
       return Container();
     }
     var list = <DetailImage>[];
-    if (product!.detailPics!.isNotEmpty) {
-      list = detailImageFromJson(product!.detailPics!);
+    if (product!.detailPics.isNotEmpty) {
+      list = detailImageFromJson(product!.detailPics);
     }
     return Container(
       width: Get.width,

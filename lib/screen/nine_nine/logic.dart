@@ -1,6 +1,6 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:dataoke_sdk/model/product.dart';
-import 'package:dataoke_sdk/params/nine_nine_param.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/api/request_params.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:get/get.dart';
 
 class NineNineLogic extends GetxController {
@@ -16,7 +16,9 @@ class NineNineLogic extends GetxController {
         param: NineNineParam(
             pageSize: '$pageSize',
             pageId: '${page.value}',
-            nineCid: '$nineCid'));
+            nineCid: '$nineCid'), requestParamsBuilder: (RequestParams requestParams) {
+          return requestParams;
+    });
     if (result != null && result.list != null) {
       products.addAll(result.list!);
       update();

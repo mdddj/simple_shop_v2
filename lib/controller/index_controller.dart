@@ -1,8 +1,8 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:dataoke_sdk/model/carousel_model.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
 import 'package:dataoke_sdk/model/category.dart';
-import 'package:dataoke_sdk/model/product.dart';
-import 'package:dataoke_sdk/params/product_list_param.dart';
+import 'package:dd_js_util/api/request_params.dart';
+import 'package:dd_models/models/carousel.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,7 +42,9 @@ class IndexController extends GetxController {
 
   // 加载限时抢购数据
   Future<void> getTimeBuyProducts() async {
-    DdTaokeSdk.instance.getDdq().then((value) {
+    DdTaokeSdk.instance.getDdq(requestParamsBuilder: (RequestParams requestParams) {
+      return requestParams;
+    }).then((value) {
       timeBuyProducts = value?.goodsList??[];
       update();
     });
@@ -50,8 +52,11 @@ class IndexController extends GetxController {
 
   // 获取首页的商品列表
   Future<void> getIndexShowProducts() async {
+    final params = ProductListParam(pageId: '1');
     await DdTaokeSdk.instance
-        .getProducts(param: ProductListParam(pageId: '1'))
+        .getProducts(param: params, requestParamsBuilder: (RequestParams requestParams) {
+          return requestParams;
+    })
         .then((value) {
       if (value != null && value.list != null) {
         indexProducts.addAll(value.list!);

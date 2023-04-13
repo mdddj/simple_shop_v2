@@ -1,6 +1,5 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:dataoke_sdk/model/activity_link_result.dart';
-import 'package:dataoke_sdk/params/activity_link_param.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/api/request_params.dart';
 import 'package:get/get.dart';
 import '../../util/extended_util.dart';
 
@@ -14,7 +13,9 @@ class TaobaoActivityLogic extends GetxController {
   /// 活动转链
   Future<void> getLinks() async {
     var result = await DdTaokeSdk.instance
-        .getActivityLink(ActivityLinkParam(promotionSceneId: _activityId!));
+        .getActivityLink(ActivityLinkParam(promotionSceneId: _activityId!), requestParamsBuilder: (RequestParams requestParams) {
+          return requestParams;
+    });
 
     if (result != null) {
       activityLinks.value = result;

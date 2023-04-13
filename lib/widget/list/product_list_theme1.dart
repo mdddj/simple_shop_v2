@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +38,7 @@ class ProductListTheme1 extends StatelessWidget {
                 children: [
                   Text('${index + 1}'),
                   ExtendedImage.network(
-                    item.mainPic!.imageUrl(),
+                    item.mainPic.imageUrl(),
                     width: constraints.maxHeight,
                     height: constraints.maxHeight,
                     shape: BoxShape.rectangle,
@@ -50,7 +50,7 @@ class ProductListTheme1 extends StatelessWidget {
             );
           },
         ),
-        title: Text('${item.dtitle}',
+        title: Text(item.dtitle,
             style: const TextStyle(fontSize: 14),
             maxLines: 1,
             overflow: TextOverflow.ellipsis),
@@ -66,10 +66,10 @@ class ProductListTheme1 extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(item.actualPrice.toRMB(),
+                Text(item.actualPrice.toString(),
                     style: const TextStyle(fontSize: 12)),
                 const SizedBox(width: 6),
-                Text(item.originalPrice.toRMB(),
+                Text(item.originalPrice.toString(),
                     style: const TextStyle(
                         fontSize: 12, decoration: TextDecoration.lineThrough)),
               ],

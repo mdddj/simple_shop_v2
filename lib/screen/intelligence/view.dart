@@ -1,4 +1,5 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/api/request_params.dart';
 import 'package:flustars_flutter3/flustars_flutter3.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,10 +16,10 @@ class IntelligencePage extends StatefulWidget {
   const IntelligencePage({Key? key}) : super(key: key);
 
   @override
-  _IntelligencePageState createState() => _IntelligencePageState();
+  IntelligencePageState createState() => IntelligencePageState();
 }
 
-class _IntelligencePageState extends State<IntelligencePage>
+class IntelligencePageState extends State<IntelligencePage>
     with SingleTickerProviderStateMixin {
   TabController? tabController;
 
@@ -106,7 +107,9 @@ class _IntelligencePageState extends State<IntelligencePage>
                 padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded* 2,vertical: 2),
                   onPressed: () async {
                     final result = await DdTaokeSdk.instance
-                        .getCouponsDetail(taobaoGoodsId: item.itemId!);
+                        .getCouponsDetail(taobaoGoodsId: item.itemId!, requestParamsBuilder: (RequestParams requestParams) {
+                          return requestParams;
+                    });
                     if (result != null) {
                       await Utils().openTaobao(result.couponClickUrl!);
                     }

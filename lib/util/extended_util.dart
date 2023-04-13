@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../constant/app_constant.dart';
 
@@ -42,17 +42,11 @@ class Utils {
     }
     _url = 'taobao://$_url';
     log('打开url:$_url');
-    if (await canLaunch(_url)) {
+    if (await canLaunchUrlString(_url)) {
       // 判断当前手机是否安装某app. 能否正常跳转
-      await launch(_url);
+      await launchUrlString(_url);
     } else {
       if(context!=null){
-        showCupertinoDialog(context: context, builder: (c){
-          return const CupertinoAlertDialog(
-            title: Text('失败'),
-            content: Text('无法唤醒淘宝APP,请复制口令手动打开淘宝领取') ,
-          );
-        },barrierDismissible: true);
       }
     }
   }
@@ -78,8 +72,8 @@ extension StringUtil on String {
 
   /// 跳转到浏览器
   Future<void> launchUrl() async {
-    if(await canLaunch(this)){
-    await launch(this);
+    if(await canLaunchUrlString(this)){
+    await launchUrlString(this);
     }
   }
 }

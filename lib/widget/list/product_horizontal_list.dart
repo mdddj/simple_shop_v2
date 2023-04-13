@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:extended_list/extended_list.dart';
 import 'package:flutter/material.dart';
@@ -32,13 +32,10 @@ class ProductHorizontalList extends StatelessWidget {
         extendedListDelegate:
             ExtendedListDelegate(collectGarbage: (List<int> indexs) {
           for (var index in indexs) {
-            final product = products[index];
-            if (product.mainPic != null) {
-              final provider = ExtendedNetworkImageProvider(
-                products[index].mainPic!,
-              );
-              provider.evict();
-            }
+            final provider = ExtendedNetworkImageProvider(
+              products[index].mainPic,
+            );
+            provider.evict();
           }
         }),
       ),
@@ -59,19 +56,19 @@ class ProductHorizontalList extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ExtendedImage.network(
-              item.mainPic!.imageUrl(),
+              item.mainPic.imageUrl(),
               width: w,
               height: w,
               cache: true,
               loadStateChanged: WidgetUtil.instance.s,
             ),
             Text(
-              '${item.dtitle}',
+              item.dtitle,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
             Text(
-              item.actualPrice.toRMB(),
+              item.actualPrice.toString(),
               style: const TextStyle(color: Colors.pink),
             )
           ],

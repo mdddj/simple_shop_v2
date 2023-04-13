@@ -1,7 +1,7 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:dataoke_sdk/model/coupon_link_result.dart';
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/api/request_params.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flustars_flutter3/flustars_flutter3.dart' hide WidgetUtil;
 
@@ -13,7 +13,6 @@ import '../../constant/app_constant.dart';
 import '../../ext/string.dart';
 import '../../ext/theme.dart';
 import '../../mixin/detail_mixin.dart';
-import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
 import '../../widget/index/carousel.dart';
 import '../../widget/loading/loading_widget.dart';
@@ -32,10 +31,10 @@ class DetailIndex extends StatefulWidget {
   const DetailIndex({Key? key, this.product}) : super(key: key);
 
   @override
-  _DetailIndexState createState() => _DetailIndexState();
+  DetailIndexState createState() => DetailIndexState();
 }
 
-class _DetailIndexState extends State<DetailIndex>
+class DetailIndexState extends State<DetailIndex>
     with AfterLayoutMixin<DetailIndex>, DetailMixin {
   final scrollController = ScrollController();
 
@@ -62,7 +61,7 @@ class _DetailIndexState extends State<DetailIndex>
 
   CupertinoNavigationBar _renderAppbar(){
     return  CupertinoNavigationBar(
-      middle: Text('${detail == null ? '产品详情' : detail!.dtitle}'),
+      middle: Text(detail == null ? '产品详情' : detail!.dtitle),
     );
   }
 
@@ -213,7 +212,7 @@ class _DetailIndexState extends State<DetailIndex>
                     color: Colors.pink.withOpacity(.07),
                     borderRadius: const BorderRadius.all(Radius.circular(8))),
                 child: Text(
-                  '${NumUtil.getNumByValueDouble(detail!.couponPrice, 0)}元隐藏券',
+                  '${NumUtil.getNumByValueDouble(detail!.couponPrice.toDouble(), 0)}元隐藏券',
                   style: const TextStyle(
                       color: Colors.pink,
                       fontWeight: FontWeight.bold),
@@ -285,7 +284,7 @@ class _DetailIndexState extends State<DetailIndex>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${detail!.title}',
+                      detail!.title,
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
                       maxLines: 2,
@@ -320,7 +319,7 @@ class _DetailIndexState extends State<DetailIndex>
           padding: const EdgeInsets.symmetric(horizontal: kDefaultPadded),
           alignment: Alignment.centerLeft,
           child: ExpandableText(
-            '${detail!.desc}',
+            detail!.desc,
             expandText: '展开',
             collapseText: '收起',
             maxLines: 2,
@@ -343,14 +342,14 @@ class _DetailIndexState extends State<DetailIndex>
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(
-            detail!.actualPrice.toRMB(),
+            detail!.actualPrice.toString(),
             style: const TextStyle(fontSize: 22, color: Colors.pink),
           ),
           const SizedBox(
             width: 6,
           ),
           Text(
-            '淘宝价${detail!.originalPrice.toRMB()}',
+            '淘宝价${detail!.originalPrice}',
             style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 12,
@@ -367,24 +366,24 @@ class _DetailIndexState extends State<DetailIndex>
     }
     return AspectRatio(
         aspectRatio: 1,
-        child: CarouselComponent(images: detail!.imgs!.split(',')));
+        child: CarouselComponent(images: detail!.imgs.split(',')));
   }
 
   @override
   void afterFirstLayout(BuildContext context) async {
     final result = await DdTaokeSdk.instance
-        .getDetailBaseData(productId: '${widget.product!.id}');
+        .getDetailBaseData(productId: '${widget.product!.id}', requestParamsBuilder: (RequestParams requestParams) {
+          return requestParams;
+    });
 
-    if (result != null) {
-      var similarList = result.similarProducts ?? [];
-      if (mounted) {
-        setState(() {
-          detail = result.info;
-          tkl = result.couponInfo;
-          likeProducts = similarList;
-          loading = false;
-        });
-      }
+    var similarList = result.similarProducts ?? [];
+    if (mounted) {
+      setState(() {
+        detail = result.info;
+        tkl = result.couponInfo;
+        likeProducts = similarList;
+        loading = false;
+      });
     }
   }
 }

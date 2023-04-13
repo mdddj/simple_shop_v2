@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flustars_flutter3/flustars_flutter3.dart' hide WidgetUtil;
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class ProductLayout extends StatelessWidget {
       margin: const EdgeInsets.only(top: 4),
       child: Text(
         '¥ ${product.originalPrice}',
-        style: Get.textTheme.bodyText1!.copyWith(
+        style: Get.textTheme.bodyLarge!.copyWith(
             color: Colors.grey,
             decoration: TextDecoration.lineThrough,
             fontSize: 12),
@@ -49,7 +49,7 @@ class ProductLayout extends StatelessWidget {
       child: Text(
         '¥ ${product.actualPrice}',
         style:
-            Get.textTheme.headline6!.copyWith(color: Colors.red, fontSize: 14),
+            Get.textTheme.titleLarge!.copyWith(color: Colors.red, fontSize: 14),
       ),
     );
   }
@@ -58,7 +58,7 @@ class ProductLayout extends StatelessWidget {
   Widget renderMainImage() {
     final width = Get.width;
     final imageWidth = (width / 3) - 8;
-    final url = Utils().imageHeaderHandle(product.mainPic!);
+    final url = Utils().imageHeaderHandle(product.mainPic);
     return Stack(
       children: [
         Container(
@@ -94,7 +94,7 @@ class ProductLayout extends StatelessWidget {
             size: 12,
           ),
           Text(
-            '-${NumUtil.getNumByValueDouble(product.discounts! * 100, 0)}%',
+            '-${NumUtil.getNumByValueDouble(product.discounts* 100, 0)}%',
             style: const TextStyle(fontSize: 8, fontWeight: FontWeight.w400),
           )
         ],

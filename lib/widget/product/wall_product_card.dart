@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +36,7 @@ class WallProductCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${product.dtitle}',
+                        product.dtitle,
                       ),
                       const SizedBox(height: 4),
                       SimplePrice(
@@ -61,7 +61,7 @@ class WallProductCard extends StatelessWidget {
     return Stack(
       children: [
         ExtendedImage.network(
-          Utils().imageHeaderHandle(product.mainPic!),
+          Utils().imageHeaderHandle(product.mainPic),
           width: constraints.maxWidth,
           height: constraints.maxWidth,
           loadStateChanged: WidgetUtil.instance.s,

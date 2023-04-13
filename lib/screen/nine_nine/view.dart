@@ -11,10 +11,10 @@ class NineNinePage extends StatefulWidget {
   const NineNinePage({Key? key}) : super(key: key);
 
   @override
-  _NineNinePageState createState() => _NineNinePageState();
+  NineNinePageState createState() => NineNinePageState();
 }
 
-class _NineNinePageState extends State<NineNinePage> with SingleTickerProviderStateMixin {
+class NineNinePageState extends State<NineNinePage> with SingleTickerProviderStateMixin {
   final NineNineLogic logic = Get.put(NineNineLogic());
 
   int _currIndex = 1;

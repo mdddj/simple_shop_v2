@@ -51,9 +51,9 @@ class CategorySelectDialog extends StatelessWidget {
   Widget renderItem(Category item) {
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(item.cpic!.imageUrl()),
+        backgroundImage: NetworkImage(item.cpic.imageUrl()),
       ),
-      title: Text('${item.cname}'),
+      title: Text(item.cname),
       onTap: () {
         Get.back(result: item);
       },

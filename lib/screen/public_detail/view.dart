@@ -1,5 +1,5 @@
 import 'package:extended_image/extended_image.dart';
-import 'package:fcontrol_nullsafety/fdefine.dart';
+import 'package:fcontrol_nullsafety/fdefine.dart' show FLightOrientation;
 import 'package:flutter/material.dart';
 import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,10 +22,10 @@ class PublicDetailView extends StatefulWidget {
   const PublicDetailView({Key? key, required this.goodsId, required this.type}) : super(key: key);
 
   @override
-  _PublicDetailViewState createState() => _PublicDetailViewState();
+  PublicDetailViewState createState() => PublicDetailViewState();
 }
 
-class _PublicDetailViewState extends State<PublicDetailView> implements PublicDetailViewAbs {
+class PublicDetailViewState extends State<PublicDetailView> implements PublicDetailViewAbs {
   PublicDetailModel? info;
 
   @override
@@ -189,7 +189,7 @@ class _PublicDetailViewState extends State<PublicDetailView> implements PublicDe
                 ),
                 Text(
                   info!.title,
-                  style: Get.textTheme.headline5!.copyWith(fontSize: 18),
+                  style: Get.textTheme.headlineSmall!.copyWith(fontSize: 18),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

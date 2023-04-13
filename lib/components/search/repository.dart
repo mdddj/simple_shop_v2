@@ -1,6 +1,6 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:dataoke_sdk/model/product.dart';
-import 'package:dataoke_sdk/params/super_search_param.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/api/request_params.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:loading_more_list/loading_more_list.dart';
 
 class SearchRepostory extends LoadingMoreBase<Product> {
@@ -28,12 +28,16 @@ class SearchRepostory extends LoadingMoreBase<Product> {
     var _isSuccess = false;
     try {
       if (_page == 1) clear();
+      final params = SuperSearchParam(
+          keyWords: _searchKeyWorlds,
+          pageSize: '$_pageSize',
+          type: '$_type',
+          pageId: '$_page');
       final result = await DdTaokeSdk.instance.superSearch(
-          param: SuperSearchParam(
-              keyWords: _searchKeyWorlds,
-              pageSize: '$_pageSize',
-              type: '$_type',
-              pageId: '$_page'));
+          param: params,
+          requestParamsBuilder: (RequestParams requestParams) {
+            return requestParams.copyWith(data: params.toJson());
+          });
       if (result != null && result.list != null) {
         addAll(result.list!);
         _isSuccess = true;

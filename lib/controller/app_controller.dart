@@ -1,7 +1,7 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
 import 'package:dataoke_sdk/model/category.dart';
-import 'package:dataoke_sdk/model/product.dart';
-import 'package:dataoke_sdk/params/product_list_param.dart';
+import 'package:dd_js_util/api/request_params.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:get/get.dart';
 
 import '../constant/api_constant.dart';
@@ -43,8 +43,11 @@ class AppController extends GetxController {
   ///加载产品数据
   ///page -- 第几页,不传默认加载第1页
   Future<void> fetchIndexProduct({int? page})async {
+    final params = ProductListParam(pageId: '${page ?? _page}', pageSize: '$kDefaultPageSize');
     final result = await DdTaokeSdk.instance.getProducts(
-        param: ProductListParam(pageId: '${page ?? _page}', pageSize: '$kDefaultPageSize'));
+        param: params, requestParamsBuilder: (RequestParams requestParams) {
+          return requestParams.copyWith(data: params.toJson());
+    });
     if(result!=null){
       products.addAll(result.list??[]);
       _page ++;

@@ -1,5 +1,5 @@
 // 通用类型
-import 'package:common_utils/common_utils.dart';
+import 'package:common_utils/common_utils.dart' show MoneyUtil;
 import '../../model/pdd_detail.dart';
 import '../../model/wph_detail_resul.dart';
 

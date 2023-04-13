@@ -18,7 +18,7 @@ class CategoryTabTheme extends StatelessWidget {
           tabs: categorys!.map(_buildTabItme).toList(),
           isScrollable: true,
           labelColor: Theme.of(context).primaryColor,
-          unselectedLabelColor: Theme.of(context).textTheme.bodyText1!.color,
+          unselectedLabelColor: Theme.of(context).textTheme.bodyLarge!.color,
           onTap: (index) {
             final item = categorys![index];
             if (onSelect != null) onSelect!(index, item);
@@ -28,7 +28,7 @@ class CategoryTabTheme extends StatelessWidget {
 
   Widget _buildTabItme(Category item) {
     return Tab(
-      child: Text(item.cname!.tr),
+      child: Text(item.cname.tr),
     );
   }
 }

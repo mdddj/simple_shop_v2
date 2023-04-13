@@ -25,7 +25,7 @@ class CouponElm extends StatelessWidget{
           children: [
             Image.asset('assets/image/elm.jpg',width: 50,height: 50,),
             const SizedBox(width: 20,),
-            Text('领取饿了么优惠券,每天限领一次 >>',style: Get.textTheme.bodyText1,)
+            Text('领取饿了么优惠券,每天限领一次 >>',style: Get.textTheme.bodyLarge,)
           ],
         ),
       ),

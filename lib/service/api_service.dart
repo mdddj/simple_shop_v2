@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:dataoke_sdk/network/util.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/dd_js_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 
@@ -16,7 +17,6 @@ class TKApiService {
     final result = await utils.api.get('/api/zhe/mt/tg',
         data: data,
         mapHandle: mapHandle, error: (int code, String message, dynamic data) {
-      showToast(message);
     });
     return result;
   }
@@ -109,7 +109,7 @@ class TKApiService {
 
   /// 拼多多推荐商品
   Future<List<dynamic>> pddRecommendGoods(int page, int channelType) async {
-    final result = await DdTaokeUtil.dio!.get<String>('/pdd/recommend',
+    final result = await BaseApi.getDio().get<String>('/pdd/recommend',
         queryParameters: {'page': page, 'channelType': channelType});
     if (result.statusCode == 200 && result.data != null) {
       final json = result.data;
@@ -131,7 +131,7 @@ class TKApiService {
 
   /// 获取平多多详情
   Future<PddDetail?> ppdDetail(String goodsSgin) async {
-    final result = await DdTaokeUtil.dio!
+    final result = await BaseApi.getDio()
         .get<String>('/pdd/detail', queryParameters: {'id': goodsSgin});
     if (result.statusCode == 200 && result.data != null) {
       final json = result.data;
@@ -153,7 +153,7 @@ class TKApiService {
   /// 拼多多转链
   Future<dynamic> pddCovert(String goodsSgin) async {
     var data = {'id': goodsSgin};
-    final result = await DdTaokeUtil.dio!
+    final result = await BaseApi.getDio()
         .get<String>('/pdd/covert', queryParameters: data);
     if (result.statusCode == 200 && result.data != null) {
       final json = result.data ?? '';

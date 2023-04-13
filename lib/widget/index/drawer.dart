@@ -63,7 +63,7 @@ class IndexDarwer extends StatelessWidget {
       margin: EdgeInsets.only(top: Get.mediaQuery.padding.top),
       child: Text(
         kAppName,
-        style: Get.textTheme.headline5,
+        style: Get.textTheme.headlineSmall,
       ),
     );
   }

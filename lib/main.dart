@@ -1,6 +1,6 @@
 import 'dart:ui' as ui;
 
-import 'package:dataoke_sdk/network/util.dart';
+import 'package:dd_js_util/dd_js_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -14,8 +14,7 @@ import 'provider/factory.dart';
 ///入口函数
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  DdTaokeUtil.instance
-      .init('https://itbug.shop', '443', proxy: '', debug: false);
+  BaseApi.host = 'https://itbug.shop';
   Get.put(AppController());
   
   await GetStorage.init();

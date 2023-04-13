@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../util/api/apis.dart';
 
@@ -34,9 +34,9 @@ class Utils {
   }
 
   Future<void> navToBrowser(String url) async {
-    if (await canLaunch(url)) {
+    if (await canLaunchUrlString(url)) {
       // 判断当前手机是否安装某app. 能否正常跳转
-      await launch(url);
+      await launchUrlString(url);
     } else {
       copy(url, message: '跳转url失败,链接已复制到剪贴板');
     }
@@ -51,16 +51,16 @@ class Utils {
   Future<void> urlToApp(String url, String urlYs) async {
     /// 如果是windows平台,直接跳转到浏览器打开链接
     if (GetPlatform.isWindows) {
-      await launch(url);
+      await launchUrlString(url);
       return;
     }
     var _url = url;
     _url = '$urlYs${urlHandle(url)}';
-    if (await canLaunch(_url)) {
+    if (await canLaunchUrlString(_url)) {
       // 判断当前手机是否安装某app. 能否正常跳转
-      await launch(_url);
+      await launchUrlString(_url);
     } else {
-      await launch(url);
+      await launchUrlString(url);
     }
   }
 

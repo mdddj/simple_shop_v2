@@ -11,7 +11,7 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      child: Text(' — $title —',style: Get.textTheme.headline6!.copyWith(fontSize: 14),),
+      child: Text(' — $title —',style: Get.textTheme.titleLarge!.copyWith(fontSize: 14),),
     );
   }
 }

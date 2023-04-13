@@ -1,9 +1,8 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constant/app_constant.dart';
-import '../../util/extended_util.dart';
 import '../../util/widget_util.dart';
 import '../image/simple_image.dart';
 import 'product_widgets.dart';
@@ -28,7 +27,7 @@ class SimpleCard extends StatelessWidget {
                 width: 90,
                 height: 90,
                 child: SimpleImage(
-                  url: product.mainPic!,
+                  url: product.mainPic,
                   radius: 8,
                 ),
               ),
@@ -42,9 +41,9 @@ class SimpleCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('${product.dtitle}'),
+                    Text(product.dtitle),
                     Text(
-                      '${product.actualPrice?.toRMB()}',
+                      '${product.actualPrice}',
                       style: TextStyle(color: Get.theme.primaryColor),
                     ),
                     ProductWidgets(

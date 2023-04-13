@@ -1,4 +1,3 @@
-import 'package:dataoke_sdk/network/util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
@@ -24,10 +23,10 @@ class MainTabbars extends StatefulWidget {
   const MainTabbars({Key? key}) : super(key: key);
 
   @override
-  _MainTabbarsState createState() => _MainTabbarsState();
+  MainTabbarsState createState() => MainTabbarsState();
 }
 
-class _MainTabbarsState extends State<MainTabbars>
+class MainTabbarsState extends State<MainTabbars>
     with SingleTickerProviderStateMixin{
 
   int _currentIndex = 0;

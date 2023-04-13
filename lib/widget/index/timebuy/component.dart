@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constant/app_constant.dart';

@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:waterfall_flow/waterfall_flow.dart';
@@ -21,7 +21,7 @@ class WaterfallsFlowLayout extends StatelessWidget {
           collectGarbage: (List<int> garbages) {
             for (var index in garbages) {
               final provider = ExtendedNetworkImageProvider(
-                products![index].mainPic!,
+                products![index].mainPic,
               );
               provider.evict();
             }

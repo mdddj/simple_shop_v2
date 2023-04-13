@@ -1,13 +1,12 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
-import 'package:dataoke_sdk/model/speider_resullt.dart';
-import 'package:dataoke_sdk/params/speider_param.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/api/request_params.dart';
 import 'package:get/get.dart';
 
 class IntelligenceLogic extends GetxController {
   static IntelligenceLogic get instance => Get.find<IntelligenceLogic>();
 
   int pageId = 1;
-  RxList<ListElement> list = <ListElement>[].obs;
+  RxList<SpeiderListElement> list = <SpeiderListElement>[].obs;
   RxString type = '4'.obs;
   RxBool initLoading = false.obs;
 
@@ -29,7 +28,9 @@ class IntelligenceLogic extends GetxController {
     update();
     DdTaokeSdk.instance
         .getSpeiderList(
-            param: SpeiderParam(pageId: '$pageId', topic: type.value))
+            param: SpeiderParam(pageId: '$pageId', topic: type.value), requestParamsBuilder: (RequestParams requestParams) {
+              return requestParams;
+    })
         .then((value) {
       if (value != null) {
         final result = SpeiderResult.fromJson(value);

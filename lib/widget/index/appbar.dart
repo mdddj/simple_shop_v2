@@ -71,7 +71,7 @@ class Appbar extends StatelessWidget {
   Widget buildCenterTitle() {
     return Container(
       alignment: Alignment.center,
-      child: Text(kAppName.tr, style: Get.theme.textTheme.headline6),
+      child: Text(kAppName.tr, style: Get.theme.textTheme.titleLarge),
     );
   }
 }

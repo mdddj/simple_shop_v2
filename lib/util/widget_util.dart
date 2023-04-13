@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dataoke_sdk/model/category.dart';
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

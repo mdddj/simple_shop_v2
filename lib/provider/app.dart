@@ -1,4 +1,4 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
 import 'package:dataoke_sdk/model/category.dart';
 import 'package:flutter/material.dart';
 

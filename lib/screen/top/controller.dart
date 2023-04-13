@@ -1,7 +1,7 @@
-import 'package:dataoke_sdk/dd_taoke_sdk.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
 import 'package:dataoke_sdk/model/category.dart';
-import 'package:dataoke_sdk/model/product.dart';
-import 'package:dataoke_sdk/params/top_param.dart';
+import 'package:dd_js_util/api/request_params.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:get/get.dart';
 
 class TopController extends GetxController {
@@ -19,7 +19,7 @@ class TopController extends GetxController {
   // 分类被选择
   void onSelect(Category? category) {
     page.value = 1;
-    cid.value = category != null ? category.cid! : 0;
+    cid.value = category != null ? category.cid: 0;
     loadData();
   }
 
@@ -45,7 +45,9 @@ class TopController extends GetxController {
         param: TopParam(
             rankType: '1',
             pageId: page.value.toString(),
-            cid: cid.value.toString()));
+            cid: cid.value.toString()), requestParamsBuilder: (RequestParams requestParams) {
+          return requestParams;
+    });
     if (page.value == 1) {
       loading.value = false;
     }

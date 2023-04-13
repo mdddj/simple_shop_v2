@@ -59,7 +59,7 @@ class CategoryIconTheme extends StatelessWidget {
               child: buildExtendedImage(
                   category, (kCategoryComponentHeight - 30) * .8),
             )),
-            Text('${category.cname}'.tr,maxLines: 1,overflow: TextOverflow.ellipsis,)
+            Text(category.cname.tr,maxLines: 1,overflow: TextOverflow.ellipsis,)
           ],
         ),
       ),
@@ -69,7 +69,7 @@ class CategoryIconTheme extends StatelessWidget {
   /// 图片加载
   Widget buildExtendedImage(Category category, double size) =>
       ExtendedImage.network(
-        category.cpic!.imageUrl(),
+        category.cpic.imageUrl(),
         width: size,
         height: size,
         cache: true,

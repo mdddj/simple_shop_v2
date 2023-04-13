@@ -16,10 +16,10 @@ class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key}) : super(key: key);
 
   @override
-  _CategoryPageState createState() => _CategoryPageState();
+  CategoryPageState createState() => CategoryPageState();
 }
 
-class _CategoryPageState extends State<CategoryPage> {
+class CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     final isLoading = context.watch<AppProvider>().loadingWithCategory;
@@ -60,7 +60,7 @@ class _CategoryPageState extends State<CategoryPage> {
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 12),
             itemBuilder: (_, index) {
-              final item = currentCategory!.subcategories![index];
+              final item = currentCategory!.subcategories[index];
               return GestureDetector(
                 onTap: () {
                   WidgetUtil.instance.toCategoryPage(currentCategory,
@@ -71,18 +71,19 @@ class _CategoryPageState extends State<CategoryPage> {
                   child: Column(
                     children: [
                       ClipRRect(
-                        child: AspectRatio(
-                            child: Image.network(item.scpic!),aspectRatio: 1,),
                         borderRadius: BorderRadius.circular(1000),
+                        child: AspectRatio(
+                            aspectRatio: 1,
+                            child: Image.network(item.scpic),),
                       ),
                       const SizedBox(width: 1,),
-                      Text(item.subcname!)
+                      Text(item.subcname)
                     ],
                   ),
                 ),
               );
             },
-            itemCount: currentCategory!.subcategories!.length,
+            itemCount: currentCategory!.subcategories.length,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
           ))
@@ -109,7 +110,7 @@ class _CategoryPageState extends State<CategoryPage> {
               BoxDecoration(color: isCurrent ? context.theme.primaryColor : null,
               borderRadius: BorderRadius.circular(8)
               ),
-          child: Text('${item.cname}'),
+          child: Text(item.cname),
         ),
       ),
     );

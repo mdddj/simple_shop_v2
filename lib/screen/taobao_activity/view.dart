@@ -14,10 +14,10 @@ class TaobaoActivityPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _TaobaoActivityPageState createState() => _TaobaoActivityPageState();
+  TaobaoActivityPageState createState() => TaobaoActivityPageState();
 }
 
-class _TaobaoActivityPageState extends State<TaobaoActivityPage> {
+class TaobaoActivityPageState extends State<TaobaoActivityPage> {
   final TaobaoActivityLogic logic = Get.put(TaobaoActivityLogic());
 
   @override

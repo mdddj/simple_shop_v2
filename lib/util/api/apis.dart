@@ -1,4 +1,5 @@
-import 'package:dataoke_sdk/network/util.dart';
+import 'package:dataoke_sdk/dataoke_sdk.dart';
+import 'package:dd_js_util/api/request_params.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -54,11 +55,8 @@ class Api extends ApiService {
       ResultDataMapHandle? mapHandle,
       ApiError? error,
       ValueChanged<dynamic>? otherDataHandle}) async {
-    return request.get(url,
+    return request.get(url,requestParams: RequestParams(
         data: data,
-        mapData: mapHandle,
-        error: error,
-        isTaokeApi: false,
-        otherDataHandle: otherDataHandle);
+    ));
   }
 }

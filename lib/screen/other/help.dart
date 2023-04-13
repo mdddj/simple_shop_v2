@@ -7,10 +7,10 @@ class HelpPage extends StatefulWidget {
   const HelpPage({Key? key}) : super(key: key);
 
   @override
-  _HelpPageState createState() => _HelpPageState();
+  HelpPageState createState() => HelpPageState();
 }
 
-class _HelpPageState extends State<HelpPage> {
+class HelpPageState extends State<HelpPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(

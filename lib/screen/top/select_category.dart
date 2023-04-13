@@ -40,7 +40,7 @@ class SelectCategory extends StatelessWidget {
             });
           },
           child: Chip(
-            label: Text(isCurr ? '${currentCategory!.cname}' : '类别'),
+            label: Text(isCurr ? currentCategory!.cname : '类别'),
             deleteIcon: const Icon(
               Icons.arrow_drop_down_sharp,
               color: Colors.black,

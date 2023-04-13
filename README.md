@@ -1,7 +1,7 @@
 # 大典商城v2版本
 
 ![](https://badgen.net/badge/QQ群/667186542)
-![](https://badgen.net/badge/Flutter/v3.0.2)
+![](https://badgen.net/badge/Flutter/v3.7.11)
 
 下载下来,安装好flutter环境,用控制台打开项目目录,执行下面的运行命令
 

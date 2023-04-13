@@ -1,5 +1,5 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:dataoke_sdk/model/product.dart';
+import 'package:dd_models/models/product.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_more_list/loading_more_list.dart';
@@ -14,10 +14,10 @@ class ProductListComponents extends StatefulWidget {
   const ProductListComponents({Key? key}) : super(key: key);
 
   @override
-  _ProductListComponentsState createState() => _ProductListComponentsState();
+  ProductListComponentsState createState() => ProductListComponentsState();
 }
 
-class _ProductListComponentsState extends State<ProductListComponents>
+class ProductListComponentsState extends State<ProductListComponents>
     with AfterLayoutMixin<ProductListComponents> {
   late ProductListRepository _repository;
 
@@ -39,7 +39,7 @@ class _ProductListComponentsState extends State<ProductListComponents>
             collectGarbage: (List<int> indexes) {
               for (var index in indexes) {
                 final provider = ExtendedNetworkImageProvider(
-                  _repository[index].mainPic!,
+                  _repository[index].mainPic,
                 );
                 provider.evict();
               }

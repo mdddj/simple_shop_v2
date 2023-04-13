@@ -12,54 +12,47 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5
-  provider: ^6.0.3
+  provider: ^6.0.5
   after_layout: ^1.2.0
-  dio: ^4.0.6
-#  dd_check_plugin: ^0.0.6
-  url_launcher: ^6.1.3
+  dio: ^5.1.1
+  url_launcher: ^6.1.10
   flustars_flutter3: ^3.0.0
-  extended_image: ^6.2.1
-  flutter_easyrefresh:
-    git:
-      url: https://github.com/hkloudou/flutter_easyrefresh.git
-      ref: v2-flutter3
+  extended_image: ^7.0.2
+  flutter_easyrefresh: ^2.2.2
   expandable_text: ^2.3.0
-  get_storage: ^2.0.3
-  flutter_svg: ^1.1.0
-
+  get_storage: ^2.1.1
+  flutter_svg: ^2.0.5
   waterfall_flow: ^3.0.2
   flutter_spinkit: ^5.1.0
-  loading_more_list: ^4.1.2 # 加载更多
+  loading_more_list: ^5.0.3 # 加载更多
   get_it: ^7.2.0 # 状态管理框架
 
-  carousel_pro_nullsafety: ^1.0.2
+  carousel_pro_nullsafety: ^2.0.0
 
-  dd_js_util: ^0.2.1
+  dd_js_util: ^3.5.4
 
-  cupertino_icons: any
+  cupertino_icons: ^1.0.5
 
   # 开屏图片制作
-  flutter_native_splash: ^2.2.3
+  flutter_native_splash: ^2.2.19
 
   # 列表和网格动画
-  auto_animated: ^3.0.1
+  auto_animated: ^3.1.0
 
   # 模糊背景
   flutter_blurhash: ^0.7.0
 
   # icon图标扩展
-  font_awesome_flutter: ^10.1.0
+  font_awesome_flutter: ^10.4.0
   fsuper_nullsafety: ^3.0.3
 
-  dataoke_sdk:
-    path: ../plugins/dataoke_sdk
+  dataoke_sdk: ^2.3.2
+  dd_models: ^0.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
-  visibility_detector: ^0.3.3
 
 flutter:
   assets:
